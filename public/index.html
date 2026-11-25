@@ -30,7 +30,7 @@
 
     --ancho: 68rem;
     --margen: clamp(1.25rem, 5vw, 3rem);
-    --nav-alto: 5.5rem;
+    --nav-alto: 3.75rem;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -113,6 +113,54 @@
     border-radius: 999px;
   }
   .nav nav li a:hover { background: rgb(22 50 58 / 0.08); }
+
+  .menu { display: contents; }
+  .menu-boton, .idioma-titulo { display: none; }
+  .idioma { order: 2; }
+  .nav nav { order: 3; }
+  @media (min-width: 62rem) { :root { --nav-alto: 5.5rem; } }
+
+  /* Mobile: everything lives inside one hamburger panel */
+  @media (max-width: 61.99rem) {
+    .menu-boton {
+      display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 44px; height: 44px; margin-left: auto; margin-right: -0.6rem; padding: 0;
+      background: none; border: 0; border-radius: 50%; cursor: pointer; color: var(--cacao);
+    }
+    .menu-boton span { display: block; width: 22px; height: 2px; border-radius: 2px; background: currentColor; transition: transform 0.25s ease, opacity 0.2s ease; }
+    .nav[data-menu] .menu-boton span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav[data-menu] .menu-boton span:nth-child(2) { opacity: 0; }
+    .nav[data-menu] .menu-boton span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .menu {
+      display: block; position: absolute; left: 0; right: 0; top: 100%;
+      max-height: calc(100dvh - var(--nav-alto)); overflow-y: auto; overscroll-behavior: contain;
+      padding: 0.25rem var(--margen) 1.5rem;
+      background: var(--karite); border-bottom: 1px solid rgb(22 50 58 / 0.15);
+      box-shadow: 0 18px 30px rgb(22 50 58 / 0.14);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s 0.22s;
+    }
+    .nav[data-menu] .menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .nav nav { margin: 0; }
+    .nav nav ul { display: block; overflow: visible; }
+    .nav nav li a {
+      display: flex; min-height: 52px; padding: 0; border-radius: 0;
+      font: 400 1.6rem/1.1 var(--display); white-space: normal;
+      border-bottom: 1px dotted rgb(22 50 58 / 0.3);
+    }
+    .nav nav li a:hover { background: none; color: var(--bergamota); }
+
+    .idioma { margin: 1.25rem 0 0; }
+    .idioma-titulo { display: block; font-size: 0.875rem; font-weight: 600; color: var(--cacao-suave); margin-bottom: 0.5rem; }
+    .idioma-boton { display: none; }
+    .idioma-menu {
+      position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+      min-width: 0; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none;
+      opacity: 1; visibility: inherit; transform: none; transition: none;
+    }
+    .idioma-menu button { border: 1px solid rgb(22 50 58 / 0.25); border-radius: 999px; padding: 0 1rem; }
+  }
 
   /* ---------- Hero: the jar label is the ingredient list ---------- */
   .hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3.5rem, 9vw, 6rem); }
@@ -284,14 +332,10 @@
 <header class="nav">
   <div class="contenedor nav-fila">
     <a class="marca" href="#inicio" data-marca></a>
-    <div class="idioma" id="idioma">
-      <button class="idioma-boton" id="idioma-boton" type="button" aria-expanded="false" aria-controls="idioma-menu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.300 6.400-3.800 9c-2.500-2.600-3.800-5.600-3.800-9S9.500 5.600 12 3z"/></svg>
-        <span id="idioma-actual"></span>
-        <svg class="idioma-flecha" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1.500 3.500 5 7l3.500-3.500"/></svg>
-      </button>
-      <ul class="idioma-menu" id="idioma-menu"></ul>
-    </div>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu" id="menu">
     <nav id="nav-secciones">
       <ul>
         <li><a href="#como-funciona" data-t="navHow"></a></li>
@@ -303,6 +347,16 @@
         <li><a href="#faq" data-t="navFaq"></a></li>
       </ul>
     </nav>
+    <div class="idioma" id="idioma">
+      <p class="idioma-titulo" data-t="lang"></p>
+      <button class="idioma-boton" id="idioma-boton" type="button" aria-expanded="false" aria-controls="idioma-menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.300 6.400-3.800 9c-2.500-2.600-3.800-5.600-3.800-9S9.500 5.600 12 3z"/></svg>
+        <span id="idioma-actual"></span>
+        <svg class="idioma-flecha" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1.500 3.500 5 7l3.500-3.500"/></svg>
+      </button>
+      <ul class="idioma-menu" id="idioma-menu"></ul>
+    </div>
+    </div>
   </div>
 </header>
 
@@ -453,7 +507,7 @@ const IDIOMAS = { en: "English", de: "Deutsch", tr: "Türkçe", es: "Español" }
 const L = {
   en: {
     ui: {
-      skip: "Skip to content", lang: "Language",
+      skip: "Skip to content", lang: "Language", menu: "Menu",
       navHow: "How it works", navBase: "The base", navAromas: "The scents", navBlends: "The blends", navWithout: "What's left out", navProcess: "Made by hand", navFaq: "Questions", navContact: "Contact",
       heroSub: "Fifteen ingredients. You can read every one.",
       heroP: "In this workshop we make a natural deodorant by hand with three plant fats, three powders and nine essential oils. Here is what each one does and why it is in the formula.",
@@ -530,7 +584,7 @@ const L = {
 
   de: {
     ui: {
-      skip: "Zum Inhalt springen", lang: "Sprache",
+      skip: "Zum Inhalt springen", lang: "Sprache", menu: "Menü",
       navHow: "So wirkt es", navBase: "Die Basis", navAromas: "Die Düfte", navBlends: "Die Mischungen", navWithout: "Was nicht drin ist", navProcess: "Handgemacht", navFaq: "Fragen", navContact: "Kontakt",
       heroSub: "Fünfzehn Zutaten. Du kannst sie alle lesen.",
       heroP: "In diesem Workshop stellen wir von Hand ein natürliches Deo her – aus drei Pflanzenfetten, drei Pulvern und neun ätherischen Ölen. Hier erfährst du, was jede Zutat bewirkt und warum sie in der Rezeptur ist.",
@@ -607,7 +661,7 @@ const L = {
 
   tr: {
     ui: {
-      skip: "İçeriğe geç", lang: "Dil",
+      skip: "İçeriğe geç", lang: "Dil", menu: "Menü",
       navHow: "Nasıl çalışır", navBase: "Baz", navAromas: "Kokular", navBlends: "Karışımlar", navWithout: "İçinde olmayanlar", navProcess: "El yapımı", navFaq: "Sorular", navContact: "İletişim",
       heroSub: "On beş bileşen. Hepsini okuyabilirsin.",
       heroP: "Bu atölyede üç bitkisel yağ, üç toz ve dokuz uçucu yağ ile el yapımı doğal bir deodorant hazırlıyoruz. Her birinin ne işe yaradığını ve formülde neden bulunduğunu burada anlatıyoruz.",
@@ -684,7 +738,7 @@ const L = {
 
   es: {
     ui: {
-      skip: "Saltar al contenido", lang: "Idioma",
+      skip: "Saltar al contenido", lang: "Idioma", menu: "Menú",
       navHow: "Cómo funciona", navBase: "La base", navAromas: "Los aromas", navBlends: "Las mezclas", navWithout: "Lo que no lleva", navProcess: "Hecho a mano", navFaq: "Preguntas", navContact: "Contacto",
       heroSub: "Quince ingredientes. Puedes leerlos todos.",
       heroP: "En este taller hacemos a mano un desodorante natural con tres grasas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.",
@@ -783,7 +837,8 @@ function render(lang) {
   document.querySelector('meta[name="description"]').content = ui.desc;
   document.querySelectorAll("[data-t]").forEach((n) => (n.textContent = ui[n.dataset.t]));
   document.querySelectorAll("[data-marca]").forEach((n) => { n.classList.add("collab"); n.innerHTML = marca; });
-  el("nav-secciones").setAttribute("aria-label", ui.navHow);
+  el("nav-secciones").setAttribute("aria-label", ui.menu);
+  el("menu-boton").setAttribute("aria-label", ui.menu);
 
   const enlace = (i, n) => `<li><a href="#${i.id}" style="--i:${n}">${t.ing[i.id].n}</a></li>`;
   el("etiqueta-base").innerHTML = base.map(enlace).join("");
@@ -864,11 +919,18 @@ el("idioma-menu").addEventListener("click", (e) => {
   if (!b) return;
   idioma = b.dataset.lang;
   try { localStorage.setItem("lang", idioma); } catch {}
-  const u = new URL(location.href); u.searchParams.set("lang", idioma); history.replaceState(null, "", u);
   render(idioma);
   abrir(false);
-  boton.focus();
+  menu(false);
 });
+
+// Mobile menu
+const cabecera = document.querySelector(".nav"), menuBoton = el("menu-boton");
+function menu(si) { cabecera.toggleAttribute("data-menu", si); menuBoton.setAttribute("aria-expanded", si); }
+menuBoton.addEventListener("click", () => menu(!cabecera.hasAttribute("data-menu")));
+el("nav-secciones").addEventListener("click", (e) => { if (e.target.closest("a")) menu(false); });
+document.addEventListener("click", (e) => { if (!cabecera.contains(e.target)) menu(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && cabecera.hasAttribute("data-menu")) { menu(false); menuBoton.focus(); } });
 
 // Jar label links to an aroma: open its panel so the anchor lands on visible content.
 const abrirDesdeHash = () => {
