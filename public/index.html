@@ -30,7 +30,7 @@
 
     --ancho: 68rem;
     --margen: clamp(1.25rem, 5vw, 3rem);
-    --nav-alto: 3.5rem;
+    --nav-alto: 5.5rem;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -168,6 +168,21 @@
   .aroma-cuerpo p + p { margin-top: 0.6rem; }
   .aroma-cuerpo .chips { margin-top: 0.8rem; }
 
+  /* ---------- Blends: drops per 30 ml jar ---------- */
+  .mezclas { display: grid; gap: 1rem; margin-top: 2.5rem; }
+  .mezcla { background: var(--coco); border-radius: 1.25rem; padding: 1.5rem 1.25rem 1rem; }
+  .mezcla > p { font-size: 0.9375rem; color: var(--cacao-suave); margin-top: 0.35rem; }
+  .mezcla ul { list-style: none; margin: 1rem 0 0; padding: 0; }
+  .mezcla li a {
+    display: flex; align-items: center; gap: 0.6rem; min-height: 44px;
+    color: var(--cacao); text-decoration: none; border-top: 1px dotted rgb(22 50 58 / 0.35);
+  }
+  .mezcla li a:hover { color: var(--bergamota); }
+  .mezcla .punto { width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 1px solid rgb(22 50 58 / 0.3); flex: none; }
+  .mezcla .gotas { margin-left: auto; font-family: var(--display); font-size: 1.35rem; white-space: nowrap; }
+  .mezcla .total { font-size: 0.875rem; color: var(--cacao-suave); padding-top: 0.6rem; border-top: 1px solid var(--cacao); margin-top: 0; }
+  .nota-mezclas { margin-top: 1.5rem; font-size: 0.9375rem; color: var(--cacao-suave); }
+
   /* Smooth open/close for every <details>, CSS only.
      Browsers without interpolate-size / ::details-content just open instantly. */
   :root { interpolate-size: allow-keywords; }
@@ -215,8 +230,6 @@
   .legal { margin-top: 2.5rem; font-size: 0.875rem; color: var(--cacao-suave); }
 
   /* ---------- Wider screens ---------- */
-  @media (max-width: 61.99rem) { :root { --nav-alto: 5.5rem; } }
-  @media (min-width: 62rem) { .nav nav { flex: 0 1 auto; margin-left: auto; margin-right: 0; } }
   @media (min-width: 48rem) {
     .hero-rejilla { grid-template-columns: 1.15fr 0.85fr; }
     .como-rejilla { grid-template-columns: repeat(3, 1fr); }
@@ -224,6 +237,7 @@
     .muestra { width: 4.5rem; height: 4.5rem; }
     .base-detalle { grid-column: auto; }
     .familias { grid-template-columns: 1fr 1fr; align-items: start; }
+    .mezclas { grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); align-items: start; }
     .familia { padding: 1.75rem 1.75rem 1rem; }
     .pasos { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; }
     .pie-rejilla { grid-template-columns: 1.6fr 1fr; }
@@ -246,6 +260,7 @@
         <li><a href="#como-funciona">Cómo funciona</a></li>
         <li><a href="#base">La base</a></li>
         <li><a href="#aromas">Los aromas</a></li>
+        <li><a href="#mezclas">Las mezclas</a></li>
         <li><a href="#sin">Lo que no lleva</a></li>
         <li><a href="#proceso">Hecho a mano</a></li>
         <li><a href="#faq">Preguntas</a></li>
@@ -313,6 +328,15 @@
       <h2>Los aromas</h2>
       <p class="entrada">Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.</p>
       <div class="familias" id="lista-aromas"></div>
+    </div>
+  </section>
+
+  <section class="bloque" id="mezclas" style="padding-top:0">
+    <div class="contenedor">
+      <h2>Las mezclas</h2>
+      <p class="entrada">La base es la misma para todos. Lo que cambia es el aroma: elige una mezcla y cuenta las gotas para tu tarro de 30 ml.</p>
+      <div class="mezclas" id="lista-mezclas"></div>
+      <p class="nota-mezclas">Añade las gotas cuando la base esté tibia y remueve bien. Doce gotas en 30 ml equivalen más o menos a un 1,5 %, una dosis prudente para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.</p>
     </div>
   </section>
 
@@ -493,6 +517,17 @@ const FAMILIAS = [
   { id: "frescos", nombre: "Frescos y herbales", texto: "El toque de frescor." },
 ];
 
+// Drops per 30 ml jar. Keep each blend at 12 drops or fewer (about 1.5 %),
+// bergamot and ylang-ylang at 3 or fewer, peppermint at 3 or fewer.
+const MEZCLAS = [
+  { nombre: "Mañana cítrica", texto: "Luminosa y limpia, para empezar el día.", gotas: [["pomelo", 5], ["bergamota", 3], ["cedro", 2], ["menta", 2]] },
+  { nombre: "Jardín", texto: "Floral y suave. Lavanda y geranio son de los que más ayudan frente al olor.", gotas: [["lavanda", 5], ["geranio", 4], ["incienso", 2], ["ylang", 1]] },
+  { nombre: "Bosque", texto: "Amaderada y cálida, la que más dura en la piel.", gotas: [["cedro", 5], ["incienso", 3], ["romero", 2], ["bergamota", 2]] },
+  { nombre: "Monte fresco", texto: "Herbal y fresca, pensada para días de calor y deporte.", gotas: [["lavanda", 4], ["romero", 3], ["menta", 3], ["pomelo", 2]] },
+  { nombre: "Atlántico", texto: "Cítrico, flor y resina, con un punto de frescor.", gotas: [["pomelo", 4], ["geranio", 3], ["incienso", 3], ["menta", 2]] },
+  { nombre: "Piel sensible", texto: "Media dosis y solo dos aceites suaves.", gotas: [["lavanda", 4], ["incienso", 2]] },
+];
+
 const FAQ = [
   ["¿Voy a dejar de sudar?", "No. Es un desodorante, no un antitranspirante: no bloquea el sudor, ayuda a neutralizar el olor y absorbe parte de la humedad."],
   ["¿Hay un periodo de adaptación?", "Algunas personas cuentan que, al dejar el antitranspirante, las primeras semanas notan más sudor u olor. No le pasa a todo el mundo y suele estabilizarse con los días."],
@@ -552,6 +587,22 @@ el("lista-aromas").innerHTML = FAMILIAS.map((f) => `
         </div>
       </details>`).join("")}
   </div>`).join("");
+
+const porId = Object.fromEntries(INGREDIENTES.map((i) => [i.id, i]));
+el("lista-mezclas").innerHTML = MEZCLAS.map((m) => {
+  const total = m.gotas.reduce((n, [, g]) => n + g, 0);
+  // Self-check: unknown oil ids or an over-dosed blend show up in the console.
+  console.assert(total <= 12 && m.gotas.every(([id]) => porId[id]), "Revisar mezcla: " + m.nombre);
+  return `
+  <article class="mezcla">
+    <h3>${m.nombre}</h3>
+    <p>${m.texto}</p>
+    <ul>${m.gotas.map(([id, g]) => `
+      <li><a href="#${id}"><span class="punto" style="background:var(--${porId[id].familia})"></span>${porId[id].nombre}<span class="gotas">${g} ${g === 1 ? "gota" : "gotas"}</span></a></li>`).join("")}
+    </ul>
+    <p class="total">${total} gotas en total para 30 ml</p>
+  </article>`;
+}).join("");
 
 el("lista-faq").innerHTML = FAQ.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
 
