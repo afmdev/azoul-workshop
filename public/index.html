@@ -42,7 +42,7 @@
     font: 400 1.0625rem/1.6 var(--texto);
   }
   h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.1; margin: 0; text-wrap: balance; }
-  h1 { font-size: clamp(2.9rem, 9vw, 5.5rem); letter-spacing: -0.01em; line-height: 1; }
+  h1 { font-size: clamp(2.6rem, 7.5vw, 4.75rem); letter-spacing: -0.01em; line-height: 1; }
   h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
   h3 { font-size: 1.7rem; }
   p { margin: 0; max-width: 62ch; text-wrap: pretty; }
@@ -89,6 +89,7 @@
   .hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3.5rem, 9vw, 6rem); }
   .hero-rejilla { display: grid; gap: 3rem; align-items: center; }
   .hero p { font-size: 1.1875rem; margin-top: 1.5rem; color: var(--cacao-suave); max-width: 46ch; }
+  .hero p.subtitulo { font-family: var(--display); font-size: clamp(1.6rem, 4.5vw, 2.4rem); line-height: 1.15; color: var(--bergamota); margin-top: 0.9rem; max-width: none; }
   .boton {
     display: inline-flex; align-items: center; min-height: 48px; margin-top: 2rem; padding: 0 1.5rem;
     background: var(--cacao); color: var(--coco); border-radius: 999px;
@@ -274,7 +275,8 @@
   <section class="hero" id="inicio">
     <div class="contenedor hero-rejilla">
       <div>
-        <h1>Quince ingredientes. Puedes leerlos todos.</h1>
+        <h1>Workshop: Natural deodorant making</h1>
+        <p class="subtitulo">Quince ingredientes. Puedes leerlos todos.</p>
         <p>En este taller hacemos a mano un desodorante natural con tres mantecas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.</p>
         <a class="boton" href="#base">Ver los ingredientes</a>
       </div>
