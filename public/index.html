@@ -356,7 +356,10 @@
   .pie-autor { text-align: center; padding-top: 2.5rem; margin-top: 1rem; border-top: 1px dashed var(--linea); }
   .pie-autor p { max-width: none; margin-inline: auto; font-size: 0.9375rem; color: var(--cacao-suave); }
   .pie-autor .pie-marca { font-family: var(--display); font-size: clamp(1.5rem, 5.5vw, 2rem); line-height: 1.2; color: var(--cacao); margin-block: 0.25rem 0.3rem; }
-  .pie-autor .corazon { margin-top: 0.9rem; font-size: 1.4rem; line-height: 1; }
+  /* Footer lockup stacks: wordmark / × / name */
+  .pie-autor .pie-marca .x, .pie-autor .pie-marca em { display: block; }
+  .pie-autor .pie-marca .x { margin: 0.1em 0; }
+  .pie-autor .corazon { letter-spacing: 0.35em; margin-right: -0.35em; margin-top: 0.9rem; font-size: 1.4rem; line-height: 1; }
   footer li a { display: inline-flex; align-items: center; min-height: 44px; }
 
   /* ---------- Wider screens ---------- */
@@ -958,7 +961,7 @@ function render(lang) {
     <p>${ui.recipeNote}</p></div></details>`;
   el("lista-faq").innerHTML = receta + t.faq.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
   el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
-  el("pie-autor").innerHTML = `<p>${ui.byTop}</p><p class="pie-marca collab">${marca}</p><p>${ui.byPlace}</p><p class="corazon" aria-hidden="true">❤️</p>`;
+  el("pie-autor").innerHTML = `<p>${ui.byTop}</p><p class="pie-marca collab">${marca}</p><p>${ui.byPlace}</p><p class="corazon" aria-hidden="true">🌊❤️☀️</p>`;
 
   // Language switcher state
   el("idioma-actual").textContent = BANDERAS[lang];
