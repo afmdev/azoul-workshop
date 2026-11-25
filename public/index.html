@@ -537,6 +537,7 @@ const INGREDIENTES = [
   { id: "menta", tipo: "aroma", familia: "frescos", inci: "Mentha Piperita Oil", fn: ["aroma", "olor", "frescor"] },
   { id: "romero", tipo: "aroma", familia: "frescos", inci: "Rosmarinus Officinalis Leaf Oil", fn: ["aroma", "olor"] },
 ];
+const FOTOS = new Set(["karite", "coco", "cacao", "bicarbonato", "zinc"]); // base ingredients with a product photo in img/base-{id}.webp
 const LAMINAS = {"bergamota": [440, 581], "pomelo": [315, 560], "lavanda": [438, 597], "ylang": [408, 620], "geranio": [402, 620], "cedro": [440, 534], "incienso": [440, 563], "menta": [440, 577], "romero": [440, 573]}; // webp size per oil (public-domain plates, Wikimedia Commons)
 const FAMILIAS = ["citricos", "florales", "amaderados", "frescos"];
 
@@ -897,7 +898,7 @@ function render(lang) {
 
   el("lista-base").innerHTML = base.map((i) => { const x = t.ing[i.id]; return `
     <li class="base-item" id="${i.id}">
-      <div class="muestra" style="background:${i.color}" aria-hidden="true"></div>
+      <div class="muestra" style="background:${i.color}${FOTOS.has(i.id) ? ` url(img/base-${i.id}.webp) center/cover` : ""}" aria-hidden="true"></div>
       <div>
         <h3>${x.n}</h3>
         <p class="inci" lang="la">${i.inci}</p>
