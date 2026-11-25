@@ -309,10 +309,12 @@
      Browsers without interpolate-size / ::details-content just open instantly. */
   :root { interpolate-size: allow-keywords; }
   details::details-content {
-    block-size: 0; overflow: clip; opacity: 0;
-    transition: block-size 0.35s ease, opacity 0.35s ease, content-visibility 0.35s allow-discrete;
+    /* No opacity fade here: opacity < 1 isolates the group, so the multiply-blended
+       plates would show their white paper until the transition ends. */
+    block-size: 0; overflow: clip;
+    transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
   }
-  details[open]::details-content { block-size: auto; opacity: 1; }
+  details[open]::details-content { block-size: auto; }
 
   /* ---------- What it leaves out ---------- */
   .sin { background: var(--oceano); color: var(--coco); position: relative; }
