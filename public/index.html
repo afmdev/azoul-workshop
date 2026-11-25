@@ -7,26 +7,28 @@
 <meta name="description" content="The fifteen ingredients of the natural deodorant we make in the Azoul Gathering × Alejandro workshop: what each one does and why it is in the formula.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;1,400&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  /* Palette follows Azoul Gathering: Atlantic teal, sand and clay. */
+  /* Palette follows the Azoul Gathering programme sheets: off-white, indigo, dashed orange rules. */
   :root {
-    --karite: #ead9bd;      /* page background: Imsouane sand */
-    --coco: #f7efe0;        /* lighter surface */
-    --cacao: #16323a;       /* ink: deep Atlantic */
-    --cacao-suave: #47595d; /* secondary text */
-    --bergamota: #8a4f2d;   /* links and accents: clay */
+    --karite: #f5f3ea;      /* page background: off-white paper */
+    --coco: #ffffff;        /* lighter surface */
+    --cacao: #2e2a6b;       /* indigo: headings, links, buttons */
+    --tinta: #1d1c2b;       /* body text */
+    --cacao-suave: #4a4870; /* secondary text */
+    --bergamota: #a2540f;   /* accent text */
+    --linea: #eeae6b;       /* dashed orange rules */
     --pomelo: #d9584f;      /* warnings */
-    --vidrio: #7a5540;      /* jar: earth brown from the Azoul logo */
-    --oceano: #1f4a52;
+    --vidrio: #2e2a6b;      /* jar */
+    --oceano: #2e2a6b;
 
     --citricos: #f6c9a8;
     --florales: #d9d0ee;
     --amaderados: #dfc195;
     --frescos: #bfe3d6;
 
-    --display: "Instrument Serif", Georgia, "Times New Roman", serif;
-    --texto: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --display: "Gelasio", Georgia, "Times New Roman", serif;
+    --texto: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
     --ancho: 68rem;
     --margen: clamp(1.25rem, 5vw, 3rem);
@@ -38,13 +40,13 @@
   body {
     margin: 0;
     background: var(--karite);
-    color: var(--cacao);
+    color: var(--tinta);
     font: 400 1.0625rem/1.6 var(--texto);
   }
-  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.1; margin: 0; text-wrap: balance; }
-  h1 { font-size: clamp(2.6rem, 7.5vw, 4.75rem); letter-spacing: -0.01em; line-height: 1; }
-  h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
-  h3 { font-size: 1.7rem; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.1; margin: 0; text-wrap: balance; color: var(--cacao); }
+  h1 { font-size: clamp(2.3rem, 6.8vw, 4.25rem); letter-spacing: -0.01em; line-height: 1.05; }
+  h2 { font-size: clamp(2rem, 5.5vw, 3.1rem); }
+  h3 { font-size: 1.5rem; }
   p { margin: 0; max-width: 62ch; text-wrap: pretty; }
   h1, h2, h3, p, li { overflow-wrap: break-word; }
   a { color: var(--bergamota); text-underline-offset: 0.2em; }
@@ -62,13 +64,13 @@
   .nav {
     position: sticky; top: 0; z-index: 10;
     background: var(--karite);
-    border-bottom: 1px solid rgb(22 50 58 / 0.15);
+    border-bottom: 1px solid rgb(46 42 107 / 0.15);
   }
   .nav-fila {
     display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem;
     min-height: var(--nav-alto);
   }
-  .marca { font-family: var(--display); font-size: clamp(1.1rem, 4.6vw, 1.3rem); color: var(--cacao); text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+  .marca { font-family: var(--display); font-size: clamp(1rem, 4.2vw, 1.2rem); color: var(--cacao); text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
   .nav nav { min-width: 0; flex: 1 0 100%; margin-inline: -0.75rem; }
   /* Collab lockup: wordmark × name */
   .collab { white-space: nowrap; }
@@ -78,17 +80,17 @@
   .idioma { position: relative; margin-left: auto; }
   .idioma-boton {
     display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0 0.8rem;
-    background: transparent; color: var(--cacao); border: 1px solid rgb(22 50 58 / 0.3); border-radius: 999px;
+    background: transparent; color: var(--cacao); border: 1px solid rgb(46 42 107 / 0.3); border-radius: 999px;
     font: 600 0.9375rem var(--texto); cursor: pointer;
   }
-  .idioma-boton:hover { background: rgb(22 50 58 / 0.08); }
+  .idioma-boton:hover { background: rgb(46 42 107 / 0.08); }
   .idioma-flecha { transition: transform 0.2s ease; }
   .idioma[data-abierto] .idioma-flecha { transform: rotate(180deg); }
   .idioma-menu {
     position: absolute; right: 0; top: calc(100% + 0.4rem); z-index: 20;
     min-width: 12rem; margin: 0; padding: 0.4rem; list-style: none;
-    background: var(--coco); border: 1px solid rgb(22 50 58 / 0.12); border-radius: 1rem;
-    box-shadow: 0 14px 34px rgb(22 50 58 / 0.18);
+    background: var(--coco); border: 1px solid rgb(46 42 107 / 0.12); border-radius: 1rem;
+    box-shadow: 0 14px 34px rgb(46 42 107 / 0.18);
     opacity: 0; visibility: hidden; transform: translateY(-6px) scale(0.98); transform-origin: top right;
     transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s 0.18s;
   }
@@ -99,7 +101,7 @@
     font: 500 1rem var(--texto); color: var(--cacao); text-align: left;
   }
   .idioma-menu button span { margin-left: auto; font-size: 0.8125rem; color: var(--cacao-suave); }
-  .idioma-menu button:hover { background: rgb(22 50 58 / 0.07); }
+  .idioma-menu button:hover { background: rgb(46 42 107 / 0.07); }
   .idioma-menu button[aria-current] { background: var(--cacao); color: var(--coco); }
   .idioma-menu button[aria-current] span { color: var(--coco); }
   .nav nav ul {
@@ -112,7 +114,7 @@
     color: var(--cacao); text-decoration: none; white-space: nowrap; font-size: 0.9375rem; font-weight: 500;
     border-radius: 999px;
   }
-  .nav nav li a:hover { background: rgb(22 50 58 / 0.08); }
+  .nav nav li a:hover { background: rgb(46 42 107 / 0.08); }
 
   .menu { display: contents; }
   .menu-boton, .idioma-titulo { display: none; }
@@ -136,8 +138,8 @@
       display: block; position: absolute; left: 0; right: 0; top: 100%;
       max-height: calc(100dvh - var(--nav-alto)); overflow-y: auto; overscroll-behavior: contain;
       padding: 0.25rem var(--margen) 1.5rem;
-      background: var(--karite); border-bottom: 1px solid rgb(22 50 58 / 0.15);
-      box-shadow: 0 18px 30px rgb(22 50 58 / 0.14);
+      background: var(--karite); border-bottom: 1px solid rgb(46 42 107 / 0.15);
+      box-shadow: 0 18px 30px rgb(46 42 107 / 0.14);
       opacity: 0; visibility: hidden; transform: translateY(-8px);
       transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s 0.22s;
     }
@@ -146,8 +148,8 @@
     .nav nav ul { display: block; overflow: visible; }
     .nav nav li a {
       display: flex; min-height: 52px; padding: 0; border-radius: 0;
-      font: 400 1.6rem/1.1 var(--display); white-space: normal;
-      border-bottom: 1px dotted rgb(22 50 58 / 0.3);
+      font: 400 1.45rem/1.1 var(--display); white-space: normal;
+      border-bottom: 1px dashed var(--linea);
     }
     .nav nav li a:hover { background: none; color: var(--bergamota); }
 
@@ -159,10 +161,13 @@
       min-width: 0; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none;
       opacity: 1; visibility: inherit; transform: none; transition: none;
     }
-    .idioma-menu button { border: 1px solid rgb(22 50 58 / 0.25); border-radius: 999px; padding: 0 1rem; }
+    .idioma-menu button { border: 1px solid rgb(46 42 107 / 0.25); border-radius: 999px; padding: 0 1rem; }
   }
 
   /* ---------- Hero: the jar label is the ingredient list ---------- */
+  .hero { position: relative; overflow: hidden; }
+  .trazo { position: absolute; top: 0.2rem; right: -1rem; width: clamp(5.5rem, 20vw, 13rem); color: var(--cacao); pointer-events: none; }
+  .hero .contenedor { position: relative; }
   .hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3.5rem, 9vw, 6rem); }
   .hero-rejilla { display: grid; gap: 3rem; align-items: center; }
   .hero p { font-size: 1.1875rem; margin-top: 1.5rem; color: var(--cacao-suave); max-width: 46ch; }
@@ -178,7 +183,7 @@
   .tapa {
     width: 88%; height: 3rem; margin-inline: auto;
     border-radius: 0.6rem 0.6rem 0.2rem 0.2rem;
-    background: repeating-linear-gradient(90deg, var(--cacao) 0 7px, #2a4a52 7px 9px);
+    background: repeating-linear-gradient(90deg, var(--cacao) 0 7px, #45418a 7px 9px);
   }
   .cuerpo {
     background: var(--vidrio);
@@ -186,7 +191,7 @@
     padding: 1.5rem 0.9rem 2rem;
   }
   .etiqueta { background: var(--coco); border-radius: 0.3rem; padding: 1.25rem 1.1rem 1rem; }
-  .etiqueta-marca { font-family: var(--display); font-size: 1.45rem; line-height: 1.1; }
+  .etiqueta-marca { font-family: var(--display); font-size: 1.3rem; line-height: 1.1; color: var(--cacao); }
   .etiqueta-tipo { font-size: 0.875rem; color: var(--cacao-suave); margin-top: 0.15rem; }
   .etiqueta-listas { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.75rem; margin-top: 0.9rem; border-top: 1px solid var(--cacao); padding-top: 0.6rem; }
   .etiqueta h2 { font-family: var(--texto); font-size: 0.8125rem; font-weight: 600; color: var(--cacao-suave); line-height: 1.6; }
@@ -194,7 +199,7 @@
   .etiqueta li a {
     display: flex; align-items: center; min-height: 44px;
     color: var(--cacao); text-decoration: none; font-size: 0.9375rem; line-height: 1.2;
-    border-bottom: 1px dotted rgb(22 50 58 / 0.35);
+    border-bottom: 1px dashed var(--linea);
     animation: aparecer 0.5s both; animation-delay: calc(var(--i) * 60ms + 200ms);
   }
   .etiqueta li a:hover { color: var(--bergamota); }
@@ -203,7 +208,7 @@
   /* ---------- How it works ---------- */
   .como { background: var(--coco); }
   .como-rejilla { display: grid; gap: 2rem; margin-top: 2.5rem; }
-  .como-rejilla h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .como-rejilla h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
   .como-rejilla p { color: var(--cacao-suave); }
 
   /* ---------- Function chips ---------- */
@@ -219,8 +224,8 @@
 
   /* ---------- Base: five ingredients as material samples ---------- */
   .base-lista { list-style: none; margin: 2.5rem 0 0; padding: 0; }
-  .base-item { display: grid; gap: 1rem 1.5rem; grid-template-columns: 3.5rem 1fr; padding-block: 2rem; border-top: 1px solid rgb(22 50 58 / 0.2); }
-  .muestra { width: 3.5rem; height: 3.5rem; border-radius: 50%; border: 1px solid rgb(22 50 58 / 0.25); }
+  .base-item { display: grid; gap: 1rem 1.5rem; grid-template-columns: 3.5rem 1fr; padding-block: 2rem; border-top: 1px dashed var(--linea); }
+  .muestra { width: 3.5rem; height: 3.5rem; border-radius: 50%; border: 1px solid rgb(46 42 107 / 0.25); }
   .base-item h3 { font-size: clamp(1.6rem, 4vw, 2.1rem); }
   .base-detalle { grid-column: 1 / -1; }
 
@@ -228,13 +233,13 @@
   .familias { display: grid; gap: 1rem; margin-top: 2.5rem; }
   .familia { border-radius: 1.25rem; padding: 1.5rem 1.25rem 0.75rem; }
   .familia > p { font-size: 0.9375rem; margin: 0.35rem 0 0.75rem; }
-  .familia details { border-top: 1px solid rgb(22 50 58 / 0.3); }
+  .familia details { border-top: 1px solid rgb(46 42 107 / 0.3); }
   .familia summary {
     display: flex; align-items: center; gap: 0.75rem; min-height: 56px; padding-block: 0.5rem;
     cursor: pointer; list-style: none;
   }
   .familia summary::-webkit-details-marker { display: none; }
-  .familia summary .nombre { font-family: var(--display); font-size: 1.6rem; line-height: 1.15; }
+  .familia summary .nombre { font-family: var(--display); color: var(--cacao); font-size: 1.4rem; line-height: 1.15; }
   .familia summary .notas { display: block; font-size: 0.875rem; }
   .familia summary::after {
     content: "+"; margin-left: auto; font-size: 1.6rem; line-height: 1; width: 1.5rem; text-align: center;
@@ -253,11 +258,11 @@
   .mezcla ul { list-style: none; margin: 1rem 0 0; padding: 0; }
   .mezcla li a {
     display: flex; align-items: center; gap: 0.6rem; min-height: 44px;
-    color: var(--cacao); text-decoration: none; border-top: 1px dotted rgb(22 50 58 / 0.35);
+    color: var(--cacao); text-decoration: none; border-top: 1px dashed var(--linea);
   }
   .mezcla li a:hover { color: var(--bergamota); }
-  .mezcla .punto { width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 1px solid rgb(22 50 58 / 0.3); flex: none; }
-  .mezcla .gotas { margin-left: auto; font-family: var(--display); font-size: 1.35rem; white-space: nowrap; }
+  .mezcla .punto { width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 1px solid rgb(46 42 107 / 0.3); flex: none; }
+  .mezcla .gotas { margin-left: auto; font-family: var(--display); font-size: 1.2rem; white-space: nowrap; }
   .mezcla .total { font-size: 0.875rem; color: var(--cacao-suave); padding-top: 0.6rem; border-top: 1px solid var(--cacao); margin-top: 0; }
   .nota-mezclas { margin-top: 1.5rem; font-size: 0.9375rem; color: var(--cacao-suave); }
 
@@ -272,23 +277,24 @@
 
   /* ---------- What it leaves out ---------- */
   .sin { background: var(--oceano); color: var(--coco); position: relative; }
+  .sin h2 { color: var(--coco); }
   .ola { display: block; width: 100%; height: 2rem; color: var(--oceano); margin-bottom: -1px; }
   .sin ul { list-style: none; margin: 2rem 0 0; padding: 0; }
   .sin li { font-family: var(--display); font-size: clamp(2rem, 8vw, 4.5rem); line-height: 1.15; }
-  .sin s { text-decoration-color: #e39a6f; text-decoration-thickness: 0.09em; }
-  .sin p { margin-top: 2rem; color: #e6dcc6; }
+  .sin s { text-decoration-color: var(--linea); text-decoration-thickness: 0.09em; }
+  .sin p { margin-top: 2rem; color: #e4e2f3; }
 
   /* ---------- Process (a real sequence, so it is numbered) ---------- */
   .pasos { margin: 2.5rem 0 0; padding: 0; list-style: none; counter-reset: paso; display: grid; gap: 1.75rem; }
   .pasos li { counter-increment: paso; display: grid; grid-template-columns: 2.75rem 1fr; gap: 0 0.75rem; }
-  .pasos li::before { content: counter(paso); font-family: var(--display); font-size: 2.75rem; line-height: 1; color: var(--vidrio); }
-  .pasos h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .pasos li::before { content: counter(paso); font-family: var(--display); font-size: 2.5rem; line-height: 1; color: var(--bergamota); }
+  .pasos h3 { font-size: 1.35rem; margin-bottom: 0.3rem; }
   .pasos p { color: var(--cacao-suave); }
 
   /* ---------- FAQ ---------- */
   .faq { background: var(--coco); }
   .faq-lista { margin-top: 2rem; max-width: 46rem; }
-  .faq details { border-bottom: 1px solid rgb(22 50 58 / 0.2); }
+  .faq details { border-bottom: 1px dashed var(--linea); }
   .faq summary {
     display: flex; align-items: center; gap: 1rem; min-height: 56px; padding-block: 0.75rem;
     cursor: pointer; font-weight: 600; list-style: none;
@@ -362,6 +368,7 @@
 
 <main id="contenido">
   <section class="hero" id="inicio">
+    <svg class="trazo" viewBox="0 0 200 70" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><path d="M2 62C42 62 72 42 82 22 90 4 72-2 64 14 54 36 82 60 112 46 132 36 142 16 134 8 126 0 114 12 116 28c2 20 36 24 82 4"/></svg>
     <div class="contenedor hero-rejilla">
       <div>
         <h1>Workshop: Natural deodorant making</h1>
