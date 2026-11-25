@@ -1,0 +1,457 @@
+- generic [active] [ref=f4e1]:
+  - link "Saltar al contenido" [ref=f4e2] [cursor=pointer]:
+    - /url: "#contenido"
+  - banner [ref=f4e3]:
+    - generic [ref=f4e4]:
+      - link "Azoul Gathering × Alejandro" [ref=f4e5] [cursor=pointer]:
+        - /url: "#inicio"
+        - text: Azoul Gathering
+        - generic [ref=f4e6]: ×
+        - emphasis [ref=f4e7]: Alejandro
+      - generic [ref=f4e8]:
+        - navigation "Menú" [ref=f4e9]:
+          - list [ref=f4e10]:
+            - listitem [ref=f4e11]:
+              - link "Cómo funciona" [ref=f4e12] [cursor=pointer]:
+                - /url: "#como-funciona"
+            - listitem [ref=f4e13]:
+              - link "La base" [ref=f4e14] [cursor=pointer]:
+                - /url: "#base"
+            - listitem [ref=f4e15]:
+              - link "Los aromas" [ref=f4e16] [cursor=pointer]:
+                - /url: "#aromas"
+            - listitem [ref=f4e17]:
+              - link "Las mezclas" [ref=f4e18] [cursor=pointer]:
+                - /url: "#mezclas"
+            - listitem [ref=f4e19]:
+              - link "Lo que no lleva" [ref=f4e20] [cursor=pointer]:
+                - /url: "#sin"
+            - listitem [ref=f4e21]:
+              - link "Hecho a mano" [ref=f4e22] [cursor=pointer]:
+                - /url: "#proceso"
+            - listitem [ref=f4e23]:
+              - link "Preguntas" [ref=f4e24] [cursor=pointer]:
+                - /url: "#faq"
+        - 'button "Idioma: Español" [ref=f4e26] [cursor=pointer]':
+          - generic [ref=f4e27]: 🇪🇸
+  - main [ref=f4e30]:
+    - generic [ref=f4e32]:
+      - generic [ref=f4e33]:
+        - 'heading "Workshop: Natural deodorant making" [level=1] [ref=f4e34]'
+        - paragraph [ref=f4e35]: Quince ingredientes. Puedes leerlos todos.
+        - paragraph [ref=f4e36]: En este taller hacemos a mano un desodorante natural con tres grasas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.
+        - link "Ver los ingredientes" [ref=f4e37] [cursor=pointer]:
+          - /url: "#base"
+      - generic [ref=f4e41]:
+        - generic [ref=f4e42]:
+          - text: Azoul Gathering×
+          - emphasis [ref=f4e43]: Alejandro
+        - generic [ref=f4e44]: "Workshop: Natural deodorant making"
+        - generic [ref=f4e45]:
+          - generic [ref=f4e46]:
+            - heading "La base" [level=2] [ref=f4e47]
+            - list [ref=f4e48]:
+              - listitem [ref=f4e49]:
+                - link "Manteca de karité" [ref=f4e50] [cursor=pointer]:
+                  - /url: "#karite"
+              - listitem [ref=f4e51]:
+                - link "Aceite de coco" [ref=f4e52] [cursor=pointer]:
+                  - /url: "#coco"
+              - listitem [ref=f4e53]:
+                - link "Manteca de cacao" [ref=f4e54] [cursor=pointer]:
+                  - /url: "#cacao"
+              - listitem [ref=f4e55]:
+                - link "Almidón de maíz" [ref=f4e56] [cursor=pointer]:
+                  - /url: "#almidon"
+              - listitem [ref=f4e57]:
+                - link "Bicarbonato de sodio" [ref=f4e58] [cursor=pointer]:
+                  - /url: "#bicarbonato"
+              - listitem [ref=f4e59]:
+                - link "Óxido de zinc" [ref=f4e60] [cursor=pointer]:
+                  - /url: "#zinc"
+          - generic [ref=f4e61]:
+            - heading "Los aromas" [level=2] [ref=f4e62]
+            - list [ref=f4e63]:
+              - listitem [ref=f4e64]:
+                - link "Bergamota" [ref=f4e65] [cursor=pointer]:
+                  - /url: "#bergamota"
+              - listitem [ref=f4e66]:
+                - link "Pomelo" [ref=f4e67] [cursor=pointer]:
+                  - /url: "#pomelo"
+              - listitem [ref=f4e68]:
+                - link "Lavanda" [ref=f4e69] [cursor=pointer]:
+                  - /url: "#lavanda"
+              - listitem [ref=f4e70]:
+                - link "Ylang-ylang" [ref=f4e71] [cursor=pointer]:
+                  - /url: "#ylang"
+              - listitem [ref=f4e72]:
+                - link "Geranio rosa" [ref=f4e73] [cursor=pointer]:
+                  - /url: "#geranio"
+              - listitem [ref=f4e74]:
+                - link "Cedro" [ref=f4e75] [cursor=pointer]:
+                  - /url: "#cedro"
+              - listitem [ref=f4e76]:
+                - link "Incienso" [ref=f4e77] [cursor=pointer]:
+                  - /url: "#incienso"
+              - listitem [ref=f4e78]:
+                - link "Menta piperita" [ref=f4e79] [cursor=pointer]:
+                  - /url: "#menta"
+              - listitem [ref=f4e80]:
+                - link "Romero" [ref=f4e81] [cursor=pointer]:
+                  - /url: "#romero"
+    - generic [ref=f4e83]:
+      - heading "Desodorante, no antitranspirante" [level=2] [ref=f4e84]
+      - paragraph [ref=f4e85]: Un antitranspirante tapona el poro para que no sudes. Este desodorante te deja sudar, que es lo que el cuerpo necesita, y se ocupa de lo que viene después.
+      - generic [ref=f4e86]:
+        - generic [ref=f4e87]:
+          - heading "El sudor no huele" [level=3] [ref=f4e88]
+          - paragraph [ref=f4e89]: El olor aparece cuando las bacterias de la piel descomponen el sudor. El bicarbonato ayuda a neutralizar esos compuestos.
+        - generic [ref=f4e90]:
+          - heading "Absorber en vez de bloquear" [level=3] [ref=f4e91]
+          - paragraph [ref=f4e92]: El almidón de maíz recoge parte de la humedad y deja la axila con un tacto seco, sin cerrar el poro.
+        - generic [ref=f4e93]:
+          - heading "Cuidar la piel" [level=3] [ref=f4e94]
+          - paragraph [ref=f4e95]: Las mantecas de karité y cacao y el aceite de coco hacen que la crema se deslice y dejan la piel suave.
+    - generic [ref=f4e97]:
+      - heading "La base" [level=2] [ref=f4e98]
+      - paragraph [ref=f4e99]: "Seis ingredientes hacen el trabajo: tres grasas vegetales que dan cuerpo y cuidan la piel, y tres polvos que se ocupan de la humedad y del olor."
+      - list [ref=f4e100]:
+        - listitem [ref=f4e101]:
+          - generic [ref=f4e103]:
+            - heading "Manteca de karité" [level=3] [ref=f4e104]
+            - paragraph [ref=f4e105]: Butyrospermum Parkii Butter
+            - paragraph [ref=f4e106]: Nuez del árbol de karité, de África occidental.
+          - generic [ref=f4e107]:
+            - list [ref=f4e108]:
+              - listitem [ref=f4e109]: Suaviza la piel
+              - listitem [ref=f4e110]: Da textura
+            - paragraph [ref=f4e111]: Es la manteca que hace que la crema se deslice sin tirar de la piel. Rica en ácidos grasos, ayuda a mantener la axila hidratada, algo que se agradece sobre todo después del afeitado.
+        - listitem [ref=f4e112]:
+          - generic [ref=f4e114]:
+            - heading "Aceite de coco" [level=3] [ref=f4e115]
+            - paragraph [ref=f4e116]: Cocos Nucifera Oil
+            - paragraph [ref=f4e117]: Pulpa del coco.
+          - generic [ref=f4e118]:
+            - list [ref=f4e119]:
+              - listitem [ref=f4e120]: Da textura
+              - listitem [ref=f4e121]: Suaviza la piel
+              - listitem [ref=f4e122]: Ayuda frente al olor
+            - paragraph [ref=f4e123]: Es sólido en frío y se vuelve líquido con el calor del cuerpo, por eso la crema se funde al aplicarla. Contiene ácido láurico, estudiado por su actividad frente a las bacterias que causan el mal olor.
+        - listitem [ref=f4e124]:
+          - generic [ref=f4e126]:
+            - heading "Manteca de cacao" [level=3] [ref=f4e127]
+            - paragraph [ref=f4e128]: Theobroma Cacao Seed Butter
+            - paragraph [ref=f4e129]: Habas del árbol del cacao.
+          - generic [ref=f4e130]:
+            - list [ref=f4e131]:
+              - listitem [ref=f4e132]: Da firmeza
+              - listitem [ref=f4e133]: Suaviza la piel
+            - paragraph [ref=f4e134]: Es la más dura de las tres grasas y da cuerpo a la fórmula para que aguante mejor el calor. Deja una capa fina que protege la piel y un fondo muy suave de olor a chocolate.
+        - listitem [ref=f4e135]:
+          - generic [ref=f4e137]:
+            - heading "Almidón de maíz" [level=3] [ref=f4e138]
+            - paragraph [ref=f4e139]: Zea Mays Starch
+            - paragraph [ref=f4e140]: Grano de maíz molido.
+          - generic [ref=f4e141]:
+            - list [ref=f4e142]:
+              - listitem [ref=f4e143]: Absorbe la humedad
+            - paragraph [ref=f4e144]: "No frena el sudor: lo absorbe. Hace el papel que antes hacía el talco, deja un tacto seco y sedoso y quita la sensación grasa de las mantecas."
+        - listitem [ref=f4e145]:
+          - generic [ref=f4e147]:
+            - heading "Bicarbonato de sodio" [level=3] [ref=f4e148]
+            - paragraph [ref=f4e149]: Sodium Bicarbonate
+            - paragraph [ref=f4e150]: Sal mineral.
+          - generic [ref=f4e151]:
+            - list [ref=f4e152]:
+              - listitem [ref=f4e153]: Neutraliza el olor
+            - paragraph [ref=f4e154]: Es el ingrediente que se ocupa del olor. Es alcalino y neutraliza los compuestos ácidos que producen las bacterias al descomponer el sudor.
+            - paragraph [ref=f4e155]:
+              - strong [ref=f4e156]: "A tener en cuenta:"
+              - text: Puede irritar las pieles sensibles. Si notas rojez o picor, deja de usarlo.
+        - listitem [ref=f4e157]:
+          - generic [ref=f4e159]:
+            - heading "Óxido de zinc" [level=3] [ref=f4e160]
+            - paragraph [ref=f4e161]: Zinc Oxide
+            - paragraph [ref=f4e162]: Polvo mineral blanco.
+          - generic [ref=f4e163]:
+            - list [ref=f4e164]:
+              - listitem [ref=f4e165]: Ayuda frente al olor
+              - listitem [ref=f4e166]: Protege la piel
+            - paragraph [ref=f4e167]: Es el mismo mineral de las cremas para la zona del pañal. Ayuda a reducir el olor y se usa desde hace mucho para proteger la piel y calmarla cuando está irritada.
+            - paragraph [ref=f4e168]:
+              - strong [ref=f4e169]: "A tener en cuenta:"
+              - text: Si te pones demasiada cantidad puede dejar un rastro blanco.
+    - generic [ref=f4e171]:
+      - heading "Los aromas" [level=2] [ref=f4e172]
+      - paragraph [ref=f4e173]: Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.
+      - generic [ref=f4e174]:
+        - generic [ref=f4e175]:
+          - heading "Cítricos" [level=3] [ref=f4e176]
+          - paragraph [ref=f4e177]: "Lo primero que hueles: ligeros y luminosos."
+          - group [ref=f4e178]:
+            - generic "Bergamota Cítrica, con un fondo floral +" [ref=f4e179] [cursor=pointer]:
+              - generic [ref=f4e180]:
+                - text: Bergamota
+                - generic [ref=f4e181]: Cítrica, con un fondo floral
+              - text: +
+          - group [ref=f4e182]:
+            - generic "Pomelo Cítrica, chispeante y algo amarga +" [ref=f4e183] [cursor=pointer]:
+              - generic [ref=f4e184]:
+                - text: Pomelo
+                - generic [ref=f4e185]: Cítrica, chispeante y algo amarga
+              - text: +
+        - generic [ref=f4e186]:
+          - heading "Florales" [level=3] [ref=f4e187]
+          - paragraph [ref=f4e188]: El corazón de la mezcla.
+          - group [ref=f4e189]:
+            - generic "Lavanda Floral y herbal +" [ref=f4e190] [cursor=pointer]:
+              - generic [ref=f4e191]:
+                - text: Lavanda
+                - generic [ref=f4e192]: Floral y herbal
+              - text: +
+          - group [ref=f4e193]:
+            - generic "Ylang-ylang Floral, dulce e intensa +" [ref=f4e194] [cursor=pointer]:
+              - generic [ref=f4e195]:
+                - text: Ylang-ylang
+                - generic [ref=f4e196]: Floral, dulce e intensa
+              - text: +
+          - group [ref=f4e197]:
+            - generic "Geranio rosa Floral, rosada y verde +" [ref=f4e198] [cursor=pointer]:
+              - generic [ref=f4e199]:
+                - text: Geranio rosa
+                - generic [ref=f4e200]: Floral, rosada y verde
+              - text: +
+        - generic [ref=f4e201]:
+          - heading "Amaderados y resinosos" [level=3] [ref=f4e202]
+          - paragraph [ref=f4e203]: El fondo que hace durar el aroma.
+          - group [ref=f4e204]:
+            - generic "Cedro Amaderada, seca y cálida +" [ref=f4e205] [cursor=pointer]:
+              - generic [ref=f4e206]:
+                - text: Cedro
+                - generic [ref=f4e207]: Amaderada, seca y cálida
+              - text: +
+          - group [ref=f4e208]:
+            - generic "Incienso Resinosa y balsámica +" [ref=f4e209] [cursor=pointer]:
+              - generic [ref=f4e210]:
+                - text: Incienso
+                - generic [ref=f4e211]: Resinosa y balsámica
+              - text: +
+        - generic [ref=f4e212]:
+          - heading "Frescos y herbales" [level=3] [ref=f4e213]
+          - paragraph [ref=f4e214]: El toque de frescor.
+          - group [ref=f4e215]:
+            - generic "Menta piperita Fresca y mentolada +" [ref=f4e216] [cursor=pointer]:
+              - generic [ref=f4e217]:
+                - text: Menta piperita
+                - generic [ref=f4e218]: Fresca y mentolada
+              - text: +
+          - group [ref=f4e219]:
+            - generic "Romero Herbal, fresca y alcanforada +" [ref=f4e220] [cursor=pointer]:
+              - generic [ref=f4e221]:
+                - text: Romero
+                - generic [ref=f4e222]: Herbal, fresca y alcanforada
+              - text: +
+    - generic [ref=f4e224]:
+      - heading "Las mezclas" [level=2] [ref=f4e225]
+      - paragraph [ref=f4e226]: "La base es la misma para todos. Lo que cambia es el aroma: elige una mezcla y cuenta las gotas para tu tarro de 30 ml."
+      - generic [ref=f4e227]:
+        - article [ref=f4e228]:
+          - heading "Mañana cítrica" [level=3] [ref=f4e229]
+          - paragraph [ref=f4e230]: Luminosa y limpia, para empezar el día.
+          - list [ref=f4e231]:
+            - listitem [ref=f4e232]:
+              - link "Pomelo 5 gotas" [ref=f4e233] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Pomelo
+                - generic [ref=f4e235]: 5 gotas
+            - listitem [ref=f4e236]:
+              - link "Cedro 3 gotas" [ref=f4e237] [cursor=pointer]:
+                - /url: "#cedro"
+                - text: Cedro
+                - generic [ref=f4e239]: 3 gotas
+            - listitem [ref=f4e240]:
+              - link "Bergamota 2 gotas" [ref=f4e241] [cursor=pointer]:
+                - /url: "#bergamota"
+                - text: Bergamota
+                - generic [ref=f4e243]: 2 gotas
+            - listitem [ref=f4e244]:
+              - link "Menta piperita 2 gotas" [ref=f4e245] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Menta piperita
+                - generic [ref=f4e247]: 2 gotas
+          - paragraph [ref=f4e248]: 12 gotas en total para 30 ml
+        - article [ref=f4e249]:
+          - heading "Jardín" [level=3] [ref=f4e250]
+          - paragraph [ref=f4e251]: Floral y suave. Lavanda y geranio son de los que más ayudan frente al olor.
+          - list [ref=f4e252]:
+            - listitem [ref=f4e253]:
+              - link "Lavanda 5 gotas" [ref=f4e254] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavanda
+                - generic [ref=f4e256]: 5 gotas
+            - listitem [ref=f4e257]:
+              - link "Geranio rosa 4 gotas" [ref=f4e258] [cursor=pointer]:
+                - /url: "#geranio"
+                - text: Geranio rosa
+                - generic [ref=f4e260]: 4 gotas
+            - listitem [ref=f4e261]:
+              - link "Incienso 2 gotas" [ref=f4e262] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Incienso
+                - generic [ref=f4e264]: 2 gotas
+            - listitem [ref=f4e265]:
+              - link "Ylang-ylang 1 gota" [ref=f4e266] [cursor=pointer]:
+                - /url: "#ylang"
+                - text: Ylang-ylang
+                - generic [ref=f4e268]: 1 gota
+          - paragraph [ref=f4e269]: 12 gotas en total para 30 ml
+        - article [ref=f4e270]:
+          - heading "Bosque" [level=3] [ref=f4e271]
+          - paragraph [ref=f4e272]: Amaderada y cálida, la que más dura en la piel.
+          - list [ref=f4e273]:
+            - listitem [ref=f4e274]:
+              - link "Cedro 5 gotas" [ref=f4e275] [cursor=pointer]:
+                - /url: "#cedro"
+                - text: Cedro
+                - generic [ref=f4e277]: 5 gotas
+            - listitem [ref=f4e278]:
+              - link "Incienso 3 gotas" [ref=f4e279] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Incienso
+                - generic [ref=f4e281]: 3 gotas
+            - listitem [ref=f4e282]:
+              - link "Romero 2 gotas" [ref=f4e283] [cursor=pointer]:
+                - /url: "#romero"
+                - text: Romero
+                - generic [ref=f4e285]: 2 gotas
+            - listitem [ref=f4e286]:
+              - link "Bergamota 2 gotas" [ref=f4e287] [cursor=pointer]:
+                - /url: "#bergamota"
+                - text: Bergamota
+                - generic [ref=f4e289]: 2 gotas
+          - paragraph [ref=f4e290]: 12 gotas en total para 30 ml
+        - article [ref=f4e291]:
+          - heading "Monte fresco" [level=3] [ref=f4e292]
+          - paragraph [ref=f4e293]: Herbal y fresca, pensada para días de calor y deporte.
+          - list [ref=f4e294]:
+            - listitem [ref=f4e295]:
+              - link "Lavanda 5 gotas" [ref=f4e296] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavanda
+                - generic [ref=f4e298]: 5 gotas
+            - listitem [ref=f4e299]:
+              - link "Romero 3 gotas" [ref=f4e300] [cursor=pointer]:
+                - /url: "#romero"
+                - text: Romero
+                - generic [ref=f4e302]: 3 gotas
+            - listitem [ref=f4e303]:
+              - link "Menta piperita 2 gotas" [ref=f4e304] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Menta piperita
+                - generic [ref=f4e306]: 2 gotas
+            - listitem [ref=f4e307]:
+              - link "Pomelo 2 gotas" [ref=f4e308] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Pomelo
+                - generic [ref=f4e310]: 2 gotas
+          - paragraph [ref=f4e311]: 12 gotas en total para 30 ml
+        - article [ref=f4e312]:
+          - heading "Atlántico" [level=3] [ref=f4e313]
+          - paragraph [ref=f4e314]: Cítrico, flor y resina, con un punto de frescor.
+          - list [ref=f4e315]:
+            - listitem [ref=f4e316]:
+              - link "Pomelo 4 gotas" [ref=f4e317] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Pomelo
+                - generic [ref=f4e319]: 4 gotas
+            - listitem [ref=f4e320]:
+              - link "Geranio rosa 3 gotas" [ref=f4e321] [cursor=pointer]:
+                - /url: "#geranio"
+                - text: Geranio rosa
+                - generic [ref=f4e323]: 3 gotas
+            - listitem [ref=f4e324]:
+              - link "Incienso 3 gotas" [ref=f4e325] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Incienso
+                - generic [ref=f4e327]: 3 gotas
+            - listitem [ref=f4e328]:
+              - link "Menta piperita 2 gotas" [ref=f4e329] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Menta piperita
+                - generic [ref=f4e331]: 2 gotas
+          - paragraph [ref=f4e332]: 12 gotas en total para 30 ml
+        - article [ref=f4e333]:
+          - heading "Piel sensible" [level=3] [ref=f4e334]
+          - paragraph [ref=f4e335]: Una dosis más ligera y solo dos aceites suaves.
+          - list [ref=f4e336]:
+            - listitem [ref=f4e337]:
+              - link "Lavanda 4 gotas" [ref=f4e338] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavanda
+                - generic [ref=f4e340]: 4 gotas
+            - listitem [ref=f4e341]:
+              - link "Incienso 2 gotas" [ref=f4e342] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Incienso
+                - generic [ref=f4e344]: 2 gotas
+          - paragraph [ref=f4e345]: 6 gotas en total para 30 ml
+      - paragraph [ref=f4e346]: "Añade las gotas cuando la base esté tibia y remueve bien. Doce gotas en 30 ml equivalen más o menos a un 1,5 %, una dosis generosa para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía."
+    - generic [ref=f4e350]:
+      - heading "Lo que no lleva" [level=2] [ref=f4e351]
+      - list [ref=f4e352]:
+        - listitem [ref=f4e353]: Sales de aluminio
+        - listitem [ref=f4e354]: Parabenos
+        - listitem [ref=f4e355]: Perfume sintético
+      - paragraph [ref=f4e356]: Tampoco lleva agua, así que no necesita conservantes. Lo que ves en la etiqueta es todo lo que hay en el tarro.
+    - generic [ref=f4e358]:
+      - heading "Así lo hacemos en el taller" [level=2] [ref=f4e359]
+      - paragraph [ref=f4e360]: Cuatro pasos, un cazo y tus manos. Te llevas tu propio tarro.
+      - list [ref=f4e361]:
+        - listitem [ref=f4e362]:
+          - generic [ref=f4e363]:
+            - heading "Fundir" [level=3] [ref=f4e364]
+            - paragraph [ref=f4e365]: Derretimos las mantecas y el aceite de coco al baño maría, a fuego lento, para no estropearlos.
+        - listitem [ref=f4e366]:
+          - generic [ref=f4e367]:
+            - heading "Mezclar" [level=3] [ref=f4e368]
+            - paragraph [ref=f4e369]: Añadimos el almidón, el bicarbonato y el óxido de zinc tamizados y removemos hasta que no queda un solo grumo.
+        - listitem [ref=f4e370]:
+          - generic [ref=f4e371]:
+            - heading "Perfumar" [level=3] [ref=f4e372]
+            - paragraph [ref=f4e373]: Cuando la mezcla se templa, incorporamos los aceites esenciales. Con demasiado calor perderían su aroma.
+        - listitem [ref=f4e374]:
+          - generic [ref=f4e375]:
+            - heading "Verter y reposar" [level=3] [ref=f4e376]
+            - paragraph [ref=f4e377]: Llenamos los tarros uno a uno y los dejamos reposar hasta que la crema cuaja.
+    - generic [ref=f4e379]:
+      - heading "Preguntas frecuentes" [level=2] [ref=f4e380]
+      - generic [ref=f4e381]:
+        - group [ref=f4e382]:
+          - generic "¿Cuál es la receta para 100 g? +" [ref=f4e383] [cursor=pointer]
+        - group [ref=f4e384]:
+          - generic "¿Voy a dejar de sudar? +" [ref=f4e385] [cursor=pointer]
+        - group [ref=f4e386]:
+          - generic "¿Hay un periodo de adaptación? +" [ref=f4e387] [cursor=pointer]
+        - group [ref=f4e388]:
+          - generic "¿Sirve para piel sensible? +" [ref=f4e389] [cursor=pointer]
+        - group [ref=f4e390]:
+          - generic "¿Cómo se aplica? +" [ref=f4e391] [cursor=pointer]
+        - group [ref=f4e392]:
+          - generic "¿Cómo lo conservo? +" [ref=f4e393] [cursor=pointer]
+        - group [ref=f4e394]:
+          - generic "¿Mancha la ropa? +" [ref=f4e395] [cursor=pointer]
+        - group [ref=f4e396]:
+          - generic "¿Puedo usarlo durante el embarazo? +" [ref=f4e397] [cursor=pointer]
+  - contentinfo [ref=f4e398]:
+    - generic [ref=f4e400]:
+      - generic [ref=f4e401]:
+        - heading "Ingredientes (INCI)" [level=2] [ref=f4e402]
+        - paragraph [ref=f4e403]: Butyrospermum Parkii Butter, Cocos Nucifera Oil, Theobroma Cacao Seed Butter, Zea Mays Starch, Sodium Bicarbonate, Zinc Oxide, Citrus Aurantium Bergamia Fruit Oil, Citrus Paradisi Peel Oil, Lavandula Angustifolia Oil, Cananga Odorata Flower Oil, Pelargonium Graveolens Flower Oil, Cedrus Atlantica Bark Oil, Boswellia Carterii Oil, Mentha Piperita Oil, Rosmarinus Officinalis Leaf Oil.
+        - paragraph [ref=f4e404]: Los aceites esenciales contienen alérgenos naturales, como limonene, linalool, geraniol o citronellol. Si tienes alguna alergia conocida, revisa esta lista antes de usarlo.
+      - generic [ref=f4e405]:
+        - paragraph [ref=f4e406]: Un taller de
+        - paragraph [ref=f4e407]:
+          - text: Azoul Gathering×
+          - emphasis [ref=f4e408]: Alejandro
+        - paragraph [ref=f4e409]: Imsouane, Marruecos
+        - paragraph [ref=f4e410]: ❤️

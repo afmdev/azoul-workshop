@@ -551,7 +551,8 @@ const MEZCLAS = [
   [["lavanda", 4], ["incienso", 2]],
 ];
 // Workshop formula scaled to 100 g (grams, rounded to 0.5 g). Essential oils: 0.4 g (formula) to 1 g (blends above).
-const RECETA = [["karite", 58.5], ["cacao", 16.5], ["almidon", 9.5], ["coco", 8.5], ["zinc", 4], ["bicarbonato", 2.5]];
+const ACEITES_G = 1.5; // essential oils per 100 g: about 12 drops per 30 ml jar
+const RECETA = [["karite", 57.5], ["cacao", 16.5], ["almidon", 9.5], ["coco", 8.5], ["zinc", 4], ["bicarbonato", 2.5]];
 
 // ---------- Translations ----------
 // ing: n = name, o = origin, nt = scent notes, t = text, p = odour properties, a = warning.
@@ -560,7 +561,7 @@ const BANDERAS = { en: "🇬🇧", de: "🇩🇪", tr: "🇹🇷", es: "🇪🇸
 const L = {
   en: {
     ui: {
-      skip: "Skip to content", lang: "Language", recipeQ: "What is the recipe for 100 g?", recipeP: "This is the workshop formula scaled to 100 g, enough for about three 30 ml jars.", eo: "Essential oils", recipeNote: "0.4 g of essential oils is about 4 drops per 30 ml jar and 1.5 g is about 12, the amount used in the blends above. Weigh everything on a scale; drops are only a guide.", menu: "Menu",
+      skip: "Skip to content", lang: "Language", recipeQ: "What is the recipe for 100 g?", recipeP: "This is the workshop formula scaled to 100 g, enough for about three 30 ml jars.", eo: "Essential oils", recipeNote: "1.5 g of essential oils is about 12 drops per 30 ml jar, the amount used in the blends above. For sensitive skin use half and make up the difference with shea butter. Weigh everything on a scale; drops are only a guide.", menu: "Menu",
       navHow: "How it works", navBase: "The base", navAromas: "The scents", navBlends: "The blends", navWithout: "What's left out", navProcess: "Made by hand", navFaq: "Questions", navContact: "Contact",
       heroSub: "Fifteen ingredients. You can read every one.",
       heroP: "In this workshop we make a natural deodorant by hand with three plant fats, three powders and nine essential oils. Here is what each one does and why it is in the formula.",
@@ -636,7 +637,7 @@ const L = {
 
   de: {
     ui: {
-      skip: "Zum Inhalt springen", lang: "Sprache", recipeQ: "Wie lautet das Rezept für 100 g?", recipeP: "Das ist die Workshop-Rezeptur, umgerechnet auf 100 g – genug für etwa drei 30-ml-Tiegel.", eo: "Ätherische Öle", recipeNote: "0,4 g ätherische Öle entsprechen etwa 4 Tropfen pro 30-ml-Tiegel, 1,5 g etwa 12 – so viel wie in den Mischungen oben. Wiege alles mit einer Waage ab; Tropfen sind nur ein Richtwert.", menu: "Menü",
+      skip: "Zum Inhalt springen", lang: "Sprache", recipeQ: "Wie lautet das Rezept für 100 g?", recipeP: "Das ist die Workshop-Rezeptur, umgerechnet auf 100 g – genug für etwa drei 30-ml-Tiegel.", eo: "Ätherische Öle", recipeNote: "1,5 g ätherische Öle entsprechen etwa 12 Tropfen pro 30-ml-Tiegel – so viel wie in den Mischungen oben. Bei empfindlicher Haut nimm die Hälfte und gleiche den Rest mit Sheabutter aus. Wiege alles mit einer Waage ab; Tropfen sind nur ein Richtwert.", menu: "Menü",
       navHow: "So wirkt es", navBase: "Die Basis", navAromas: "Die Düfte", navBlends: "Die Mischungen", navWithout: "Was nicht drin ist", navProcess: "Handgemacht", navFaq: "Fragen", navContact: "Kontakt",
       heroSub: "Fünfzehn Zutaten. Du kannst sie alle lesen.",
       heroP: "In diesem Workshop stellen wir von Hand ein natürliches Deo her – aus drei Pflanzenfetten, drei Pulvern und neun ätherischen Ölen. Hier erfährst du, was jede Zutat bewirkt und warum sie in der Rezeptur ist.",
@@ -712,7 +713,7 @@ const L = {
 
   tr: {
     ui: {
-      skip: "İçeriğe geç", lang: "Dil", recipeQ: "100 g için tarif nedir?", recipeP: "Bu, atölye formülünün 100 grama uyarlanmış hâlidir; yaklaşık üç adet 30 ml'lik kavanoz için yeterlidir.", eo: "Uçucu yağlar", recipeNote: "0,4 g uçucu yağ, 30 ml'lik kavanoz başına yaklaşık 4 damla; 1,5 g ise yaklaşık 12 damla eder, yani yukarıdaki karışımlardaki miktar. Her şeyi teraziyle tart; damla sayısı yalnızca bir rehberdir.", menu: "Menü",
+      skip: "İçeriğe geç", lang: "Dil", recipeQ: "100 g için tarif nedir?", recipeP: "Bu, atölye formülünün 100 grama uyarlanmış hâlidir; yaklaşık üç adet 30 ml'lik kavanoz için yeterlidir.", eo: "Uçucu yağlar", recipeNote: "1,5 g uçucu yağ, 30 ml'lik kavanoz başına yaklaşık 12 damla eder, yani yukarıdaki karışımlardaki miktar. Hassas ciltler için yarısını kullan ve farkı shea yağıyla tamamla. Her şeyi teraziyle tart; damla sayısı yalnızca bir rehberdir.", menu: "Menü",
       navHow: "Nasıl çalışır", navBase: "Baz", navAromas: "Kokular", navBlends: "Karışımlar", navWithout: "İçinde olmayanlar", navProcess: "El yapımı", navFaq: "Sorular", navContact: "İletişim",
       heroSub: "On beş bileşen. Hepsini okuyabilirsin.",
       heroP: "Bu atölyede üç bitkisel yağ, üç toz ve dokuz uçucu yağ ile el yapımı doğal bir deodorant hazırlıyoruz. Her birinin ne işe yaradığını ve formülde neden bulunduğunu burada anlatıyoruz.",
@@ -788,7 +789,7 @@ const L = {
 
   es: {
     ui: {
-      skip: "Saltar al contenido", lang: "Idioma", recipeQ: "¿Cuál es la receta para 100 g?", recipeP: "Es la fórmula del taller adaptada a 100 g, suficiente para unos tres tarros de 30 ml.", eo: "Aceites esenciales", recipeNote: "0,4 g de aceites esenciales son unas 4 gotas por tarro de 30 ml y 1,5 g son unas 12, la cantidad de las mezclas de arriba. Pésalo todo con báscula; las gotas son solo una guía.", menu: "Menú",
+      skip: "Saltar al contenido", lang: "Idioma", recipeQ: "¿Cuál es la receta para 100 g?", recipeP: "Es la fórmula del taller adaptada a 100 g, suficiente para unos tres tarros de 30 ml.", eo: "Aceites esenciales", recipeNote: "1,5 g de aceites esenciales son unas 12 gotas por tarro de 30 ml, la cantidad de las mezclas de arriba. Para piel sensible usa la mitad y completa la diferencia con manteca de karité. Pésalo todo con báscula; las gotas son solo una guía.", menu: "Menú",
       navHow: "Cómo funciona", navBase: "La base", navAromas: "Los aromas", navBlends: "Las mezclas", navWithout: "Lo que no lleva", navProcess: "Hecho a mano", navFaq: "Preguntas", navContact: "Contacto",
       heroSub: "Quince ingredientes. Puedes leerlos todos.",
       heroP: "En este taller hacemos a mano un desodorante natural con tres grasas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.",
@@ -875,6 +876,7 @@ for (const [k, t] of Object.entries(L)) {
   console.assert(INGREDIENTES.every((i) => t.ing[i.id] && i.fn.every((f) => t.fn[f])), "Missing ingredient text: " + k);
   console.assert(t.mez.length === MEZCLAS.length && t.faq.length === L.en.faq.length, "Missing blends/FAQ: " + k);
 }
+console.assert(RECETA.reduce((s, [, n]) => s + n, ACEITES_G) === 100, "Recipe must add up to 100 g");
 MEZCLAS.forEach((m, n) => console.assert(m.reduce((s, [, g]) => s + g, 0) <= 12 && m.every(([id]) => porId[id]), "Check blend " + n));
 
 function render(lang) {
@@ -945,7 +947,7 @@ function render(lang) {
   const g = (n) => n.toLocaleString(lang) + " g";
   const receta = `<details><summary>${ui.recipeQ}</summary><div class="receta"><p>${ui.recipeP}</p>
     <ul>${RECETA.map(([id, n]) => `<li><span>${t.ing[id].n}</span><span>${g(n)}</span></li>`).join("")}
-      <li><span>${ui.eo}</span><span>${(0.4).toLocaleString(lang)}–${g(1.5)}</span></li></ul>
+      <li><span>${ui.eo}</span><span>${g(ACEITES_G)}</span></li></ul>
     <p>${ui.recipeNote}</p></div></details>`;
   el("lista-faq").innerHTML = receta + t.faq.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
   el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
