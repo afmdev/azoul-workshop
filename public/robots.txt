@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azoul-workshop.crixto-050.workers.dev/sitemap.xml
