@@ -166,7 +166,13 @@
 
   /* ---------- Hero: the jar label is the ingredient list ---------- */
   .hero { position: relative; overflow: hidden; }
-  .trazo { position: absolute; top: 0.2rem; right: -1rem; width: clamp(5.5rem, 20vw, 13rem); color: var(--cacao); pointer-events: none; }
+  /* Hand-drawn flourishes: always decorative, always behind the content */
+  .trazo { position: absolute; z-index: 0; color: var(--cacao); opacity: 0.5; pointer-events: none; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; }
+  .trazo path { vector-effect: non-scaling-stroke; }
+  .hero > .trazo { top: 0.2rem; right: -1rem; width: clamp(5.5rem, 20vw, 13rem); opacity: 1; }
+  .bloque, footer { position: relative; overflow: hidden; }
+  .bloque > .contenedor, footer > .contenedor { position: relative; z-index: 1; }
+  .sin .trazo { color: var(--coco); }
   .hero .contenedor { position: relative; }
   .hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3.5rem, 9vw, 6rem); }
   .hero-rejilla { display: grid; gap: 3rem; align-items: center; }
@@ -309,7 +315,9 @@
   .pie-rejilla { display: grid; gap: 2.5rem; }
   footer h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
   footer .lista-inci { font-size: 0.9375rem; color: var(--cacao-suave); max-width: none; }
-  footer ul { list-style: none; padding: 0; margin: 0; }
+  .pie-autor { text-align: center; padding-top: 1rem; }
+  .pie-autor p { max-width: none; color: var(--cacao-suave); }
+  .pie-autor span { display: block; margin-top: 0.5rem; font-size: 1.5rem; line-height: 1; }
   footer li a { display: inline-flex; align-items: center; min-height: 44px; }
 
   /* ---------- Wider screens ---------- */
@@ -460,7 +468,7 @@
         <p class="lista-inci" id="inci-completo"></p>
         <p class="lista-inci" style="margin-top:0.75rem" data-t="allergen"></p>
       </div>
-      <p class="lista-inci" id="pie-autor"></p>
+      <div class="pie-autor"><p id="pie-autor"></p><span aria-hidden="true">❤️</span></div>
     </div>
   </div>
 </footer>
@@ -924,6 +932,36 @@ el("idioma-menu").addEventListener("click", (e) => {
   abrir(false);
   menu(false);
 });
+
+// Background flourishes: [section, shape, CSS position/size]. Injected once; purely decorative.
+const FORMAS = {
+  lazo: ["0 0 200 70", "M2 62C42 62 72 42 82 22 90 4 72-2 64 14 54 36 82 60 112 46 132 36 142 16 134 8 126 0 114 12 116 28c2 20 36 24 82 4"],
+  ovalo: ["0 0 120 90", "M8 70C-6 40 40 4 86 6c34 2 30 40-8 62C50 86 20 84 14 60 10 40 40 18 70 16"],
+  onda: ["0 0 260 80", "M2 60c40 6 70-6 96-26 14-10 30-12 32 0 2 14-22 22-26 8-4-16 30-30 56-28 30 2 40 26 98 6"],
+  curva: ["0 0 300 60", "M2 40C60 0 110 0 150 30s90 34 148-4"],
+  triple: ["0 0 240 80", "M2 70c30 0 50-20 58-42 6-18-8-26-14-10-8 22 20 44 46 30 18-10 26-34 16-42-8-6-18 8-14 24 6 24 40 30 62 12 14-12 18-32 8-36-8-2-14 12-8 26 10 22 44 22 82 6"],
+};
+const TRAZOS = [
+  ["#como-funciona", "ovalo", "top:1.25rem;right:-1.5rem;width:clamp(5rem,16vw,9rem);transform:rotate(14deg)"],
+  ["#como-funciona", "curva", "bottom:1rem;left:-3rem;width:clamp(10rem,34vw,20rem)"],
+  ["#base", "onda", "top:1.5rem;right:-3rem;width:clamp(9rem,32vw,18rem)"],
+  ["#base", "ovalo", "bottom:2rem;left:-1.5rem;width:clamp(4.5rem,13vw,7rem);transform:rotate(-24deg)"],
+  ["#aromas", "triple", "top:0.25rem;right:-2rem;width:clamp(8rem,28vw,16rem)"],
+  ["#aromas", "curva", "bottom:1.5rem;left:-4rem;width:clamp(11rem,36vw,22rem);transform:rotate(-8deg)"],
+  ["#mezclas", "lazo", "top:0.5rem;right:-1.5rem;width:clamp(7rem,24vw,14rem);transform:scaleX(-1)"],
+  ["#mezclas", "ovalo", "bottom:1.5rem;right:8%;width:clamp(4rem,11vw,6.5rem);transform:rotate(30deg)"],
+  ["#sin", "triple", "top:1.5rem;right:-2rem;width:clamp(9rem,30vw,18rem)"],
+  ["#sin", "curva", "bottom:1.25rem;left:-3rem;width:clamp(10rem,34vw,20rem)"],
+  ["#proceso", "onda", "top:1.5rem;right:-4rem;width:clamp(9rem,32vw,19rem);transform:scaleX(-1)"],
+  ["#proceso", "lazo", "bottom:1rem;left:-2rem;width:clamp(7rem,22vw,13rem)"],
+  ["#faq", "ovalo", "top:2rem;right:4%;width:clamp(5rem,15vw,9rem);transform:rotate(-10deg)"],
+  ["#faq", "triple", "bottom:1rem;right:-3rem;width:clamp(8rem,26vw,15rem);transform:rotate(6deg)"],
+  ["footer", "curva", "top:0.75rem;right:-3rem;width:clamp(10rem,32vw,19rem)"],
+];
+for (const [sel, forma, css] of TRAZOS) {
+  const [vb, d] = FORMAS[forma];
+  document.querySelector(sel).insertAdjacentHTML("afterbegin", `<svg class="trazo" style="${css}" viewBox="${vb}" aria-hidden="true"><path d="${d}"/></svg>`);
+}
 
 // Mobile menu
 const cabecera = document.querySelector(".nav"), menuBoton = el("menu-boton");
