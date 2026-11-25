@@ -543,11 +543,11 @@ const FAMILIAS = ["citricos", "florales", "amaderados", "frescos"];
 // Drops per 30 ml jar, in the same order as L[lang].mez. Blends use 16 drops (about 2 %, a strong scent;
 // the owner's choice, above the usual 1 % for deodorants), with bergamot and peppermint at 3 or fewer.
 const MEZCLAS = [
-  [["pomelo", 7], ["cedro", 4], ["bergamota", 3], ["menta", 2]],
-  [["lavanda", 7], ["geranio", 5], ["incienso", 3], ["ylang", 1]],
-  [["cedro", 7], ["incienso", 4], ["romero", 3], ["bergamota", 2]],
-  [["lavanda", 6], ["romero", 4], ["menta", 3], ["pomelo", 3]],
-  [["pomelo", 6], ["geranio", 4], ["incienso", 4], ["menta", 2]],
+  [["pomelo", 5], ["cedro", 3], ["bergamota", 2], ["menta", 2]],
+  [["lavanda", 5], ["geranio", 4], ["incienso", 2], ["ylang", 1]],
+  [["cedro", 5], ["incienso", 3], ["romero", 2], ["bergamota", 2]],
+  [["lavanda", 5], ["romero", 3], ["menta", 2], ["pomelo", 2]],
+  [["pomelo", 4], ["geranio", 3], ["incienso", 3], ["menta", 2]],
   [["lavanda", 4], ["incienso", 2]],
 ];
 // Workshop formula scaled to 100 g (grams, rounded to 0.5 g). Essential oils: 0.4 g (formula) to 1 g (blends above).
@@ -560,7 +560,7 @@ const BANDERAS = { en: "🇬🇧", de: "🇩🇪", tr: "🇹🇷", es: "🇪🇸
 const L = {
   en: {
     ui: {
-      skip: "Skip to content", lang: "Language", recipeQ: "What is the recipe for 100 g?", recipeP: "This is the workshop formula scaled to 100 g, enough for about three 30 ml jars.", eo: "Essential oils", recipeNote: "0.4 g of essential oils is about 4 drops per 30 ml jar and 2 g is about 16, the amount used in the blends above. Weigh everything on a scale; drops are only a guide.", menu: "Menu",
+      skip: "Skip to content", lang: "Language", recipeQ: "What is the recipe for 100 g?", recipeP: "This is the workshop formula scaled to 100 g, enough for about three 30 ml jars.", eo: "Essential oils", recipeNote: "0.4 g of essential oils is about 4 drops per 30 ml jar and 1.5 g is about 12, the amount used in the blends above. Weigh everything on a scale; drops are only a guide.", menu: "Menu",
       navHow: "How it works", navBase: "The base", navAromas: "The scents", navBlends: "The blends", navWithout: "What's left out", navProcess: "Made by hand", navFaq: "Questions", navContact: "Contact",
       heroSub: "Fifteen ingredients. You can read every one.",
       heroP: "In this workshop we make a natural deodorant by hand with three plant fats, three powders and nine essential oils. Here is what each one does and why it is in the formula.",
@@ -573,7 +573,7 @@ const L = {
       baseP: "Six ingredients do the work: three plant fats that give body and care for the skin, and three powders that deal with moisture and odour.",
       aromasP: "Nine essential oils, no synthetic fragrance. Tap any of them to see where it comes from, what it smells like and what it adds against odour. What we say about bacteria comes from laboratory studies on the pure oils; in the deodorant they are highly diluted and support the baking soda and zinc, which do the main work.",
       blendsP: "The base is the same for everyone. What changes is the scent: pick a blend and count the drops for your 30 ml jar.",
-      blendsNote: "Add the drops when the base is lukewarm and stir well. Sixteen drops in 30 ml is roughly 2%, a generous dose for the underarm: more drops won't make it work better and may irritate. Drop size varies with the dropper, so treat this as a guide.",
+      blendsNote: "Add the drops when the base is lukewarm and stir well. Twelve drops in 30 ml is roughly 1.5%, a generous dose for the underarm: more drops won't make it work better and may irritate. Drop size varies with the dropper, so treat this as a guide.",
       total: "{n} drops in total for 30 ml", drop: "drop", drops: "drops",
       withoutP: "There is no water in it either, so it needs no preservatives. What you see on the label is everything in the jar.",
       processH: "How we make it in the workshop", processP: "Four steps, a pan and your hands. You take home your own jar.",
@@ -636,7 +636,7 @@ const L = {
 
   de: {
     ui: {
-      skip: "Zum Inhalt springen", lang: "Sprache", recipeQ: "Wie lautet das Rezept für 100 g?", recipeP: "Das ist die Workshop-Rezeptur, umgerechnet auf 100 g – genug für etwa drei 30-ml-Tiegel.", eo: "Ätherische Öle", recipeNote: "0,4 g ätherische Öle entsprechen etwa 4 Tropfen pro 30-ml-Tiegel, 2 g etwa 16 – so viel wie in den Mischungen oben. Wiege alles mit einer Waage ab; Tropfen sind nur ein Richtwert.", menu: "Menü",
+      skip: "Zum Inhalt springen", lang: "Sprache", recipeQ: "Wie lautet das Rezept für 100 g?", recipeP: "Das ist die Workshop-Rezeptur, umgerechnet auf 100 g – genug für etwa drei 30-ml-Tiegel.", eo: "Ätherische Öle", recipeNote: "0,4 g ätherische Öle entsprechen etwa 4 Tropfen pro 30-ml-Tiegel, 1,5 g etwa 12 – so viel wie in den Mischungen oben. Wiege alles mit einer Waage ab; Tropfen sind nur ein Richtwert.", menu: "Menü",
       navHow: "So wirkt es", navBase: "Die Basis", navAromas: "Die Düfte", navBlends: "Die Mischungen", navWithout: "Was nicht drin ist", navProcess: "Handgemacht", navFaq: "Fragen", navContact: "Kontakt",
       heroSub: "Fünfzehn Zutaten. Du kannst sie alle lesen.",
       heroP: "In diesem Workshop stellen wir von Hand ein natürliches Deo her – aus drei Pflanzenfetten, drei Pulvern und neun ätherischen Ölen. Hier erfährst du, was jede Zutat bewirkt und warum sie in der Rezeptur ist.",
@@ -649,7 +649,7 @@ const L = {
       baseP: "Sechs Zutaten machen die Arbeit: drei Pflanzenfette, die Konsistenz geben und die Haut pflegen, und drei Pulver, die sich um Feuchtigkeit und Geruch kümmern.",
       aromasP: "Neun ätherische Öle, kein synthetisches Parfüm. Tippe auf eines, um zu sehen, woher es kommt, wie es riecht und was es gegen Geruch beiträgt. Was wir über Bakterien sagen, stammt aus Laborstudien mit den reinen Ölen; im Deo sind sie stark verdünnt und unterstützen Natron und Zink, die die Hauptarbeit leisten.",
       blendsP: "Die Basis ist für alle gleich. Was sich ändert, ist der Duft: Wähle eine Mischung und zähle die Tropfen für deinen 30-ml-Tiegel.",
-      blendsNote: "Gib die Tropfen dazu, wenn die Basis lauwarm ist, und rühre gut um. Sechzehn Tropfen auf 30 ml entsprechen etwa 2 % – eine großzügige Dosis für die Achsel: Mehr Tropfen wirken nicht besser, können aber reizen. Die Tropfengröße hängt von der Pipette ab, nimm die Angaben also als Richtwert.",
+      blendsNote: "Gib die Tropfen dazu, wenn die Basis lauwarm ist, und rühre gut um. Zwölf Tropfen auf 30 ml entsprechen etwa 1,5 % – eine großzügige Dosis für die Achsel: Mehr Tropfen wirken nicht besser, können aber reizen. Die Tropfengröße hängt von der Pipette ab, nimm die Angaben also als Richtwert.",
       total: "{n} Tropfen insgesamt für 30 ml", drop: "Tropfen", drops: "Tropfen",
       withoutP: "Wasser ist auch keins drin, deshalb braucht es keine Konservierungsstoffe. Was auf dem Etikett steht, ist alles, was im Tiegel ist.",
       processH: "So machen wir es im Workshop", processP: "Vier Schritte, ein Topf und deine Hände. Du nimmst deinen eigenen Tiegel mit.",
@@ -712,7 +712,7 @@ const L = {
 
   tr: {
     ui: {
-      skip: "İçeriğe geç", lang: "Dil", recipeQ: "100 g için tarif nedir?", recipeP: "Bu, atölye formülünün 100 grama uyarlanmış hâlidir; yaklaşık üç adet 30 ml'lik kavanoz için yeterlidir.", eo: "Uçucu yağlar", recipeNote: "0,4 g uçucu yağ, 30 ml'lik kavanoz başına yaklaşık 4 damla; 2 g ise yaklaşık 16 damla eder, yani yukarıdaki karışımlardaki miktar. Her şeyi teraziyle tart; damla sayısı yalnızca bir rehberdir.", menu: "Menü",
+      skip: "İçeriğe geç", lang: "Dil", recipeQ: "100 g için tarif nedir?", recipeP: "Bu, atölye formülünün 100 grama uyarlanmış hâlidir; yaklaşık üç adet 30 ml'lik kavanoz için yeterlidir.", eo: "Uçucu yağlar", recipeNote: "0,4 g uçucu yağ, 30 ml'lik kavanoz başına yaklaşık 4 damla; 1,5 g ise yaklaşık 12 damla eder, yani yukarıdaki karışımlardaki miktar. Her şeyi teraziyle tart; damla sayısı yalnızca bir rehberdir.", menu: "Menü",
       navHow: "Nasıl çalışır", navBase: "Baz", navAromas: "Kokular", navBlends: "Karışımlar", navWithout: "İçinde olmayanlar", navProcess: "El yapımı", navFaq: "Sorular", navContact: "İletişim",
       heroSub: "On beş bileşen. Hepsini okuyabilirsin.",
       heroP: "Bu atölyede üç bitkisel yağ, üç toz ve dokuz uçucu yağ ile el yapımı doğal bir deodorant hazırlıyoruz. Her birinin ne işe yaradığını ve formülde neden bulunduğunu burada anlatıyoruz.",
@@ -725,7 +725,7 @@ const L = {
       baseP: "İşi altı bileşen yapar: kıvam veren ve cilde bakan üç bitkisel yağ ile nem ve kokuyla ilgilenen üç toz.",
       aromasP: "Dokuz uçucu yağ, sentetik parfüm yok. Nereden geldiğini, nasıl koktuğunu ve kokuya karşı ne kattığını görmek için birine dokun. Bakterilerle ilgili söylediklerimiz saf yağlarla yapılan laboratuvar çalışmalarına dayanır; deodorantta çok seyreltilmiş hâlde bulunurlar ve asıl işi yapan karbonat ile çinkoya eşlik ederler.",
       blendsP: "Baz herkes için aynı. Değişen şey koku: bir karışım seç ve 30 ml'lik kavanozun için damlaları say.",
-      blendsNote: "Damlaları baz ılıkken ekle ve iyice karıştır. 30 ml'de on altı damla yaklaşık %2 eder; koltuk altı için cömert bir dozdur: daha fazla damla daha iyi etki etmez, tahriş edebilir. Damla boyutu damlalığa göre değişir, bu yüzden bunu bir rehber olarak düşün.",
+      blendsNote: "Damlaları baz ılıkken ekle ve iyice karıştır. 30 ml'de on iki damla yaklaşık %1,5 eder; koltuk altı için cömert bir dozdur: daha fazla damla daha iyi etki etmez, tahriş edebilir. Damla boyutu damlalığa göre değişir, bu yüzden bunu bir rehber olarak düşün.",
       total: "30 ml için toplam {n} damla", drop: "damla", drops: "damla",
       withoutP: "İçinde su da yok, bu yüzden koruyucuya ihtiyaç duymaz. Etikette gördüğün, kavanozdaki her şeydir.",
       processH: "Atölyede böyle yapıyoruz", processP: "Dört adım, bir tencere ve ellerin. Kendi kavanozunu yanında götürürsün.",
@@ -788,7 +788,7 @@ const L = {
 
   es: {
     ui: {
-      skip: "Saltar al contenido", lang: "Idioma", recipeQ: "¿Cuál es la receta para 100 g?", recipeP: "Es la fórmula del taller adaptada a 100 g, suficiente para unos tres tarros de 30 ml.", eo: "Aceites esenciales", recipeNote: "0,4 g de aceites esenciales son unas 4 gotas por tarro de 30 ml y 2 g son unas 16, la cantidad de las mezclas de arriba. Pésalo todo con báscula; las gotas son solo una guía.", menu: "Menú",
+      skip: "Saltar al contenido", lang: "Idioma", recipeQ: "¿Cuál es la receta para 100 g?", recipeP: "Es la fórmula del taller adaptada a 100 g, suficiente para unos tres tarros de 30 ml.", eo: "Aceites esenciales", recipeNote: "0,4 g de aceites esenciales son unas 4 gotas por tarro de 30 ml y 1,5 g son unas 12, la cantidad de las mezclas de arriba. Pésalo todo con báscula; las gotas son solo una guía.", menu: "Menú",
       navHow: "Cómo funciona", navBase: "La base", navAromas: "Los aromas", navBlends: "Las mezclas", navWithout: "Lo que no lleva", navProcess: "Hecho a mano", navFaq: "Preguntas", navContact: "Contacto",
       heroSub: "Quince ingredientes. Puedes leerlos todos.",
       heroP: "En este taller hacemos a mano un desodorante natural con tres grasas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.",
@@ -801,7 +801,7 @@ const L = {
       baseP: "Seis ingredientes hacen el trabajo: tres grasas vegetales que dan cuerpo y cuidan la piel, y tres polvos que se ocupan de la humedad y del olor.",
       aromasP: "Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.",
       blendsP: "La base es la misma para todos. Lo que cambia es el aroma: elige una mezcla y cuenta las gotas para tu tarro de 30 ml.",
-      blendsNote: "Añade las gotas cuando la base esté tibia y remueve bien. Dieciséis gotas en 30 ml equivalen más o menos a un 2 %, una dosis generosa para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.",
+      blendsNote: "Añade las gotas cuando la base esté tibia y remueve bien. Doce gotas en 30 ml equivalen más o menos a un 1,5 %, una dosis generosa para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.",
       total: "{n} gotas en total para 30 ml", drop: "gota", drops: "gotas",
       withoutP: "Tampoco lleva agua, así que no necesita conservantes. Lo que ves en la etiqueta es todo lo que hay en el tarro.",
       processH: "Así lo hacemos en el taller", processP: "Cuatro pasos, un cazo y tus manos. Te llevas tu propio tarro.",
@@ -875,7 +875,7 @@ for (const [k, t] of Object.entries(L)) {
   console.assert(INGREDIENTES.every((i) => t.ing[i.id] && i.fn.every((f) => t.fn[f])), "Missing ingredient text: " + k);
   console.assert(t.mez.length === MEZCLAS.length && t.faq.length === L.en.faq.length, "Missing blends/FAQ: " + k);
 }
-MEZCLAS.forEach((m, n) => console.assert(m.reduce((s, [, g]) => s + g, 0) <= 16 && m.every(([id]) => porId[id]), "Check blend " + n));
+MEZCLAS.forEach((m, n) => console.assert(m.reduce((s, [, g]) => s + g, 0) <= 12 && m.every(([id]) => porId[id]), "Check blend " + n));
 
 function render(lang) {
   const t = L[lang], ui = t.ui;
@@ -945,7 +945,7 @@ function render(lang) {
   const g = (n) => n.toLocaleString(lang) + " g";
   const receta = `<details><summary>${ui.recipeQ}</summary><div class="receta"><p>${ui.recipeP}</p>
     <ul>${RECETA.map(([id, n]) => `<li><span>${t.ing[id].n}</span><span>${g(n)}</span></li>`).join("")}
-      <li><span>${ui.eo}</span><span>${(0.4).toLocaleString(lang)}–${g(2)}</span></li></ul>
+      <li><span>${ui.eo}</span><span>${(0.4).toLocaleString(lang)}–${g(1.5)}</span></li></ul>
     <p>${ui.recipeNote}</p></div></details>`;
   el("lista-faq").innerHTML = receta + t.faq.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
   el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
