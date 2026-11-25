@@ -67,28 +67,28 @@
     border-bottom: 1px solid rgb(46 42 107 / 0.15);
   }
   .nav-fila {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem;
+    display: flex; align-items: center; gap: 1rem;
     min-height: var(--nav-alto);
   }
   .marca { font-family: var(--display); font-size: clamp(1rem, 4.2vw, 1.2rem); color: var(--cacao); text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
-  .nav nav { min-width: 0; flex: 1 0 100%; margin-inline: -0.75rem; }
+  .nav nav { min-width: 0; }
   /* Collab lockup: wordmark × name */
   .collab { white-space: nowrap; }
   .collab .x { font-family: var(--texto); font-weight: 400; font-size: 0.8em; margin-inline: 0.35em; color: var(--bergamota); }
   .collab em { font-style: italic; }
   /* Language switcher */
-  .idioma { position: relative; margin-left: auto; }
+  .idioma { position: relative; }
   .idioma-boton {
-    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0 0.8rem;
+    display: inline-flex; align-items: center; gap: 0.35rem; height: 44px; padding: 0 0.7rem;
     background: transparent; color: var(--cacao); border: 1px solid rgb(46 42 107 / 0.3); border-radius: 999px;
-    font: 600 0.9375rem var(--texto); cursor: pointer;
+    font: 400 1.35rem/1 var(--texto); cursor: pointer;
   }
   .idioma-boton:hover { background: rgb(46 42 107 / 0.08); }
   .idioma-flecha { transition: transform 0.2s ease; }
   .idioma[data-abierto] .idioma-flecha { transform: rotate(180deg); }
   .idioma-menu {
     position: absolute; right: 0; top: calc(100% + 0.4rem); z-index: 20;
-    min-width: 12rem; margin: 0; padding: 0.4rem; list-style: none;
+    margin: 0; padding: 0.35rem; list-style: none;
     background: var(--coco); border: 1px solid rgb(46 42 107 / 0.12); border-radius: 1rem;
     box-shadow: 0 14px 34px rgb(46 42 107 / 0.18);
     opacity: 0; visibility: hidden; transform: translateY(-6px) scale(0.98); transform-origin: top right;
@@ -96,21 +96,19 @@
   }
   .idioma[data-abierto] .idioma-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
   .idioma-menu button {
-    display: flex; align-items: center; width: 100%; min-height: 46px; padding: 0 0.8rem;
+    display: flex; align-items: center; justify-content: center; width: 48px; height: 46px; padding: 0;
     background: none; border: 0; border-radius: 0.7rem; cursor: pointer;
-    font: 500 1rem var(--texto); color: var(--cacao); text-align: left;
+    font: 400 1.5rem/1 var(--texto); color: var(--cacao);
   }
-  .idioma-menu button span { margin-left: auto; font-size: 0.8125rem; color: var(--cacao-suave); }
   .idioma-menu button:hover { background: rgb(46 42 107 / 0.07); }
-  .idioma-menu button[aria-current] { background: var(--cacao); color: var(--coco); }
-  .idioma-menu button[aria-current] span { color: var(--coco); }
+  .idioma-menu button[aria-current] { background: rgb(46 42 107 / 0.14); box-shadow: inset 0 0 0 1.5px var(--cacao); }
   .nav nav ul {
     display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0;
     overflow-x: auto; scrollbar-width: none;
   }
   .nav nav ul::-webkit-scrollbar { display: none; }
   .nav nav li a {
-    display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem;
+    display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.6rem;
     color: var(--cacao); text-decoration: none; white-space: nowrap; font-size: 0.9375rem; font-weight: 500;
     border-radius: 999px;
   }
@@ -118,12 +116,14 @@
 
   .menu { display: contents; }
   .menu-boton, .idioma-titulo { display: none; }
-  .idioma { order: 2; }
-  .nav nav { order: 3; }
-  @media (min-width: 62rem) { :root { --nav-alto: 5.5rem; } }
+  /* Desktop: logo left, links centred, language right, all on one line */
+  @media (min-width: 80rem) {
+    .nav-fila { display: grid; grid-template-columns: 1fr auto 1fr; max-width: none; }
+    .idioma { justify-self: end; }
+  }
 
   /* Mobile: everything lives inside one hamburger panel */
-  @media (max-width: 61.99rem) {
+  @media (max-width: 79.99rem) {
     .menu-boton {
       display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
       width: 44px; height: 44px; margin-left: auto; margin-right: -0.6rem; padding: 0;
@@ -157,11 +157,11 @@
     .idioma-titulo { display: block; font-size: 0.875rem; font-weight: 600; color: var(--cacao-suave); margin-bottom: 0.5rem; }
     .idioma-boton { display: none; }
     .idioma-menu {
-      position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+      position: static; display: flex; gap: 0.5rem;
       min-width: 0; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none;
       opacity: 1; visibility: inherit; transform: none; transition: none;
     }
-    .idioma-menu button { border: 1px solid rgb(46 42 107 / 0.25); border-radius: 999px; padding: 0 1rem; }
+    .idioma-menu button { width: 56px; height: 48px; border: 1px solid rgb(46 42 107 / 0.25); border-radius: 999px; }
   }
 
   /* ---------- Hero: the jar label is the ingredient list ---------- */
@@ -356,7 +356,6 @@
     <div class="idioma" id="idioma">
       <p class="idioma-titulo" data-t="lang"></p>
       <button class="idioma-boton" id="idioma-boton" type="button" aria-expanded="false" aria-controls="idioma-menu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.300 6.400-3.800 9c-2.500-2.600-3.800-5.600-3.800-9S9.500 5.600 12 3z"/></svg>
         <span id="idioma-actual"></span>
         <svg class="idioma-flecha" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1.500 3.500 5 7l3.500-3.500"/></svg>
       </button>
@@ -511,6 +510,7 @@ const MEZCLAS = [
 // ---------- Translations ----------
 // ing: n = name, o = origin, nt = scent notes, t = text, p = odour properties, a = warning.
 const IDIOMAS = { en: "English", de: "Deutsch", tr: "Türkçe", es: "Español" };
+const BANDERAS = { en: "🇬🇧", de: "🇩🇪", tr: "🇹🇷", es: "🇪🇸" };
 const L = {
   en: {
     ui: {
@@ -904,10 +904,10 @@ function render(lang) {
   el("pie-autor").innerHTML = ui.by.replace("{x}", `<span class="collab">${marca}</span>`);
 
   // Language switcher state
-  el("idioma-actual").textContent = lang.toUpperCase();
+  el("idioma-actual").textContent = BANDERAS[lang];
   el("idioma-boton").setAttribute("aria-label", `${ui.lang}: ${IDIOMAS[lang]}`);
   el("idioma-menu").innerHTML = Object.entries(IDIOMAS).map(([k, nombre]) =>
-    `<li><button type="button" lang="${k}" data-lang="${k}"${k === lang ? ' aria-current="true"' : ""}>${nombre}<span>${k.toUpperCase()}</span></button></li>`).join("");
+    `<li><button type="button" data-lang="${k}" aria-label="${nombre}" title="${nombre}"${k === lang ? ' aria-current="true"' : ""}>${BANDERAS[k]}</button></li>`).join("");
 }
 
 // ---------- Language: ?lang= > saved choice > browser language > English ----------
