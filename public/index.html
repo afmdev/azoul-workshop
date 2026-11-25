@@ -252,7 +252,11 @@
     transition: transform 0.2s;
   }
   .familia details[open] summary::after { transform: rotate(45deg); }
-  .aroma-cuerpo { padding: 0.25rem 0 1.25rem; }
+  .aroma-cuerpo { padding: 0.25rem 0 1.25rem; display: flow-root; }
+  /* Botanical plates: multiply lets the white paper take the card's tint */
+  .mini, .lamina { mix-blend-mode: multiply; height: auto; }
+  .mini { width: 2.75rem; height: 3.25rem; object-fit: contain; flex: none; }
+  .lamina { float: right; width: min(42%, 11rem); margin: 0 0 0.75rem 1rem; }
   .aroma-cuerpo .inci, .aroma-cuerpo .origen, .familia > p { color: var(--cacao); }
   .aroma-cuerpo p + p { margin-top: 0.6rem; }
   .aroma-cuerpo .chips { margin-top: 0.8rem; }
@@ -309,6 +313,9 @@
   .faq summary::after { content: "+"; margin-left: auto; font-size: 1.5rem; line-height: 1; transition: transform 0.2s; }
   .faq details[open] summary::after { transform: rotate(45deg); }
   .faq details p { padding-bottom: 1.25rem; color: var(--cacao-suave); }
+  .receta ul { list-style: none; margin: 0 0 1.25rem; padding: 0; border-top: 1px dashed var(--linea); }
+  .receta li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--linea); }
+  .receta li span:last-child { font-family: var(--display); font-size: 1.15rem; color: var(--cacao); white-space: nowrap; }
 
   /* ---------- Footer ---------- */
   footer { padding-block: 3.5rem; }
@@ -501,18 +508,21 @@ const INGREDIENTES = [
   { id: "menta", tipo: "aroma", familia: "frescos", inci: "Mentha Piperita Oil", fn: ["aroma", "olor", "frescor"] },
   { id: "romero", tipo: "aroma", familia: "frescos", inci: "Rosmarinus Officinalis Leaf Oil", fn: ["aroma", "olor"] },
 ];
+const LAMINAS = {"bergamota": [440, 581], "pomelo": [315, 560], "lavanda": [438, 597], "ylang": [408, 620], "geranio": [402, 620], "cedro": [440, 616], "incienso": [440, 563], "menta": [440, 577], "romero": [440, 573]}; // webp size per oil (public-domain plates, Wikimedia Commons)
 const FAMILIAS = ["citricos", "florales", "amaderados", "frescos"];
 
-// Drops per 30 ml jar, in the same order as L[lang].mez. Keep each blend at 12 drops or fewer
-// (about 1.5 %), with bergamot, ylang-ylang and peppermint at 3 or fewer.
+// Drops per 30 ml jar, in the same order as L[lang].mez. Keep each blend at 8 drops or fewer
+// (about 1 %, the usual level for a deodorant), with bergamot and peppermint at 2 or fewer.
 const MEZCLAS = [
-  [["pomelo", 5], ["bergamota", 3], ["cedro", 2], ["menta", 2]],
-  [["lavanda", 5], ["geranio", 4], ["incienso", 2], ["ylang", 1]],
-  [["cedro", 5], ["incienso", 3], ["romero", 2], ["bergamota", 2]],
-  [["lavanda", 4], ["romero", 3], ["menta", 3], ["pomelo", 2]],
-  [["pomelo", 4], ["geranio", 3], ["incienso", 3], ["menta", 2]],
-  [["lavanda", 4], ["incienso", 2]],
+  [["pomelo", 3], ["bergamota", 2], ["cedro", 2], ["menta", 1]],
+  [["lavanda", 3], ["geranio", 2], ["incienso", 2], ["ylang", 1]],
+  [["cedro", 3], ["incienso", 2], ["romero", 2], ["bergamota", 1]],
+  [["lavanda", 3], ["romero", 2], ["menta", 2], ["pomelo", 1]],
+  [["pomelo", 3], ["geranio", 2], ["incienso", 2], ["menta", 1]],
+  [["lavanda", 3], ["incienso", 1]],
 ];
+// Workshop formula scaled to 100 g (grams, rounded to 0.5 g). Essential oils: 0.4 g (formula) to 1 g (blends above).
+const RECETA = [["karite", 58.5], ["cacao", 16.5], ["almidon", 9.5], ["coco", 8.5], ["zinc", 4], ["bicarbonato", 2.5]];
 
 // ---------- Translations ----------
 // ing: n = name, o = origin, nt = scent notes, t = text, p = odour properties, a = warning.
@@ -521,7 +531,7 @@ const BANDERAS = { en: "🇬🇧", de: "🇩🇪", tr: "🇹🇷", es: "🇪🇸
 const L = {
   en: {
     ui: {
-      skip: "Skip to content", lang: "Language", menu: "Menu",
+      skip: "Skip to content", lang: "Language", recipeQ: "What is the recipe for 100 g?", recipeP: "This is the workshop formula scaled to 100 g, enough for about three 30 ml jars.", eo: "Essential oils", recipeNote: "0.4 g of essential oils is about 4 drops per 30 ml jar and 1 g is about 8, the amount used in the blends above. Weigh everything on a scale; drops are only a guide.", menu: "Menu",
       navHow: "How it works", navBase: "The base", navAromas: "The scents", navBlends: "The blends", navWithout: "What's left out", navProcess: "Made by hand", navFaq: "Questions", navContact: "Contact",
       heroSub: "Fifteen ingredients. You can read every one.",
       heroP: "In this workshop we make a natural deodorant by hand with three plant fats, three powders and nine essential oils. Here is what each one does and why it is in the formula.",
@@ -534,7 +544,7 @@ const L = {
       baseP: "Six ingredients do the work: three plant fats that give body and care for the skin, and three powders that deal with moisture and odour.",
       aromasP: "Nine essential oils, no synthetic fragrance. Tap any of them to see where it comes from, what it smells like and what it adds against odour. What we say about bacteria comes from laboratory studies on the pure oils; in the deodorant they are highly diluted and support the baking soda and zinc, which do the main work.",
       blendsP: "The base is the same for everyone. What changes is the scent: pick a blend and count the drops for your 30 ml jar.",
-      blendsNote: "Add the drops when the base is lukewarm and stir well. Twelve drops in 30 ml is roughly 1.5%, a cautious dose for the underarm: more drops won't make it work better and may irritate. Drop size varies with the dropper, so treat this as a guide.",
+      blendsNote: "Add the drops when the base is lukewarm and stir well. Eight drops in 30 ml is roughly 1%, the usual dose for a deodorant: more drops won't make it work better and may irritate. Drop size varies with the dropper, so treat this as a guide.",
       total: "{n} drops in total for 30 ml", drop: "drop", drops: "drops",
       withoutP: "There is no water in it either, so it needs no preservatives. What you see on the label is everything in the jar.",
       processH: "How we make it in the workshop", processP: "Four steps, a pan and your hands. You take home your own jar.",
@@ -559,8 +569,8 @@ const L = {
       almidon: { n: "Cornstarch", o: "Ground maize kernels.", t: "It doesn't stop sweat: it absorbs it. It does the job talc used to do, leaves a dry, silky feel and takes away the greasy touch of the butters." },
       bicarbonato: { n: "Baking soda", o: "Mineral salt.", t: "This is the ingredient that deals with odour. It is alkaline and neutralises the acidic compounds bacteria produce when they break down sweat.", a: "It can irritate sensitive skin. If you notice redness or itching, stop using it." },
       zinc: { n: "Zinc oxide", o: "White mineral powder.", t: "The same mineral used in nappy creams. It helps reduce odour and has long been used to protect the skin and soothe it when irritated.", a: "If you apply too much it can leave a white trace." },
-      bergamota: { n: "Bergamot", o: "Peel of the fruit, a citrus grown mainly in Calabria.", nt: "Citrus with a floral undertone", t: "The scent of Earl Grey tea: a softer, rounder citrus than lemon. It gives the first fresh impression when you open the jar.", p: "In laboratory studies it has shown activity against several skin bacteria. Its citrus scent is also among the best at covering body odour.", a: "Bergamot oil can make skin more sensitive to sunlight, unless it is the bergapten-free type (FCF)." },
-      pomelo: { n: "Grapefruit", o: "Grapefruit peel, cold-pressed.", nt: "Citrus, sparkling and slightly bitter", t: "A clean, lively touch with the slight bitterness of grapefruit peel. It is a light note, one of the first you notice.", p: "Its main component, limonene, shows moderate antibacterial activity in the laboratory. Here it mostly adds a feeling of cleanliness.", a: "Like other cold-pressed citrus oils, it can make skin more sensitive to sunlight." },
+      bergamota: { n: "Bergamot", o: "Peel of the fruit, a citrus grown mainly in Calabria.", nt: "Citrus with a floral undertone", t: "The scent of Earl Grey tea: a softer, rounder citrus than lemon. It gives the first fresh impression when you open the jar.", p: "In laboratory studies it has shown activity against several skin bacteria. Its citrus scent is also among the best at covering body odour." },
+      pomelo: { n: "Grapefruit", o: "Grapefruit peel, cold-pressed.", nt: "Citrus, sparkling and slightly bitter", t: "A clean, lively touch with the slight bitterness of grapefruit peel. It is a light note, one of the first you notice.", p: "Its main component, limonene, shows moderate antibacterial activity in the laboratory. Here it mostly adds a feeling of cleanliness." },
       lavanda: { n: "Lavender", o: "Steam-distilled lavender flowers.", nt: "Floral and herbal", t: "A clean, calm scent almost everyone recognises. It has traditionally been used to soothe the skin.", p: "One of the most studied oils: the linalool it contains has shown activity against skin bacteria in the laboratory. It is also traditionally used to calm irritated skin." },
       ylang: { n: "Ylang-ylang", o: "Flowers of the Cananga odorata tree, from Southeast Asia.", nt: "Floral, sweet and intense", t: "The sweetest, most exotic note in the blend. It is used sparingly to add warmth and round off the citrus.", p: "Its antibacterial activity in the laboratory is modest. Its role here is scent: it is intense and long-lasting, and helps the pleasant smell hold for more hours." },
       geranio: { n: "Rose geranium", o: "Leaves and flowers of the scented geranium.", nt: "Floral, rosy and green", t: "It smells of rose with a fresh green undertone. It links the citrus to the woods and helps the whole blend smell balanced.", p: "One of the most interesting for a deodorant: the geraniol and citronellol it contains have shown good activity in the laboratory against odour-causing bacteria." },
@@ -597,7 +607,7 @@ const L = {
 
   de: {
     ui: {
-      skip: "Zum Inhalt springen", lang: "Sprache", menu: "Menü",
+      skip: "Zum Inhalt springen", lang: "Sprache", recipeQ: "Wie lautet das Rezept für 100 g?", recipeP: "Das ist die Workshop-Rezeptur, umgerechnet auf 100 g – genug für etwa drei 30-ml-Tiegel.", eo: "Ätherische Öle", recipeNote: "0,4 g ätherische Öle entsprechen etwa 4 Tropfen pro 30-ml-Tiegel, 1 g etwa 8 – so viel wie in den Mischungen oben. Wiege alles mit einer Waage ab; Tropfen sind nur ein Richtwert.", menu: "Menü",
       navHow: "So wirkt es", navBase: "Die Basis", navAromas: "Die Düfte", navBlends: "Die Mischungen", navWithout: "Was nicht drin ist", navProcess: "Handgemacht", navFaq: "Fragen", navContact: "Kontakt",
       heroSub: "Fünfzehn Zutaten. Du kannst sie alle lesen.",
       heroP: "In diesem Workshop stellen wir von Hand ein natürliches Deo her – aus drei Pflanzenfetten, drei Pulvern und neun ätherischen Ölen. Hier erfährst du, was jede Zutat bewirkt und warum sie in der Rezeptur ist.",
@@ -610,7 +620,7 @@ const L = {
       baseP: "Sechs Zutaten machen die Arbeit: drei Pflanzenfette, die Konsistenz geben und die Haut pflegen, und drei Pulver, die sich um Feuchtigkeit und Geruch kümmern.",
       aromasP: "Neun ätherische Öle, kein synthetisches Parfüm. Tippe auf eines, um zu sehen, woher es kommt, wie es riecht und was es gegen Geruch beiträgt. Was wir über Bakterien sagen, stammt aus Laborstudien mit den reinen Ölen; im Deo sind sie stark verdünnt und unterstützen Natron und Zink, die die Hauptarbeit leisten.",
       blendsP: "Die Basis ist für alle gleich. Was sich ändert, ist der Duft: Wähle eine Mischung und zähle die Tropfen für deinen 30-ml-Tiegel.",
-      blendsNote: "Gib die Tropfen dazu, wenn die Basis lauwarm ist, und rühre gut um. Zwölf Tropfen auf 30 ml entsprechen etwa 1,5 % – eine vorsichtige Dosis für die Achsel: Mehr Tropfen wirken nicht besser, können aber reizen. Die Tropfengröße hängt von der Pipette ab, nimm die Angaben also als Richtwert.",
+      blendsNote: "Gib die Tropfen dazu, wenn die Basis lauwarm ist, und rühre gut um. Acht Tropfen auf 30 ml entsprechen etwa 1 % – die übliche Dosis für ein Deo: Mehr Tropfen wirken nicht besser, können aber reizen. Die Tropfengröße hängt von der Pipette ab, nimm die Angaben also als Richtwert.",
       total: "{n} Tropfen insgesamt für 30 ml", drop: "Tropfen", drops: "Tropfen",
       withoutP: "Wasser ist auch keins drin, deshalb braucht es keine Konservierungsstoffe. Was auf dem Etikett steht, ist alles, was im Tiegel ist.",
       processH: "So machen wir es im Workshop", processP: "Vier Schritte, ein Topf und deine Hände. Du nimmst deinen eigenen Tiegel mit.",
@@ -635,8 +645,8 @@ const L = {
       almidon: { n: "Maisstärke", o: "Gemahlene Maiskörner.", t: "Sie stoppt den Schweiß nicht, sie nimmt ihn auf. Sie übernimmt die Aufgabe, die früher Talkum hatte, hinterlässt ein trockenes, seidiges Gefühl und nimmt den Buttern das Fettige." },
       bicarbonato: { n: "Natron", o: "Mineralsalz.", t: "Diese Zutat kümmert sich um den Geruch. Natron ist basisch und neutralisiert die sauren Verbindungen, die Bakterien beim Abbau von Schweiß bilden.", a: "Kann empfindliche Haut reizen. Bei Rötung oder Juckreiz nicht weiter verwenden." },
       zinc: { n: "Zinkoxid", o: "Weißes Mineralpulver.", t: "Dasselbe Mineral wie in Wundschutzcremes für Babys. Es hilft, Geruch zu verringern, und wird seit Langem verwendet, um die Haut zu schützen und bei Reizungen zu beruhigen.", a: "Zu viel davon kann weiße Spuren hinterlassen." },
-      bergamota: { n: "Bergamotte", o: "Schale der Frucht, einer Zitrusfrucht, die vor allem in Kalabrien wächst.", nt: "Zitrisch mit blumigem Unterton", t: "Der Duft von Earl-Grey-Tee: eine weichere, rundere Zitrusnote als Zitrone. Sie sorgt für den ersten frischen Eindruck beim Öffnen des Tiegels.", p: "In Laborstudien zeigte es Wirkung gegen mehrere Hautbakterien. Sein Zitrusduft überdeckt Körpergeruch außerdem besonders gut.", a: "Bergamottöl kann die Haut lichtempfindlicher machen, außer es ist bergaptenfrei (FCF)." },
-      pomelo: { n: "Grapefruit", o: "Schale der Grapefruit, kaltgepresst.", nt: "Zitrisch, spritzig und leicht bitter", t: "Eine saubere, lebendige Note mit der leichten Bitterkeit der Grapefruitschale. Sie ist leicht und gehört zu den ersten, die man wahrnimmt.", p: "Ihr Hauptbestandteil Limonen zeigt im Labor eine mäßige antibakterielle Wirkung. Hier sorgt sie vor allem für ein Gefühl von Sauberkeit.", a: "Wie andere kaltgepresste Zitrusöle kann es die Haut lichtempfindlicher machen." },
+      bergamota: { n: "Bergamotte", o: "Schale der Frucht, einer Zitrusfrucht, die vor allem in Kalabrien wächst.", nt: "Zitrisch mit blumigem Unterton", t: "Der Duft von Earl-Grey-Tee: eine weichere, rundere Zitrusnote als Zitrone. Sie sorgt für den ersten frischen Eindruck beim Öffnen des Tiegels.", p: "In Laborstudien zeigte es Wirkung gegen mehrere Hautbakterien. Sein Zitrusduft überdeckt Körpergeruch außerdem besonders gut." },
+      pomelo: { n: "Grapefruit", o: "Schale der Grapefruit, kaltgepresst.", nt: "Zitrisch, spritzig und leicht bitter", t: "Eine saubere, lebendige Note mit der leichten Bitterkeit der Grapefruitschale. Sie ist leicht und gehört zu den ersten, die man wahrnimmt.", p: "Ihr Hauptbestandteil Limonen zeigt im Labor eine mäßige antibakterielle Wirkung. Hier sorgt sie vor allem für ein Gefühl von Sauberkeit." },
       lavanda: { n: "Lavendel", o: "Wasserdampfdestillierte Lavendelblüten.", nt: "Blumig und krautig", t: "Ein sauberer, ruhiger Duft, den fast jeder kennt. Traditionell wird er verwendet, um die Haut zu beruhigen.", p: "Eines der am besten untersuchten Öle: Das enthaltene Linalool zeigte im Labor Wirkung gegen Hautbakterien. Traditionell wird es auch bei gereizter Haut eingesetzt." },
       ylang: { n: "Ylang-Ylang", o: "Blüten des Cananga-odorata-Baums aus Südostasien.", nt: "Blumig, süß und intensiv", t: "Die süßeste, exotischste Note der Mischung. Sparsam dosiert gibt sie Wärme und rundet die Zitrusnoten ab.", p: "Die antibakterielle Wirkung im Labor ist gering. Seine Aufgabe hier ist der Duft: intensiv und lang anhaltend, sodass der angenehme Geruch mehr Stunden hält." },
       geranio: { n: "Rosengeranie", o: "Blätter und Blüten der Duftgeranie.", nt: "Blumig, rosig und grün", t: "Sie duftet nach Rose mit einem frischen, grünen Unterton. Sie verbindet die Zitrusnoten mit den Hölzern und bringt die Mischung ins Gleichgewicht.", p: "Für ein Deo besonders interessant: Das enthaltene Geraniol und Citronellol zeigten im Labor eine gute Wirkung gegen geruchsbildende Bakterien." },
@@ -673,7 +683,7 @@ const L = {
 
   tr: {
     ui: {
-      skip: "İçeriğe geç", lang: "Dil", menu: "Menü",
+      skip: "İçeriğe geç", lang: "Dil", recipeQ: "100 g için tarif nedir?", recipeP: "Bu, atölye formülünün 100 grama uyarlanmış hâlidir; yaklaşık üç adet 30 ml'lik kavanoz için yeterlidir.", eo: "Uçucu yağlar", recipeNote: "0,4 g uçucu yağ, 30 ml'lik kavanoz başına yaklaşık 4 damla; 1 g ise yaklaşık 8 damla eder, yani yukarıdaki karışımlardaki miktar. Her şeyi teraziyle tart; damla sayısı yalnızca bir rehberdir.", menu: "Menü",
       navHow: "Nasıl çalışır", navBase: "Baz", navAromas: "Kokular", navBlends: "Karışımlar", navWithout: "İçinde olmayanlar", navProcess: "El yapımı", navFaq: "Sorular", navContact: "İletişim",
       heroSub: "On beş bileşen. Hepsini okuyabilirsin.",
       heroP: "Bu atölyede üç bitkisel yağ, üç toz ve dokuz uçucu yağ ile el yapımı doğal bir deodorant hazırlıyoruz. Her birinin ne işe yaradığını ve formülde neden bulunduğunu burada anlatıyoruz.",
@@ -686,7 +696,7 @@ const L = {
       baseP: "İşi altı bileşen yapar: kıvam veren ve cilde bakan üç bitkisel yağ ile nem ve kokuyla ilgilenen üç toz.",
       aromasP: "Dokuz uçucu yağ, sentetik parfüm yok. Nereden geldiğini, nasıl koktuğunu ve kokuya karşı ne kattığını görmek için birine dokun. Bakterilerle ilgili söylediklerimiz saf yağlarla yapılan laboratuvar çalışmalarına dayanır; deodorantta çok seyreltilmiş hâlde bulunurlar ve asıl işi yapan karbonat ile çinkoya eşlik ederler.",
       blendsP: "Baz herkes için aynı. Değişen şey koku: bir karışım seç ve 30 ml'lik kavanozun için damlaları say.",
-      blendsNote: "Damlaları baz ılıkken ekle ve iyice karıştır. 30 ml'de on iki damla yaklaşık %1,5 eder; koltuk altı için temkinli bir dozdur: daha fazla damla daha iyi etki etmez, tahriş edebilir. Damla boyutu damlalığa göre değişir, bu yüzden bunu bir rehber olarak düşün.",
+      blendsNote: "Damlaları baz ılıkken ekle ve iyice karıştır. 30 ml'de sekiz damla yaklaşık %1 eder; deodorant için alışılmış dozdur: daha fazla damla daha iyi etki etmez, tahriş edebilir. Damla boyutu damlalığa göre değişir, bu yüzden bunu bir rehber olarak düşün.",
       total: "30 ml için toplam {n} damla", drop: "damla", drops: "damla",
       withoutP: "İçinde su da yok, bu yüzden koruyucuya ihtiyaç duymaz. Etikette gördüğün, kavanozdaki her şeydir.",
       processH: "Atölyede böyle yapıyoruz", processP: "Dört adım, bir tencere ve ellerin. Kendi kavanozunu yanında götürürsün.",
@@ -711,8 +721,8 @@ const L = {
       almidon: { n: "Mısır nişastası", o: "Öğütülmüş mısır tanesi.", t: "Teri durdurmaz, emer. Eskiden talk pudrasının yaptığı işi yapar; kuru ve ipeksi bir his bırakır, yağların yağlı hissini alır." },
       bicarbonato: { n: "Karbonat", o: "Mineral tuzu (sodyum bikarbonat).", t: "Kokuyla ilgilenen bileşen budur. Baziktir ve bakterilerin teri parçalarken ürettiği asidik bileşikleri nötralize eder.", a: "Hassas ciltleri tahriş edebilir. Kızarıklık veya kaşıntı olursa kullanmayı bırak." },
       zinc: { n: "Çinko oksit", o: "Beyaz mineral tozu.", t: "Pişik kremlerindeki mineralin aynısı. Kokunun azalmasına yardımcı olur; cildi korumak ve tahriş olduğunda yatıştırmak için uzun zamandır kullanılır.", a: "Fazla sürersen beyaz iz bırakabilir." },
-      bergamota: { n: "Bergamot", o: "Meyvenin kabuğu; çoğunlukla Calabria'da yetişen bir narenciye.", nt: "Narenciye, çiçeksi bir alt notayla", t: "Earl Grey çayının kokusu: limondan daha yumuşak ve yuvarlak bir narenciye. Kavanozu açtığında ilk ferah izlenimi verir.", p: "Laboratuvar çalışmalarında çeşitli cilt bakterilerine karşı etki göstermiştir. Narenciye kokusu vücut kokusunu en iyi örtenlerdendir.", a: "Bergamot yağı, bergaptensiz (FCF) türden değilse cildi güneşe karşı daha hassas yapabilir." },
-      pomelo: { n: "Greyfurt", o: "Greyfurt kabuğu, soğuk sıkım.", nt: "Narenciye, canlı ve hafif acımsı", t: "Greyfurt kabuğunun hafif acılığıyla temiz ve canlı bir dokunuş. Hafif bir notadır, ilk fark edilenlerden biridir.", p: "Ana bileşeni limonen, laboratuvarda orta düzeyde antibakteriyel etki gösterir. Burada daha çok temizlik hissi katar.", a: "Diğer soğuk sıkım narenciye yağları gibi cildi güneşe karşı daha hassas yapabilir." },
+      bergamota: { n: "Bergamot", o: "Meyvenin kabuğu; çoğunlukla Calabria'da yetişen bir narenciye.", nt: "Narenciye, çiçeksi bir alt notayla", t: "Earl Grey çayının kokusu: limondan daha yumuşak ve yuvarlak bir narenciye. Kavanozu açtığında ilk ferah izlenimi verir.", p: "Laboratuvar çalışmalarında çeşitli cilt bakterilerine karşı etki göstermiştir. Narenciye kokusu vücut kokusunu en iyi örtenlerdendir." },
+      pomelo: { n: "Greyfurt", o: "Greyfurt kabuğu, soğuk sıkım.", nt: "Narenciye, canlı ve hafif acımsı", t: "Greyfurt kabuğunun hafif acılığıyla temiz ve canlı bir dokunuş. Hafif bir notadır, ilk fark edilenlerden biridir.", p: "Ana bileşeni limonen, laboratuvarda orta düzeyde antibakteriyel etki gösterir. Burada daha çok temizlik hissi katar." },
       lavanda: { n: "Lavanta", o: "Buharla damıtılmış lavanta çiçekleri.", nt: "Çiçeksi ve bitkisel", t: "Neredeyse herkesin tanıdığı temiz ve sakin bir koku. Geleneksel olarak cildi yatıştırmak için kullanılır.", p: "En çok araştırılan yağlardan biri: içerdiği linalool, laboratuvarda cilt bakterilerine karşı etki göstermiştir. Geleneksel olarak tahriş olmuş cildi yatıştırmak için de kullanılır." },
       ylang: { n: "Ylang-ylang", o: "Güneydoğu Asya'da yetişen Cananga odorata ağacının çiçekleri.", nt: "Çiçeksi, tatlı ve yoğun", t: "Karışımın en tatlı ve egzotik notası. Sıcaklık katmak ve narenciyeleri yuvarlamak için az miktarda kullanılır.", p: "Laboratuvardaki antibakteriyel etkisi sınırlıdır. Buradaki görevi kokudur: yoğun ve kalıcıdır, hoş kokunun daha uzun saatler sürmesine yardımcı olur." },
       geranio: { n: "Itır çiçeği", o: "Itır çiçeğinin (gül kokulu sardunya) yaprakları ve çiçekleri.", nt: "Çiçeksi, gülümsü ve yeşil", t: "Taze, yeşil bir alt notayla gül gibi kokar. Narenciyeleri odunsu notalara bağlar ve karışımın dengeli kokmasına yardımcı olur.", p: "Deodorant için en ilgi çekici olanlardan: içerdiği geraniol ve sitronellol, laboratuvarda kötü kokuya yol açan bakterilere karşı iyi etki göstermiştir." },
@@ -749,7 +759,7 @@ const L = {
 
   es: {
     ui: {
-      skip: "Saltar al contenido", lang: "Idioma", menu: "Menú",
+      skip: "Saltar al contenido", lang: "Idioma", recipeQ: "¿Cuál es la receta para 100 g?", recipeP: "Es la fórmula del taller adaptada a 100 g, suficiente para unos tres tarros de 30 ml.", eo: "Aceites esenciales", recipeNote: "0,4 g de aceites esenciales son unas 4 gotas por tarro de 30 ml y 1 g son unas 8, la cantidad de las mezclas de arriba. Pésalo todo con báscula; las gotas son solo una guía.", menu: "Menú",
       navHow: "Cómo funciona", navBase: "La base", navAromas: "Los aromas", navBlends: "Las mezclas", navWithout: "Lo que no lleva", navProcess: "Hecho a mano", navFaq: "Preguntas", navContact: "Contacto",
       heroSub: "Quince ingredientes. Puedes leerlos todos.",
       heroP: "En este taller hacemos a mano un desodorante natural con tres grasas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.",
@@ -762,7 +772,7 @@ const L = {
       baseP: "Seis ingredientes hacen el trabajo: tres grasas vegetales que dan cuerpo y cuidan la piel, y tres polvos que se ocupan de la humedad y del olor.",
       aromasP: "Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.",
       blendsP: "La base es la misma para todos. Lo que cambia es el aroma: elige una mezcla y cuenta las gotas para tu tarro de 30 ml.",
-      blendsNote: "Añade las gotas cuando la base esté tibia y remueve bien. Doce gotas en 30 ml equivalen más o menos a un 1,5 %, una dosis prudente para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.",
+      blendsNote: "Añade las gotas cuando la base esté tibia y remueve bien. Ocho gotas en 30 ml equivalen más o menos a un 1 %, la dosis habitual para un desodorante: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.",
       total: "{n} gotas en total para 30 ml", drop: "gota", drops: "gotas",
       withoutP: "Tampoco lleva agua, así que no necesita conservantes. Lo que ves en la etiqueta es todo lo que hay en el tarro.",
       processH: "Así lo hacemos en el taller", processP: "Cuatro pasos, un cazo y tus manos. Te llevas tu propio tarro.",
@@ -787,8 +797,8 @@ const L = {
       almidon: { n: "Almidón de maíz", o: "Grano de maíz molido.", t: "No frena el sudor: lo absorbe. Hace el papel que antes hacía el talco, deja un tacto seco y sedoso y quita la sensación grasa de las mantecas." },
       bicarbonato: { n: "Bicarbonato de sodio", o: "Sal mineral.", t: "Es el ingrediente que se ocupa del olor. Es alcalino y neutraliza los compuestos ácidos que producen las bacterias al descomponer el sudor.", a: "Puede irritar las pieles sensibles. Si notas rojez o picor, deja de usarlo." },
       zinc: { n: "Óxido de zinc", o: "Polvo mineral blanco.", t: "Es el mismo mineral de las cremas para la zona del pañal. Ayuda a reducir el olor y se usa desde hace mucho para proteger la piel y calmarla cuando está irritada.", a: "Si te pones demasiada cantidad puede dejar un rastro blanco." },
-      bergamota: { n: "Bergamota", o: "Cáscara del fruto, un cítrico cultivado sobre todo en Calabria.", nt: "Cítrica, con un fondo floral", t: "Es el olor del té Earl Grey: un cítrico más suave y redondo que el limón. Aporta la primera impresión fresca al abrir el tarro.", p: "En estudios de laboratorio ha mostrado actividad frente a varias bacterias de la piel. Además, su aroma cítrico es de los que mejor tapan el olor corporal.", a: "El aceite de bergamota puede hacer la piel más sensible al sol, salvo que sea del tipo sin bergapteno (FCF)." },
-      pomelo: { n: "Pomelo", o: "Cáscara del pomelo, prensada en frío.", nt: "Cítrica, chispeante y algo amarga", t: "Da un toque limpio y vivo, con ese punto amargo de la piel del pomelo. Es una nota ligera, de las primeras que se perciben.", p: "Su componente principal, el limoneno, muestra una actividad antibacteriana moderada en laboratorio. Aquí aporta sobre todo sensación de limpieza.", a: "Como otros cítricos prensados en frío, puede hacer la piel más sensible al sol." },
+      bergamota: { n: "Bergamota", o: "Cáscara del fruto, un cítrico cultivado sobre todo en Calabria.", nt: "Cítrica, con un fondo floral", t: "Es el olor del té Earl Grey: un cítrico más suave y redondo que el limón. Aporta la primera impresión fresca al abrir el tarro.", p: "En estudios de laboratorio ha mostrado actividad frente a varias bacterias de la piel. Además, su aroma cítrico es de los que mejor tapan el olor corporal." },
+      pomelo: { n: "Pomelo", o: "Cáscara del pomelo, prensada en frío.", nt: "Cítrica, chispeante y algo amarga", t: "Da un toque limpio y vivo, con ese punto amargo de la piel del pomelo. Es una nota ligera, de las primeras que se perciben.", p: "Su componente principal, el limoneno, muestra una actividad antibacteriana moderada en laboratorio. Aquí aporta sobre todo sensación de limpieza." },
       lavanda: { n: "Lavanda", o: "Flores de lavanda destiladas al vapor.", nt: "Floral y herbal", t: "Un aroma limpio y tranquilo que casi todo el mundo reconoce. Se ha usado tradicionalmente para calmar la piel.", p: "Es uno de los aceites más estudiados: el linalool que contiene ha mostrado actividad frente a bacterias de la piel en laboratorio. También se usa tradicionalmente para calmar la piel irritada." },
       ylang: { n: "Ylang-ylang", o: "Flores del árbol Cananga odorata, del sudeste asiático.", nt: "Floral, dulce e intensa", t: "Es la nota más dulce y exótica de la mezcla. Se usa en poca cantidad para dar calidez y redondear los cítricos.", p: "Su actividad antibacteriana en laboratorio es modesta. Su papel aquí es el aroma: es intenso y duradero, y ayuda a que el olor agradable aguante más horas." },
       geranio: { n: "Geranio rosa", o: "Hojas y flores del geranio de olor.", nt: "Floral, rosada y verde", t: "Huele a rosa con un fondo fresco y verde. Une los cítricos con las maderas y ayuda a que el conjunto huela equilibrado.", p: "De los más interesantes para un desodorante: el geraniol y el citronelol que contiene han mostrado en laboratorio buena actividad frente a las bacterias que causan el mal olor." },
@@ -836,7 +846,7 @@ for (const [k, t] of Object.entries(L)) {
   console.assert(INGREDIENTES.every((i) => t.ing[i.id] && i.fn.every((f) => t.fn[f])), "Missing ingredient text: " + k);
   console.assert(t.mez.length === MEZCLAS.length && t.faq.length === L.en.faq.length, "Missing blends/FAQ: " + k);
 }
-MEZCLAS.forEach((m, n) => console.assert(m.reduce((s, [, g]) => s + g, 0) <= 12 && m.every(([id]) => porId[id]), "Check blend " + n));
+MEZCLAS.forEach((m, n) => console.assert(m.reduce((s, [, g]) => s + g, 0) <= 8 && m.every(([id]) => porId[id]), "Check blend " + n));
 
 function render(lang) {
   const t = L[lang], ui = t.ui;
@@ -875,8 +885,9 @@ function render(lang) {
       <p>${t.fam[f][1]}</p>
       ${aromas.filter((i) => i.familia === f).map((i) => { const x = t.ing[i.id]; return `
         <details name="aroma" id="${i.id}">
-          <summary><span><span class="nombre">${x.n}</span><span class="notas">${x.nt}</span></span></summary>
+          <summary><img class="mini" src="img/${i.id}.webp" alt="" width="${LAMINAS[i.id][0]}" height="${LAMINAS[i.id][1]}" loading="lazy"><span><span class="nombre">${x.n}</span><span class="notas">${x.nt}</span></span></summary>
           <div class="aroma-cuerpo">
+            <img class="lamina" src="img/${i.id}.webp" alt="${x.n}" width="${LAMINAS[i.id][0]}" height="${LAMINAS[i.id][1]}" loading="lazy">
             <p>${x.t}</p>
             <p><strong>${ui.odour}</strong> ${x.p}</p>
             <p class="origen">${x.o}</p>
@@ -902,7 +913,12 @@ function render(lang) {
 
   el("lista-sin").innerHTML = t.sin.map((s) => `<li><s>${s}</s></li>`).join("");
   el("lista-pasos").innerHTML = t.pasos.map(([h, p]) => `<li><div><h3>${h}</h3><p>${p}</p></div></li>`).join("");
-  el("lista-faq").innerHTML = t.faq.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
+  const g = (n) => n.toLocaleString(lang) + " g";
+  const receta = `<details><summary>${ui.recipeQ}</summary><div class="receta"><p>${ui.recipeP}</p>
+    <ul>${RECETA.map(([id, n]) => `<li><span>${t.ing[id].n}</span><span>${g(n)}</span></li>`).join("")}
+      <li><span>${ui.eo}</span><span>${(0.4).toLocaleString(lang)}–${g(1)}</span></li></ul>
+    <p>${ui.recipeNote}</p></div></details>`;
+  el("lista-faq").innerHTML = receta + t.faq.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
   el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
   el("pie-autor").innerHTML = `<p>${ui.byTop}</p><p class="pie-marca collab">${marca}</p><p>${ui.byPlace}</p><p class="corazon" aria-hidden="true">❤️</p>`;
 
