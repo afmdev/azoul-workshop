@@ -1,0 +1,461 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#contenido"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Azoul Gathering × Alejandro" [ref=e5] [cursor=pointer]:
+        - /url: "#inicio"
+        - text: Azoul Gathering
+        - generic [ref=e6]: ×
+        - emphasis [ref=e7]: Alejandro
+      - generic [ref=e8]:
+        - navigation "Menu" [ref=e9]:
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - link "How it works" [ref=e12] [cursor=pointer]:
+                - /url: "#como-funciona"
+            - listitem [ref=e13]:
+              - link "The base" [ref=e14] [cursor=pointer]:
+                - /url: "#base"
+            - listitem [ref=e15]:
+              - link "The scents" [ref=e16] [cursor=pointer]:
+                - /url: "#aromas"
+            - listitem [ref=e17]:
+              - link "The blends" [ref=e18] [cursor=pointer]:
+                - /url: "#mezclas"
+            - listitem [ref=e19]:
+              - link "What's left out" [ref=e20] [cursor=pointer]:
+                - /url: "#sin"
+            - listitem [ref=e21]:
+              - link "Made by hand" [ref=e22] [cursor=pointer]:
+                - /url: "#proceso"
+            - listitem [ref=e23]:
+              - link "Questions" [ref=e24] [cursor=pointer]:
+                - /url: "#faq"
+        - 'button "Language: English" [ref=e26] [cursor=pointer]':
+          - generic [ref=e27]: 🇬🇧
+  - main [ref=e30]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - 'heading "Workshop: Natural deodorant making" [level=1] [ref=e34]'
+        - paragraph [ref=e35]: "No small print: everything that goes in, and why."
+        - paragraph [ref=e36]: In this workshop we make a natural deodorant by hand with three plant fats, three powders and nine essential oils. Here is what each one does and why it is in the formula.
+        - link "See the ingredients" [ref=e37] [cursor=pointer]:
+          - /url: "#base"
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - text: Azoul Gathering×
+          - emphasis [ref=e43]: Alejandro
+        - generic [ref=e44]: "Workshop: Natural deodorant making"
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - heading "The base" [level=2] [ref=e47]
+            - list [ref=e48]:
+              - listitem [ref=e49]:
+                - link "Shea butter" [ref=e50] [cursor=pointer]:
+                  - /url: "#karite"
+              - listitem [ref=e51]:
+                - link "Coconut oil" [ref=e52] [cursor=pointer]:
+                  - /url: "#coco"
+              - listitem [ref=e53]:
+                - link "Cocoa butter" [ref=e54] [cursor=pointer]:
+                  - /url: "#cacao"
+              - listitem [ref=e55]:
+                - link "Cornstarch" [ref=e56] [cursor=pointer]:
+                  - /url: "#almidon"
+              - listitem [ref=e57]:
+                - link "Baking soda" [ref=e58] [cursor=pointer]:
+                  - /url: "#bicarbonato"
+              - listitem [ref=e59]:
+                - link "Zinc oxide" [ref=e60] [cursor=pointer]:
+                  - /url: "#zinc"
+          - generic [ref=e61]:
+            - heading "The scents" [level=2] [ref=e62]
+            - list [ref=e63]:
+              - listitem [ref=e64]:
+                - link "Bergamot" [ref=e65] [cursor=pointer]:
+                  - /url: "#bergamota"
+              - listitem [ref=e66]:
+                - link "Grapefruit" [ref=e67] [cursor=pointer]:
+                  - /url: "#pomelo"
+              - listitem [ref=e68]:
+                - link "Lavender" [ref=e69] [cursor=pointer]:
+                  - /url: "#lavanda"
+              - listitem [ref=e70]:
+                - link "Ylang-ylang" [ref=e71] [cursor=pointer]:
+                  - /url: "#ylang"
+              - listitem [ref=e72]:
+                - link "Rose geranium" [ref=e73] [cursor=pointer]:
+                  - /url: "#geranio"
+              - listitem [ref=e74]:
+                - link "Cedarwood" [ref=e75] [cursor=pointer]:
+                  - /url: "#cedro"
+              - listitem [ref=e76]:
+                - link "Frankincense" [ref=e77] [cursor=pointer]:
+                  - /url: "#incienso"
+              - listitem [ref=e78]:
+                - link "Peppermint" [ref=e79] [cursor=pointer]:
+                  - /url: "#menta"
+              - listitem [ref=e80]:
+                - link "Rosemary" [ref=e81] [cursor=pointer]:
+                  - /url: "#romero"
+    - generic [ref=e83]:
+      - heading "Deodorant, not antiperspirant" [level=2] [ref=e84]
+      - paragraph [ref=e85]: An antiperspirant plugs the pore so you don't sweat. This deodorant lets you sweat, which is what the body needs, and takes care of what comes next.
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - heading "Sweat has no smell" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Odour appears when skin bacteria break down sweat. Baking soda helps neutralise those compounds.
+        - generic [ref=e90]:
+          - heading "Absorb instead of block" [level=3] [ref=e91]
+          - paragraph [ref=e92]: Cornstarch takes up some of the moisture and leaves the underarm feeling dry, without closing the pore.
+        - generic [ref=e93]:
+          - heading "Care for the skin" [level=3] [ref=e94]
+          - paragraph [ref=e95]: Shea butter, cocoa butter and coconut oil make the cream glide and leave the skin soft.
+    - generic [ref=e97]:
+      - heading "The base" [level=2] [ref=e98]
+      - paragraph [ref=e99]: "Six ingredients do the work: three plant fats that give body and care for the skin, and three powders that deal with moisture and odour."
+      - list [ref=e100]:
+        - listitem [ref=e101]:
+          - generic [ref=e103]:
+            - heading "Shea butter" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Butyrospermum Parkii Butter
+            - paragraph [ref=e106]: Nut of the shea tree, from West Africa.
+          - generic [ref=e107]:
+            - list [ref=e108]:
+              - listitem [ref=e109]: Softens the skin
+              - listitem [ref=e110]: Gives texture
+            - paragraph [ref=e111]: This is the butter that lets the cream glide without tugging at the skin. Rich in fatty acids, it helps keep the underarm moisturised, which is especially welcome after shaving.
+        - listitem [ref=e112]:
+          - generic [ref=e114]:
+            - heading "Coconut oil" [level=3] [ref=e115]
+            - paragraph [ref=e116]: Cocos Nucifera Oil
+            - paragraph [ref=e117]: Flesh of the coconut.
+          - generic [ref=e118]:
+            - list [ref=e119]:
+              - listitem [ref=e120]: Gives texture
+              - listitem [ref=e121]: Softens the skin
+              - listitem [ref=e122]: Helps against odour
+            - paragraph [ref=e123]: Solid when cool and liquid at body temperature, which is why the cream melts as you apply it. It contains lauric acid, studied for its activity against the bacteria that cause odour.
+        - listitem [ref=e124]:
+          - generic [ref=e126]:
+            - heading "Cocoa butter" [level=3] [ref=e127]
+            - paragraph [ref=e128]: Theobroma Cacao Seed Butter
+            - paragraph [ref=e129]: Beans of the cacao tree.
+          - generic [ref=e130]:
+            - list [ref=e131]:
+              - listitem [ref=e132]: Adds firmness
+              - listitem [ref=e133]: Softens the skin
+            - paragraph [ref=e134]: "The hardest of the three fats: it gives the formula body so it holds up better in the heat. It leaves a thin layer that protects the skin and a very faint scent of chocolate."
+        - listitem [ref=e135]:
+          - generic [ref=e137]:
+            - heading "Cornstarch" [level=3] [ref=e138]
+            - paragraph [ref=e139]: Zea Mays Starch
+            - paragraph [ref=e140]: Ground maize kernels.
+          - generic [ref=e141]:
+            - list [ref=e142]:
+              - listitem [ref=e143]: Absorbs moisture
+            - paragraph [ref=e144]: "It doesn't stop sweat: it absorbs it. It does the job talc used to do, leaves a dry, silky feel and takes away the greasy touch of the butters."
+        - listitem [ref=e145]:
+          - generic [ref=e147]:
+            - heading "Baking soda" [level=3] [ref=e148]
+            - paragraph [ref=e149]: Sodium Bicarbonate
+            - paragraph [ref=e150]: Mineral salt.
+          - generic [ref=e151]:
+            - list [ref=e152]:
+              - listitem [ref=e153]: Neutralises odour
+            - paragraph [ref=e154]: This is the ingredient that deals with odour. It is alkaline and neutralises the acidic compounds bacteria produce when they break down sweat.
+            - paragraph [ref=e155]:
+              - strong [ref=e156]: "Keep in mind:"
+              - text: It can irritate sensitive skin. If you notice redness or itching, stop using it.
+        - listitem [ref=e157]:
+          - generic [ref=e159]:
+            - heading "Zinc oxide" [level=3] [ref=e160]
+            - paragraph [ref=e161]: Zinc Oxide
+            - paragraph [ref=e162]: White mineral powder.
+          - generic [ref=e163]:
+            - list [ref=e164]:
+              - listitem [ref=e165]: Helps against odour
+              - listitem [ref=e166]: Protects the skin
+            - paragraph [ref=e167]: The same mineral used in nappy creams. It helps reduce odour and has long been used to protect the skin and soothe it when irritated.
+            - paragraph [ref=e168]:
+              - strong [ref=e169]: "Keep in mind:"
+              - text: If you apply too much it can leave a white trace.
+    - generic [ref=e171]:
+      - heading "The scents" [level=2] [ref=e172]
+      - paragraph [ref=e173]: Nine essential oils, no synthetic fragrance. Tap any of them to see where it comes from, what it smells like and what it adds against odour.
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - heading "Citrus" [level=3] [ref=e176]
+          - paragraph [ref=e177]: "The first thing you smell: light and bright."
+          - group [ref=e178]:
+            - generic "Bergamot Citrus with a floral undertone +" [ref=e179] [cursor=pointer]:
+              - generic [ref=e180]:
+                - text: Bergamot
+                - generic [ref=e181]: Citrus with a floral undertone
+              - text: +
+          - group [ref=e182]:
+            - generic "Grapefruit Citrus, sparkling and slightly bitter +" [ref=e183] [cursor=pointer]:
+              - generic [ref=e184]:
+                - text: Grapefruit
+                - generic [ref=e185]: Citrus, sparkling and slightly bitter
+              - text: +
+        - generic [ref=e186]:
+          - heading "Florals" [level=3] [ref=e187]
+          - paragraph [ref=e188]: The heart of the blend.
+          - group [ref=e189]:
+            - generic "Lavender Floral and herbal +" [ref=e190] [cursor=pointer]:
+              - generic [ref=e191]:
+                - text: Lavender
+                - generic [ref=e192]: Floral and herbal
+              - text: +
+          - group [ref=e193]:
+            - generic "Ylang-ylang Floral, sweet and intense +" [ref=e194] [cursor=pointer]:
+              - generic [ref=e195]:
+                - text: Ylang-ylang
+                - generic [ref=e196]: Floral, sweet and intense
+              - text: +
+          - group [ref=e197]:
+            - generic "Rose geranium Floral, rosy and green +" [ref=e198] [cursor=pointer]:
+              - generic [ref=e199]:
+                - text: Rose geranium
+                - generic [ref=e200]: Floral, rosy and green
+              - text: +
+        - generic [ref=e201]:
+          - heading "Woods and resins" [level=3] [ref=e202]
+          - paragraph [ref=e203]: The base that makes the scent last.
+          - group [ref=e204]:
+            - generic "Cedarwood Woody, dry and warm +" [ref=e205] [cursor=pointer]:
+              - generic [ref=e206]:
+                - text: Cedarwood
+                - generic [ref=e207]: Woody, dry and warm
+              - text: +
+          - group [ref=e208]:
+            - generic "Frankincense Resinous and balsamic +" [ref=e209] [cursor=pointer]:
+              - generic [ref=e210]:
+                - text: Frankincense
+                - generic [ref=e211]: Resinous and balsamic
+              - text: +
+        - generic [ref=e212]:
+          - heading "Fresh and herbal" [level=3] [ref=e213]
+          - paragraph [ref=e214]: The touch of freshness.
+          - group [ref=e215]:
+            - generic "Peppermint Fresh and minty +" [ref=e216] [cursor=pointer]:
+              - generic [ref=e217]:
+                - text: Peppermint
+                - generic [ref=e218]: Fresh and minty
+              - text: +
+          - group [ref=e219]:
+            - generic "Rosemary Herbal, fresh and camphor-like +" [ref=e220] [cursor=pointer]:
+              - generic [ref=e221]:
+                - text: Rosemary
+                - generic [ref=e222]: Herbal, fresh and camphor-like
+              - text: +
+    - generic [ref=e224]:
+      - heading "The blends" [level=2] [ref=e225]
+      - paragraph [ref=e226]: "The base is the same for everyone. What changes is the scent: pick a blend and count the drops for your 30 ml jar."
+      - generic [ref=e227]:
+        - article [ref=e228]:
+          - heading "Citrus morning" [level=3] [ref=e229]
+          - paragraph [ref=e230]: Bright and clean, to start the day.
+          - list [ref=e231]:
+            - listitem [ref=e232]:
+              - link "Grapefruit 5 drops" [ref=e233] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Grapefruit
+                - generic [ref=e235]: 5 drops
+            - listitem [ref=e236]:
+              - link "Cedarwood 3 drops" [ref=e237] [cursor=pointer]:
+                - /url: "#cedro"
+                - text: Cedarwood
+                - generic [ref=e239]: 3 drops
+            - listitem [ref=e240]:
+              - link "Bergamot 2 drops" [ref=e241] [cursor=pointer]:
+                - /url: "#bergamota"
+                - text: Bergamot
+                - generic [ref=e243]: 2 drops
+            - listitem [ref=e244]:
+              - link "Peppermint 2 drops" [ref=e245] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Peppermint
+                - generic [ref=e247]: 2 drops
+          - paragraph [ref=e248]: 12 drops in total for 30 ml
+        - article [ref=e249]:
+          - heading "Garden" [level=3] [ref=e250]
+          - paragraph [ref=e251]: Floral and gentle. Lavender and geranium are among the most helpful against odour.
+          - list [ref=e252]:
+            - listitem [ref=e253]:
+              - link "Lavender 5 drops" [ref=e254] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavender
+                - generic [ref=e256]: 5 drops
+            - listitem [ref=e257]:
+              - link "Rose geranium 4 drops" [ref=e258] [cursor=pointer]:
+                - /url: "#geranio"
+                - text: Rose geranium
+                - generic [ref=e260]: 4 drops
+            - listitem [ref=e261]:
+              - link "Frankincense 2 drops" [ref=e262] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Frankincense
+                - generic [ref=e264]: 2 drops
+            - listitem [ref=e265]:
+              - link "Ylang-ylang 1 drop" [ref=e266] [cursor=pointer]:
+                - /url: "#ylang"
+                - text: Ylang-ylang
+                - generic [ref=e268]: 1 drop
+          - paragraph [ref=e269]: 12 drops in total for 30 ml
+        - article [ref=e270]:
+          - heading "Forest" [level=3] [ref=e271]
+          - paragraph [ref=e272]: Woody and warm, the one that lasts longest on the skin.
+          - list [ref=e273]:
+            - listitem [ref=e274]:
+              - link "Cedarwood 5 drops" [ref=e275] [cursor=pointer]:
+                - /url: "#cedro"
+                - text: Cedarwood
+                - generic [ref=e277]: 5 drops
+            - listitem [ref=e278]:
+              - link "Frankincense 3 drops" [ref=e279] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Frankincense
+                - generic [ref=e281]: 3 drops
+            - listitem [ref=e282]:
+              - link "Rosemary 2 drops" [ref=e283] [cursor=pointer]:
+                - /url: "#romero"
+                - text: Rosemary
+                - generic [ref=e285]: 2 drops
+            - listitem [ref=e286]:
+              - link "Bergamot 2 drops" [ref=e287] [cursor=pointer]:
+                - /url: "#bergamota"
+                - text: Bergamot
+                - generic [ref=e289]: 2 drops
+          - paragraph [ref=e290]: 12 drops in total for 30 ml
+        - article [ref=e291]:
+          - heading "Fresh hillside" [level=3] [ref=e292]
+          - paragraph [ref=e293]: Herbal and fresh, made for hot days and sport.
+          - list [ref=e294]:
+            - listitem [ref=e295]:
+              - link "Lavender 5 drops" [ref=e296] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavender
+                - generic [ref=e298]: 5 drops
+            - listitem [ref=e299]:
+              - link "Rosemary 3 drops" [ref=e300] [cursor=pointer]:
+                - /url: "#romero"
+                - text: Rosemary
+                - generic [ref=e302]: 3 drops
+            - listitem [ref=e303]:
+              - link "Peppermint 2 drops" [ref=e304] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Peppermint
+                - generic [ref=e306]: 2 drops
+            - listitem [ref=e307]:
+              - link "Grapefruit 2 drops" [ref=e308] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Grapefruit
+                - generic [ref=e310]: 2 drops
+          - paragraph [ref=e311]: 12 drops in total for 30 ml
+        - article [ref=e312]:
+          - heading "Atlantic" [level=3] [ref=e313]
+          - paragraph [ref=e314]: Citrus, flower and resin, with a hint of freshness.
+          - list [ref=e315]:
+            - listitem [ref=e316]:
+              - link "Grapefruit 4 drops" [ref=e317] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Grapefruit
+                - generic [ref=e319]: 4 drops
+            - listitem [ref=e320]:
+              - link "Rose geranium 3 drops" [ref=e321] [cursor=pointer]:
+                - /url: "#geranio"
+                - text: Rose geranium
+                - generic [ref=e323]: 3 drops
+            - listitem [ref=e324]:
+              - link "Frankincense 3 drops" [ref=e325] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Frankincense
+                - generic [ref=e327]: 3 drops
+            - listitem [ref=e328]:
+              - link "Peppermint 2 drops" [ref=e329] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Peppermint
+                - generic [ref=e331]: 2 drops
+          - paragraph [ref=e332]: 12 drops in total for 30 ml
+        - article [ref=e333]:
+          - heading "Sensitive skin" [level=3] [ref=e334]
+          - paragraph [ref=e335]: A lighter dose and just two gentle oils.
+          - list [ref=e336]:
+            - listitem [ref=e337]:
+              - link "Lavender 4 drops" [ref=e338] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavender
+                - generic [ref=e340]: 4 drops
+            - listitem [ref=e341]:
+              - link "Frankincense 2 drops" [ref=e342] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Frankincense
+                - generic [ref=e344]: 2 drops
+          - paragraph [ref=e345]: 6 drops in total for 30 ml
+      - paragraph [ref=e346]: "Add the drops when the base is lukewarm and stir well. Twelve drops in 30 ml is roughly 1.5%, a generous dose for the underarm: more drops won't make it work better and may irritate. Drop size varies with the dropper, so treat this as a guide."
+    - generic [ref=e350]:
+      - heading "What's left out" [level=2] [ref=e351]
+      - list [ref=e352]:
+        - listitem [ref=e353]: Aluminium salts
+        - listitem [ref=e354]: Parabens
+        - listitem [ref=e355]: Synthetic fragrance
+      - paragraph [ref=e356]: There is no water in it either, so it needs no preservatives. What you see on the label is everything in the jar.
+    - generic [ref=e358]:
+      - heading "How we make it in the workshop" [level=2] [ref=e359]
+      - paragraph [ref=e360]: Five steps, a pan and your hands. You take home your own jar.
+      - list [ref=e361]:
+        - listitem [ref=e362]:
+          - generic [ref=e363]:
+            - heading "Grind" [level=3] [ref=e364]
+            - paragraph [ref=e365]: We grind the baking soda in a mortar until it is as fine as possible. If it stays gritty, it scratches and can irritate the skin when you apply the cream.
+        - listitem [ref=e366]:
+          - generic [ref=e367]:
+            - heading "Melt" [level=3] [ref=e368]
+            - paragraph [ref=e369]: We melt the butters and coconut oil in a bain-marie over low heat, so they don't spoil.
+        - listitem [ref=e370]:
+          - generic [ref=e371]:
+            - heading "Mix" [level=3] [ref=e372]
+            - paragraph [ref=e373]: We add the sifted cornstarch, baking soda and zinc oxide and stir until not a single lump is left.
+        - listitem [ref=e374]:
+          - generic [ref=e375]:
+            - heading "Scent" [level=3] [ref=e376]
+            - paragraph [ref=e377]: Once the mixture has cooled to lukewarm, we add the essential oils. Too much heat would make them lose their scent.
+        - listitem [ref=e378]:
+          - generic [ref=e379]:
+            - heading "Pour and rest" [level=3] [ref=e380]
+            - paragraph [ref=e381]: We fill the jars one by one and leave them to rest until the cream sets.
+    - generic [ref=e383]:
+      - heading "Frequently asked questions" [level=2] [ref=e384]
+      - generic [ref=e385]:
+        - group [ref=e386]:
+          - generic "What is the recipe for 100 g? +" [ref=e387] [cursor=pointer]
+        - group [ref=e388]:
+          - generic "Will I stop sweating? +" [ref=e389] [cursor=pointer]
+        - group [ref=e390]:
+          - generic "Is there an adjustment period? +" [ref=e391] [cursor=pointer]
+        - group [ref=e392]:
+          - generic "Is it suitable for sensitive skin? +" [ref=e393] [cursor=pointer]
+        - group [ref=e394]:
+          - generic "How do I apply it? +" [ref=e395] [cursor=pointer]
+        - group [ref=e396]:
+          - generic "How do I store it? +" [ref=e397] [cursor=pointer]
+        - group [ref=e398]:
+          - generic "Does it stain clothes? +" [ref=e399] [cursor=pointer]
+        - group [ref=e400]:
+          - generic "Can I use it during pregnancy? +" [ref=e401] [cursor=pointer]
+  - contentinfo [ref=e402]:
+    - generic [ref=e404]:
+      - generic [ref=e405]:
+        - heading "Ingredients (INCI)" [level=2] [ref=e406]
+        - paragraph [ref=e407]: Butyrospermum Parkii Butter, Cocos Nucifera Oil, Theobroma Cacao Seed Butter, Zea Mays Starch, Sodium Bicarbonate, Zinc Oxide, Citrus Aurantium Bergamia Fruit Oil, Citrus Paradisi Peel Oil, Lavandula Angustifolia Oil, Cananga Odorata Flower Oil, Pelargonium Graveolens Flower Oil, Cedrus Atlantica Bark Oil, Boswellia Carterii Oil, Mentha Piperita Oil, Rosmarinus Officinalis Leaf Oil.
+        - paragraph [ref=e408]: Essential oils contain natural allergens such as limonene, linalool, geraniol or citronellol. If you have a known allergy, check this list before using it.
+      - generic [ref=e409]:
+        - paragraph [ref=e410]: A workshop by
+        - paragraph [ref=e411]:
+          - text: Azoul Gathering×
+          - emphasis [ref=e412]: Alejandro
+        - paragraph [ref=e413]: Imsouane, Morocco
+        - paragraph [ref=e414]: ❤️

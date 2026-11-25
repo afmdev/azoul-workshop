@@ -1,0 +1,461 @@
+- generic [active] [ref=f2e1]:
+  - link "Zum Inhalt springen" [ref=f2e2] [cursor=pointer]:
+    - /url: "#contenido"
+  - banner [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "Azoul Gathering × Alejandro" [ref=f2e5] [cursor=pointer]:
+        - /url: "#inicio"
+        - text: Azoul Gathering
+        - generic [ref=f2e6]: ×
+        - emphasis [ref=f2e7]: Alejandro
+      - generic [ref=f2e8]:
+        - navigation "Menü" [ref=f2e9]:
+          - list [ref=f2e10]:
+            - listitem [ref=f2e11]:
+              - link "So wirkt es" [ref=f2e12] [cursor=pointer]:
+                - /url: "#como-funciona"
+            - listitem [ref=f2e13]:
+              - link "Die Basis" [ref=f2e14] [cursor=pointer]:
+                - /url: "#base"
+            - listitem [ref=f2e15]:
+              - link "Die Düfte" [ref=f2e16] [cursor=pointer]:
+                - /url: "#aromas"
+            - listitem [ref=f2e17]:
+              - link "Die Mischungen" [ref=f2e18] [cursor=pointer]:
+                - /url: "#mezclas"
+            - listitem [ref=f2e19]:
+              - link "Was nicht drin ist" [ref=f2e20] [cursor=pointer]:
+                - /url: "#sin"
+            - listitem [ref=f2e21]:
+              - link "Handgemacht" [ref=f2e22] [cursor=pointer]:
+                - /url: "#proceso"
+            - listitem [ref=f2e23]:
+              - link "Fragen" [ref=f2e24] [cursor=pointer]:
+                - /url: "#faq"
+        - 'button "Sprache: Deutsch" [ref=f2e26] [cursor=pointer]':
+          - generic [ref=f2e27]: 🇩🇪
+  - main [ref=f2e30]:
+    - generic [ref=f2e32]:
+      - generic [ref=f2e33]:
+        - 'heading "Workshop: Natural deodorant making" [level=1] [ref=f2e34]'
+        - paragraph [ref=f2e35]: "Ohne Kleingedrucktes: alles, was drin ist, und warum."
+        - paragraph [ref=f2e36]: In diesem Workshop stellen wir von Hand ein natürliches Deo her – aus drei Pflanzenfetten, drei Pulvern und neun ätherischen Ölen. Hier erfährst du, was jede Zutat bewirkt und warum sie in der Rezeptur ist.
+        - link "Zutaten ansehen" [ref=f2e37] [cursor=pointer]:
+          - /url: "#base"
+      - generic [ref=f2e41]:
+        - generic [ref=f2e42]:
+          - text: Azoul Gathering×
+          - emphasis [ref=f2e43]: Alejandro
+        - generic [ref=f2e44]: "Workshop: Natural deodorant making"
+        - generic [ref=f2e45]:
+          - generic [ref=f2e46]:
+            - heading "Die Basis" [level=2] [ref=f2e47]
+            - list [ref=f2e48]:
+              - listitem [ref=f2e49]:
+                - link "Sheabutter" [ref=f2e50] [cursor=pointer]:
+                  - /url: "#karite"
+              - listitem [ref=f2e51]:
+                - link "Kokosöl" [ref=f2e52] [cursor=pointer]:
+                  - /url: "#coco"
+              - listitem [ref=f2e53]:
+                - link "Kakaobutter" [ref=f2e54] [cursor=pointer]:
+                  - /url: "#cacao"
+              - listitem [ref=f2e55]:
+                - link "Maisstärke" [ref=f2e56] [cursor=pointer]:
+                  - /url: "#almidon"
+              - listitem [ref=f2e57]:
+                - link "Natron" [ref=f2e58] [cursor=pointer]:
+                  - /url: "#bicarbonato"
+              - listitem [ref=f2e59]:
+                - link "Zinkoxid" [ref=f2e60] [cursor=pointer]:
+                  - /url: "#zinc"
+          - generic [ref=f2e61]:
+            - heading "Die Düfte" [level=2] [ref=f2e62]
+            - list [ref=f2e63]:
+              - listitem [ref=f2e64]:
+                - link "Bergamotte" [ref=f2e65] [cursor=pointer]:
+                  - /url: "#bergamota"
+              - listitem [ref=f2e66]:
+                - link "Grapefruit" [ref=f2e67] [cursor=pointer]:
+                  - /url: "#pomelo"
+              - listitem [ref=f2e68]:
+                - link "Lavendel" [ref=f2e69] [cursor=pointer]:
+                  - /url: "#lavanda"
+              - listitem [ref=f2e70]:
+                - link "Ylang-Ylang" [ref=f2e71] [cursor=pointer]:
+                  - /url: "#ylang"
+              - listitem [ref=f2e72]:
+                - link "Rosengeranie" [ref=f2e73] [cursor=pointer]:
+                  - /url: "#geranio"
+              - listitem [ref=f2e74]:
+                - link "Zeder" [ref=f2e75] [cursor=pointer]:
+                  - /url: "#cedro"
+              - listitem [ref=f2e76]:
+                - link "Weihrauch" [ref=f2e77] [cursor=pointer]:
+                  - /url: "#incienso"
+              - listitem [ref=f2e78]:
+                - link "Pfefferminze" [ref=f2e79] [cursor=pointer]:
+                  - /url: "#menta"
+              - listitem [ref=f2e80]:
+                - link "Rosmarin" [ref=f2e81] [cursor=pointer]:
+                  - /url: "#romero"
+    - generic [ref=f2e83]:
+      - heading "Deo, kein Antitranspirant" [level=2] [ref=f2e84]
+      - paragraph [ref=f2e85]: Ein Antitranspirant verschließt die Poren, damit du nicht schwitzt. Dieses Deo lässt dich schwitzen – das braucht der Körper – und kümmert sich um das, was danach kommt.
+      - generic [ref=f2e86]:
+        - generic [ref=f2e87]:
+          - heading "Schweiß riecht nicht" [level=3] [ref=f2e88]
+          - paragraph [ref=f2e89]: Geruch entsteht, wenn Hautbakterien den Schweiß abbauen. Natron hilft, diese Verbindungen zu neutralisieren.
+        - generic [ref=f2e90]:
+          - heading "Aufnehmen statt blockieren" [level=3] [ref=f2e91]
+          - paragraph [ref=f2e92]: Maisstärke nimmt einen Teil der Feuchtigkeit auf und hinterlässt ein trockenes Gefühl, ohne die Poren zu verschließen.
+        - generic [ref=f2e93]:
+          - heading "Die Haut pflegen" [level=3] [ref=f2e94]
+          - paragraph [ref=f2e95]: Sheabutter, Kakaobutter und Kokosöl sorgen dafür, dass die Creme gleitet und die Haut weich bleibt.
+    - generic [ref=f2e97]:
+      - heading "Die Basis" [level=2] [ref=f2e98]
+      - paragraph [ref=f2e99]: "Sechs Zutaten machen die Arbeit: drei Pflanzenfette, die Konsistenz geben und die Haut pflegen, und drei Pulver, die sich um Feuchtigkeit und Geruch kümmern."
+      - list [ref=f2e100]:
+        - listitem [ref=f2e101]:
+          - generic [ref=f2e103]:
+            - heading "Sheabutter" [level=3] [ref=f2e104]
+            - paragraph [ref=f2e105]: Butyrospermum Parkii Butter
+            - paragraph [ref=f2e106]: Nuss des Karitébaums aus Westafrika.
+          - generic [ref=f2e107]:
+            - list [ref=f2e108]:
+              - listitem [ref=f2e109]: Pflegt die Haut
+              - listitem [ref=f2e110]: Gibt Textur
+            - paragraph [ref=f2e111]: Diese Butter sorgt dafür, dass sich die Creme verteilen lässt, ohne an der Haut zu ziehen. Sie ist reich an Fettsäuren und hilft, die Achsel geschmeidig zu halten – besonders angenehm nach dem Rasieren.
+        - listitem [ref=f2e112]:
+          - generic [ref=f2e114]:
+            - heading "Kokosöl" [level=3] [ref=f2e115]
+            - paragraph [ref=f2e116]: Cocos Nucifera Oil
+            - paragraph [ref=f2e117]: Fruchtfleisch der Kokosnuss.
+          - generic [ref=f2e118]:
+            - list [ref=f2e119]:
+              - listitem [ref=f2e120]: Gibt Textur
+              - listitem [ref=f2e121]: Pflegt die Haut
+              - listitem [ref=f2e122]: Hilft gegen Geruch
+            - paragraph [ref=f2e123]: Fest, wenn es kühl ist, und flüssig bei Körperwärme – deshalb schmilzt die Creme beim Auftragen. Es enthält Laurinsäure, die auf ihre Wirkung gegen geruchsbildende Bakterien untersucht wurde.
+        - listitem [ref=f2e124]:
+          - generic [ref=f2e126]:
+            - heading "Kakaobutter" [level=3] [ref=f2e127]
+            - paragraph [ref=f2e128]: Theobroma Cacao Seed Butter
+            - paragraph [ref=f2e129]: Bohnen des Kakaobaums.
+          - generic [ref=f2e130]:
+            - list [ref=f2e131]:
+              - listitem [ref=f2e132]: Gibt Festigkeit
+              - listitem [ref=f2e133]: Pflegt die Haut
+            - paragraph [ref=f2e134]: "Das härteste der drei Fette: Es gibt der Rezeptur Festigkeit, damit sie Wärme besser standhält. Es hinterlässt einen dünnen, schützenden Film und einen ganz leichten Schokoladenduft."
+        - listitem [ref=f2e135]:
+          - generic [ref=f2e137]:
+            - heading "Maisstärke" [level=3] [ref=f2e138]
+            - paragraph [ref=f2e139]: Zea Mays Starch
+            - paragraph [ref=f2e140]: Gemahlene Maiskörner.
+          - generic [ref=f2e141]:
+            - list [ref=f2e142]:
+              - listitem [ref=f2e143]: Nimmt Feuchtigkeit auf
+            - paragraph [ref=f2e144]: Sie stoppt den Schweiß nicht, sie nimmt ihn auf. Sie übernimmt die Aufgabe, die früher Talkum hatte, hinterlässt ein trockenes, seidiges Gefühl und nimmt den Buttern das Fettige.
+        - listitem [ref=f2e145]:
+          - generic [ref=f2e147]:
+            - heading "Natron" [level=3] [ref=f2e148]
+            - paragraph [ref=f2e149]: Sodium Bicarbonate
+            - paragraph [ref=f2e150]: Mineralsalz.
+          - generic [ref=f2e151]:
+            - list [ref=f2e152]:
+              - listitem [ref=f2e153]: Neutralisiert Geruch
+            - paragraph [ref=f2e154]: Diese Zutat kümmert sich um den Geruch. Natron ist basisch und neutralisiert die sauren Verbindungen, die Bakterien beim Abbau von Schweiß bilden.
+            - paragraph [ref=f2e155]:
+              - strong [ref=f2e156]: "Gut zu wissen:"
+              - text: Kann empfindliche Haut reizen. Bei Rötung oder Juckreiz nicht weiter verwenden.
+        - listitem [ref=f2e157]:
+          - generic [ref=f2e159]:
+            - heading "Zinkoxid" [level=3] [ref=f2e160]
+            - paragraph [ref=f2e161]: Zinc Oxide
+            - paragraph [ref=f2e162]: Weißes Mineralpulver.
+          - generic [ref=f2e163]:
+            - list [ref=f2e164]:
+              - listitem [ref=f2e165]: Hilft gegen Geruch
+              - listitem [ref=f2e166]: Schützt die Haut
+            - paragraph [ref=f2e167]: Dasselbe Mineral wie in Wundschutzcremes für Babys. Es hilft, Geruch zu verringern, und wird seit Langem verwendet, um die Haut zu schützen und bei Reizungen zu beruhigen.
+            - paragraph [ref=f2e168]:
+              - strong [ref=f2e169]: "Gut zu wissen:"
+              - text: Zu viel davon kann weiße Spuren hinterlassen.
+    - generic [ref=f2e171]:
+      - heading "Die Düfte" [level=2] [ref=f2e172]
+      - paragraph [ref=f2e173]: Neun ätherische Öle, kein synthetisches Parfüm. Tippe auf eines, um zu sehen, woher es kommt, wie es riecht und was es gegen Geruch beiträgt.
+      - generic [ref=f2e174]:
+        - generic [ref=f2e175]:
+          - heading "Zitrus" [level=3] [ref=f2e176]
+          - paragraph [ref=f2e177]: "Das Erste, was man riecht: leicht und hell."
+          - group [ref=f2e178]:
+            - generic "Bergamotte Zitrisch mit blumigem Unterton +" [ref=f2e179] [cursor=pointer]:
+              - generic [ref=f2e180]:
+                - text: Bergamotte
+                - generic [ref=f2e181]: Zitrisch mit blumigem Unterton
+              - text: +
+          - group [ref=f2e182]:
+            - generic "Grapefruit Zitrisch, spritzig und leicht bitter +" [ref=f2e183] [cursor=pointer]:
+              - generic [ref=f2e184]:
+                - text: Grapefruit
+                - generic [ref=f2e185]: Zitrisch, spritzig und leicht bitter
+              - text: +
+        - generic [ref=f2e186]:
+          - heading "Blumig" [level=3] [ref=f2e187]
+          - paragraph [ref=f2e188]: Das Herz der Mischung.
+          - group [ref=f2e189]:
+            - generic "Lavendel Blumig und krautig +" [ref=f2e190] [cursor=pointer]:
+              - generic [ref=f2e191]:
+                - text: Lavendel
+                - generic [ref=f2e192]: Blumig und krautig
+              - text: +
+          - group [ref=f2e193]:
+            - generic "Ylang-Ylang Blumig, süß und intensiv +" [ref=f2e194] [cursor=pointer]:
+              - generic [ref=f2e195]:
+                - text: Ylang-Ylang
+                - generic [ref=f2e196]: Blumig, süß und intensiv
+              - text: +
+          - group [ref=f2e197]:
+            - generic "Rosengeranie Blumig, rosig und grün +" [ref=f2e198] [cursor=pointer]:
+              - generic [ref=f2e199]:
+                - text: Rosengeranie
+                - generic [ref=f2e200]: Blumig, rosig und grün
+              - text: +
+        - generic [ref=f2e201]:
+          - heading "Hölzer und Harze" [level=3] [ref=f2e202]
+          - paragraph [ref=f2e203]: Die Basis, die den Duft haltbar macht.
+          - group [ref=f2e204]:
+            - generic "Zeder Holzig, trocken und warm +" [ref=f2e205] [cursor=pointer]:
+              - generic [ref=f2e206]:
+                - text: Zeder
+                - generic [ref=f2e207]: Holzig, trocken und warm
+              - text: +
+          - group [ref=f2e208]:
+            - generic "Weihrauch Harzig und balsamisch +" [ref=f2e209] [cursor=pointer]:
+              - generic [ref=f2e210]:
+                - text: Weihrauch
+                - generic [ref=f2e211]: Harzig und balsamisch
+              - text: +
+        - generic [ref=f2e212]:
+          - heading "Frisch und krautig" [level=3] [ref=f2e213]
+          - paragraph [ref=f2e214]: Der Hauch Frische.
+          - group [ref=f2e215]:
+            - generic "Pfefferminze Frisch und minzig +" [ref=f2e216] [cursor=pointer]:
+              - generic [ref=f2e217]:
+                - text: Pfefferminze
+                - generic [ref=f2e218]: Frisch und minzig
+              - text: +
+          - group [ref=f2e219]:
+            - generic "Rosmarin Krautig, frisch und kampferartig +" [ref=f2e220] [cursor=pointer]:
+              - generic [ref=f2e221]:
+                - text: Rosmarin
+                - generic [ref=f2e222]: Krautig, frisch und kampferartig
+              - text: +
+    - generic [ref=f2e224]:
+      - heading "Die Mischungen" [level=2] [ref=f2e225]
+      - paragraph [ref=f2e226]: "Die Basis ist für alle gleich. Was sich ändert, ist der Duft: Wähle eine Mischung und zähle die Tropfen für deinen 30-ml-Tiegel."
+      - generic [ref=f2e227]:
+        - article [ref=f2e228]:
+          - heading "Zitrusmorgen" [level=3] [ref=f2e229]
+          - paragraph [ref=f2e230]: Hell und sauber, für den Start in den Tag.
+          - list [ref=f2e231]:
+            - listitem [ref=f2e232]:
+              - link "Grapefruit 5 Tropfen" [ref=f2e233] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Grapefruit
+                - generic [ref=f2e235]: 5 Tropfen
+            - listitem [ref=f2e236]:
+              - link "Zeder 3 Tropfen" [ref=f2e237] [cursor=pointer]:
+                - /url: "#cedro"
+                - text: Zeder
+                - generic [ref=f2e239]: 3 Tropfen
+            - listitem [ref=f2e240]:
+              - link "Bergamotte 2 Tropfen" [ref=f2e241] [cursor=pointer]:
+                - /url: "#bergamota"
+                - text: Bergamotte
+                - generic [ref=f2e243]: 2 Tropfen
+            - listitem [ref=f2e244]:
+              - link "Pfefferminze 2 Tropfen" [ref=f2e245] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Pfefferminze
+                - generic [ref=f2e247]: 2 Tropfen
+          - paragraph [ref=f2e248]: 12 Tropfen insgesamt für 30 ml
+        - article [ref=f2e249]:
+          - heading "Garten" [level=3] [ref=f2e250]
+          - paragraph [ref=f2e251]: Blumig und sanft. Lavendel und Geranie gehören zu den Ölen, die am meisten gegen Geruch helfen.
+          - list [ref=f2e252]:
+            - listitem [ref=f2e253]:
+              - link "Lavendel 5 Tropfen" [ref=f2e254] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavendel
+                - generic [ref=f2e256]: 5 Tropfen
+            - listitem [ref=f2e257]:
+              - link "Rosengeranie 4 Tropfen" [ref=f2e258] [cursor=pointer]:
+                - /url: "#geranio"
+                - text: Rosengeranie
+                - generic [ref=f2e260]: 4 Tropfen
+            - listitem [ref=f2e261]:
+              - link "Weihrauch 2 Tropfen" [ref=f2e262] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Weihrauch
+                - generic [ref=f2e264]: 2 Tropfen
+            - listitem [ref=f2e265]:
+              - link "Ylang-Ylang 1 Tropfen" [ref=f2e266] [cursor=pointer]:
+                - /url: "#ylang"
+                - text: Ylang-Ylang
+                - generic [ref=f2e268]: 1 Tropfen
+          - paragraph [ref=f2e269]: 12 Tropfen insgesamt für 30 ml
+        - article [ref=f2e270]:
+          - heading "Wald" [level=3] [ref=f2e271]
+          - paragraph [ref=f2e272]: Holzig und warm – hält am längsten auf der Haut.
+          - list [ref=f2e273]:
+            - listitem [ref=f2e274]:
+              - link "Zeder 5 Tropfen" [ref=f2e275] [cursor=pointer]:
+                - /url: "#cedro"
+                - text: Zeder
+                - generic [ref=f2e277]: 5 Tropfen
+            - listitem [ref=f2e278]:
+              - link "Weihrauch 3 Tropfen" [ref=f2e279] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Weihrauch
+                - generic [ref=f2e281]: 3 Tropfen
+            - listitem [ref=f2e282]:
+              - link "Rosmarin 2 Tropfen" [ref=f2e283] [cursor=pointer]:
+                - /url: "#romero"
+                - text: Rosmarin
+                - generic [ref=f2e285]: 2 Tropfen
+            - listitem [ref=f2e286]:
+              - link "Bergamotte 2 Tropfen" [ref=f2e287] [cursor=pointer]:
+                - /url: "#bergamota"
+                - text: Bergamotte
+                - generic [ref=f2e289]: 2 Tropfen
+          - paragraph [ref=f2e290]: 12 Tropfen insgesamt für 30 ml
+        - article [ref=f2e291]:
+          - heading "Frische Kräuter" [level=3] [ref=f2e292]
+          - paragraph [ref=f2e293]: Krautig und frisch, gedacht für heiße Tage und Sport.
+          - list [ref=f2e294]:
+            - listitem [ref=f2e295]:
+              - link "Lavendel 5 Tropfen" [ref=f2e296] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavendel
+                - generic [ref=f2e298]: 5 Tropfen
+            - listitem [ref=f2e299]:
+              - link "Rosmarin 3 Tropfen" [ref=f2e300] [cursor=pointer]:
+                - /url: "#romero"
+                - text: Rosmarin
+                - generic [ref=f2e302]: 3 Tropfen
+            - listitem [ref=f2e303]:
+              - link "Pfefferminze 2 Tropfen" [ref=f2e304] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Pfefferminze
+                - generic [ref=f2e306]: 2 Tropfen
+            - listitem [ref=f2e307]:
+              - link "Grapefruit 2 Tropfen" [ref=f2e308] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Grapefruit
+                - generic [ref=f2e310]: 2 Tropfen
+          - paragraph [ref=f2e311]: 12 Tropfen insgesamt für 30 ml
+        - article [ref=f2e312]:
+          - heading "Atlantik" [level=3] [ref=f2e313]
+          - paragraph [ref=f2e314]: Zitrus, Blüte und Harz, mit einem Hauch Frische.
+          - list [ref=f2e315]:
+            - listitem [ref=f2e316]:
+              - link "Grapefruit 4 Tropfen" [ref=f2e317] [cursor=pointer]:
+                - /url: "#pomelo"
+                - text: Grapefruit
+                - generic [ref=f2e319]: 4 Tropfen
+            - listitem [ref=f2e320]:
+              - link "Rosengeranie 3 Tropfen" [ref=f2e321] [cursor=pointer]:
+                - /url: "#geranio"
+                - text: Rosengeranie
+                - generic [ref=f2e323]: 3 Tropfen
+            - listitem [ref=f2e324]:
+              - link "Weihrauch 3 Tropfen" [ref=f2e325] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Weihrauch
+                - generic [ref=f2e327]: 3 Tropfen
+            - listitem [ref=f2e328]:
+              - link "Pfefferminze 2 Tropfen" [ref=f2e329] [cursor=pointer]:
+                - /url: "#menta"
+                - text: Pfefferminze
+                - generic [ref=f2e331]: 2 Tropfen
+          - paragraph [ref=f2e332]: 12 Tropfen insgesamt für 30 ml
+        - article [ref=f2e333]:
+          - heading "Empfindliche Haut" [level=3] [ref=f2e334]
+          - paragraph [ref=f2e335]: Eine leichtere Dosis und nur zwei milde Öle.
+          - list [ref=f2e336]:
+            - listitem [ref=f2e337]:
+              - link "Lavendel 4 Tropfen" [ref=f2e338] [cursor=pointer]:
+                - /url: "#lavanda"
+                - text: Lavendel
+                - generic [ref=f2e340]: 4 Tropfen
+            - listitem [ref=f2e341]:
+              - link "Weihrauch 2 Tropfen" [ref=f2e342] [cursor=pointer]:
+                - /url: "#incienso"
+                - text: Weihrauch
+                - generic [ref=f2e344]: 2 Tropfen
+          - paragraph [ref=f2e345]: 6 Tropfen insgesamt für 30 ml
+      - paragraph [ref=f2e346]: "Gib die Tropfen dazu, wenn die Basis lauwarm ist, und rühre gut um. Zwölf Tropfen auf 30 ml entsprechen etwa 1,5 % – eine großzügige Dosis für die Achsel: Mehr Tropfen wirken nicht besser, können aber reizen. Die Tropfengröße hängt von der Pipette ab, nimm die Angaben also als Richtwert."
+    - generic [ref=f2e350]:
+      - heading "Was nicht drin ist" [level=2] [ref=f2e351]
+      - list [ref=f2e352]:
+        - listitem [ref=f2e353]: Aluminiumsalze
+        - listitem [ref=f2e354]: Parabene
+        - listitem [ref=f2e355]: Synthetisches Parfüm
+      - paragraph [ref=f2e356]: Wasser ist auch keins drin, deshalb braucht es keine Konservierungsstoffe. Was auf dem Etikett steht, ist alles, was im Tiegel ist.
+    - generic [ref=f2e358]:
+      - heading "So machen wir es im Workshop" [level=2] [ref=f2e359]
+      - paragraph [ref=f2e360]: Fünf Schritte, ein Topf und deine Hände. Du nimmst deinen eigenen Tiegel mit.
+      - list [ref=f2e361]:
+        - listitem [ref=f2e362]:
+          - generic [ref=f2e363]:
+            - heading "Mahlen" [level=3] [ref=f2e364]
+            - paragraph [ref=f2e365]: Wir mahlen das Natron im Mörser so fein wie möglich. Bleibt es körnig, kratzt es beim Auftragen und kann die Haut reizen.
+        - listitem [ref=f2e366]:
+          - generic [ref=f2e367]:
+            - heading "Schmelzen" [level=3] [ref=f2e368]
+            - paragraph [ref=f2e369]: Wir schmelzen die Buttern und das Kokosöl im Wasserbad bei niedriger Hitze, damit sie nicht leiden.
+        - listitem [ref=f2e370]:
+          - generic [ref=f2e371]:
+            - heading "Mischen" [level=3] [ref=f2e372]
+            - paragraph [ref=f2e373]: Wir geben gesiebte Maisstärke, Natron und Zinkoxid dazu und rühren, bis kein Klümpchen mehr übrig ist.
+        - listitem [ref=f2e374]:
+          - generic [ref=f2e375]:
+            - heading "Beduften" [level=3] [ref=f2e376]
+            - paragraph [ref=f2e377]: Wenn die Masse lauwarm ist, kommen die ätherischen Öle dazu. Bei zu viel Hitze würden sie ihren Duft verlieren.
+        - listitem [ref=f2e378]:
+          - generic [ref=f2e379]:
+            - heading "Abfüllen und ruhen lassen" [level=3] [ref=f2e380]
+            - paragraph [ref=f2e381]: Wir füllen die Tiegel einzeln und lassen sie stehen, bis die Creme fest wird.
+    - generic [ref=f2e383]:
+      - heading "Häufige Fragen" [level=2] [ref=f2e384]
+      - generic [ref=f2e385]:
+        - group [ref=f2e386]:
+          - generic "Wie lautet das Rezept für 100 g? +" [ref=f2e387] [cursor=pointer]
+        - group [ref=f2e388]:
+          - generic "Höre ich auf zu schwitzen? +" [ref=f2e389] [cursor=pointer]
+        - group [ref=f2e390]:
+          - generic "Gibt es eine Umstellungsphase? +" [ref=f2e391] [cursor=pointer]
+        - group [ref=f2e392]:
+          - generic "Ist es für empfindliche Haut geeignet? +" [ref=f2e393] [cursor=pointer]
+        - group [ref=f2e394]:
+          - generic "Wie trage ich es auf? +" [ref=f2e395] [cursor=pointer]
+        - group [ref=f2e396]:
+          - generic "Wie bewahre ich es auf? +" [ref=f2e397] [cursor=pointer]
+        - group [ref=f2e398]:
+          - generic "Macht es Flecken auf der Kleidung? +" [ref=f2e399] [cursor=pointer]
+        - group [ref=f2e400]:
+          - generic "Kann ich es in der Schwangerschaft verwenden? +" [ref=f2e401] [cursor=pointer]
+  - contentinfo [ref=f2e402]:
+    - generic [ref=f2e404]:
+      - generic [ref=f2e405]:
+        - heading "Inhaltsstoffe (INCI)" [level=2] [ref=f2e406]
+        - paragraph [ref=f2e407]: Butyrospermum Parkii Butter, Cocos Nucifera Oil, Theobroma Cacao Seed Butter, Zea Mays Starch, Sodium Bicarbonate, Zinc Oxide, Citrus Aurantium Bergamia Fruit Oil, Citrus Paradisi Peel Oil, Lavandula Angustifolia Oil, Cananga Odorata Flower Oil, Pelargonium Graveolens Flower Oil, Cedrus Atlantica Bark Oil, Boswellia Carterii Oil, Mentha Piperita Oil, Rosmarinus Officinalis Leaf Oil.
+        - paragraph [ref=f2e408]: Ätherische Öle enthalten natürliche Allergene wie Limonene, Linalool, Geraniol oder Citronellol. Wenn du eine bekannte Allergie hast, prüfe diese Liste vor der Anwendung.
+      - generic [ref=f2e409]:
+        - paragraph [ref=f2e410]: Ein Workshop von
+        - paragraph [ref=f2e411]:
+          - text: Azoul Gathering×
+          - emphasis [ref=f2e412]: Alejandro
+        - paragraph [ref=f2e413]: Imsouane, Marokko
+        - paragraph [ref=f2e414]: ❤️
