@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Workshop: Natural deodorant making | Azoul Gathering × Alejandro</title>
-<meta name="description" content="Los quince ingredientes del desodorante natural que hacemos en el taller de Azoul Gathering × Alejandro: qué hace cada uno y por qué está en la fórmula.">
+<meta name="description" content="The fifteen ingredients of the natural deodorant we make in the Azoul Gathering × Alejandro workshop: what each one does and why it is in the formula.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -46,6 +46,7 @@
   h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
   h3 { font-size: 1.7rem; }
   p { margin: 0; max-width: 62ch; text-wrap: pretty; }
+  h1, h2, h3, p, li { overflow-wrap: break-word; }
   a { color: var(--bergamota); text-underline-offset: 0.2em; }
   :focus-visible { outline: 3px solid var(--bergamota); outline-offset: 3px; border-radius: 4px; }
   [id] { scroll-margin-top: calc(var(--nav-alto) + 1rem); }
@@ -67,23 +68,51 @@
     display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem;
     min-height: var(--nav-alto);
   }
-  .marca { font-family: var(--display); font-size: 1.3rem; color: var(--cacao); text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+  .marca { font-family: var(--display); font-size: clamp(1.1rem, 4.6vw, 1.3rem); color: var(--cacao); text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
   .nav nav { min-width: 0; flex: 1 0 100%; margin-inline: -0.75rem; }
   /* Collab lockup: wordmark × name */
   .collab { white-space: nowrap; }
   .collab .x { font-family: var(--texto); font-weight: 400; font-size: 0.8em; margin-inline: 0.35em; color: var(--bergamota); }
   .collab em { font-style: italic; }
-  .nav ul {
+  /* Language switcher */
+  .idioma { position: relative; margin-left: auto; }
+  .idioma-boton {
+    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0 0.8rem;
+    background: transparent; color: var(--cacao); border: 1px solid rgb(22 50 58 / 0.3); border-radius: 999px;
+    font: 600 0.9375rem var(--texto); cursor: pointer;
+  }
+  .idioma-boton:hover { background: rgb(22 50 58 / 0.08); }
+  .idioma-flecha { transition: transform 0.2s ease; }
+  .idioma[data-abierto] .idioma-flecha { transform: rotate(180deg); }
+  .idioma-menu {
+    position: absolute; right: 0; top: calc(100% + 0.4rem); z-index: 20;
+    min-width: 12rem; margin: 0; padding: 0.4rem; list-style: none;
+    background: var(--coco); border: 1px solid rgb(22 50 58 / 0.12); border-radius: 1rem;
+    box-shadow: 0 14px 34px rgb(22 50 58 / 0.18);
+    opacity: 0; visibility: hidden; transform: translateY(-6px) scale(0.98); transform-origin: top right;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s 0.18s;
+  }
+  .idioma[data-abierto] .idioma-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .idioma-menu button {
+    display: flex; align-items: center; width: 100%; min-height: 46px; padding: 0 0.8rem;
+    background: none; border: 0; border-radius: 0.7rem; cursor: pointer;
+    font: 500 1rem var(--texto); color: var(--cacao); text-align: left;
+  }
+  .idioma-menu button span { margin-left: auto; font-size: 0.8125rem; color: var(--cacao-suave); }
+  .idioma-menu button:hover { background: rgb(22 50 58 / 0.07); }
+  .idioma-menu button[aria-current] { background: var(--cacao); color: var(--coco); }
+  .idioma-menu button[aria-current] span { color: var(--coco); }
+  .nav nav ul {
     display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0;
     overflow-x: auto; scrollbar-width: none;
   }
-  .nav ul::-webkit-scrollbar { display: none; }
-  .nav li a {
+  .nav nav ul::-webkit-scrollbar { display: none; }
+  .nav nav li a {
     display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem;
     color: var(--cacao); text-decoration: none; white-space: nowrap; font-size: 0.9375rem; font-weight: 500;
     border-radius: 999px;
   }
-  .nav li a:hover { background: rgb(22 50 58 / 0.08); }
+  .nav nav li a:hover { background: rgb(22 50 58 / 0.08); }
 
   /* ---------- Hero: the jar label is the ingredient list ---------- */
   .hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3.5rem, 9vw, 6rem); }
@@ -241,7 +270,6 @@
     .mezclas { grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); align-items: start; }
     .familia { padding: 1.75rem 1.75rem 1rem; }
     .pasos { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; }
-    .pie-rejilla { grid-template-columns: 1.6fr 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -251,21 +279,28 @@
 </style>
 </head>
 <body>
-<a class="saltar" href="#contenido">Saltar al contenido</a>
+<a class="saltar" href="#contenido" data-t="skip"></a>
 
 <header class="nav">
   <div class="contenedor nav-fila">
     <a class="marca" href="#inicio" data-marca></a>
-    <nav aria-label="Secciones">
+    <div class="idioma" id="idioma">
+      <button class="idioma-boton" id="idioma-boton" type="button" aria-expanded="false" aria-controls="idioma-menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.300 6.400-3.800 9c-2.500-2.600-3.800-5.600-3.800-9S9.500 5.600 12 3z"/></svg>
+        <span id="idioma-actual"></span>
+        <svg class="idioma-flecha" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1.500 3.500 5 7l3.500-3.500"/></svg>
+      </button>
+      <ul class="idioma-menu" id="idioma-menu"></ul>
+    </div>
+    <nav id="nav-secciones">
       <ul>
-        <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#base">La base</a></li>
-        <li><a href="#aromas">Los aromas</a></li>
-        <li><a href="#mezclas">Las mezclas</a></li>
-        <li><a href="#sin">Lo que no lleva</a></li>
-        <li><a href="#proceso">Hecho a mano</a></li>
-        <li><a href="#faq">Preguntas</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#como-funciona" data-t="navHow"></a></li>
+        <li><a href="#base" data-t="navBase"></a></li>
+        <li><a href="#aromas" data-t="navAromas"></a></li>
+        <li><a href="#mezclas" data-t="navBlends"></a></li>
+        <li><a href="#sin" data-t="navWithout"></a></li>
+        <li><a href="#proceso" data-t="navProcess"></a></li>
+        <li><a href="#faq" data-t="navFaq"></a></li>
       </ul>
     </nav>
   </div>
@@ -276,9 +311,9 @@
     <div class="contenedor hero-rejilla">
       <div>
         <h1>Workshop: Natural deodorant making</h1>
-        <p class="subtitulo">Quince ingredientes. Puedes leerlos todos.</p>
-        <p>En este taller hacemos a mano un desodorante natural con tres mantecas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.</p>
-        <a class="boton" href="#base">Ver los ingredientes</a>
+        <p class="subtitulo" data-t="heroSub"></p>
+        <p data-t="heroP"></p>
+        <a class="boton" href="#base" data-t="heroCta"></a>
       </div>
       <div class="tarro">
         <div class="tapa" aria-hidden="true"></div>
@@ -287,8 +322,8 @@
             <div class="etiqueta-marca" data-marca></div>
             <div class="etiqueta-tipo">Workshop: Natural deodorant making</div>
             <div class="etiqueta-listas">
-              <div><h2>La base</h2><ul id="etiqueta-base"></ul></div>
-              <div><h2>Los aromas</h2><ul id="etiqueta-aromas"></ul></div>
+              <div><h2 data-t="navBase"></h2><ul id="etiqueta-base"></ul></div>
+              <div><h2 data-t="navAromas"></h2><ul id="etiqueta-aromas"></ul></div>
             </div>
           </div>
         </div>
@@ -298,99 +333,77 @@
 
   <section class="como bloque" id="como-funciona">
     <div class="contenedor">
-      <h2>Desodorante, no antitranspirante</h2>
-      <p class="entrada">Un antitranspirante tapona el poro para que no sudes. Este desodorante te deja sudar, que es lo que el cuerpo necesita, y se ocupa de lo que viene después.</p>
+      <h2 data-t="howH"></h2>
+      <p class="entrada" data-t="howP"></p>
       <div class="como-rejilla">
-        <div>
-          <h3>El sudor no huele</h3>
-          <p>El olor aparece cuando las bacterias de la piel descomponen el sudor. El bicarbonato ayuda a neutralizar esos compuestos.</p>
-        </div>
-        <div>
-          <h3>Absorber en vez de bloquear</h3>
-          <p>El almidón de maíz recoge parte de la humedad y deja la axila con un tacto seco, sin cerrar el poro.</p>
-        </div>
-        <div>
-          <h3>Cuidar la piel</h3>
-          <p>Las mantecas de karité y cacao y el aceite de coco hacen que la crema se deslice y dejan la piel suave.</p>
-        </div>
+        <div><h3 data-t="how1H"></h3><p data-t="how1P"></p></div>
+        <div><h3 data-t="how2H"></h3><p data-t="how2P"></p></div>
+        <div><h3 data-t="how3H"></h3><p data-t="how3P"></p></div>
       </div>
     </div>
   </section>
 
   <section class="bloque" id="base">
     <div class="contenedor">
-      <h2>La base</h2>
-      <p class="entrada">Seis ingredientes hacen el trabajo: tres grasas vegetales que dan cuerpo y cuidan la piel, y tres polvos que se ocupan de la humedad y del olor.</p>
+      <h2 data-t="navBase"></h2>
+      <p class="entrada" data-t="baseP"></p>
       <ul class="base-lista" id="lista-base"></ul>
     </div>
   </section>
 
   <section class="bloque" id="aromas" style="padding-top:0">
     <div class="contenedor">
-      <h2>Los aromas</h2>
-      <p class="entrada">Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.</p>
+      <h2 data-t="navAromas"></h2>
+      <p class="entrada" data-t="aromasP"></p>
       <div class="familias" id="lista-aromas"></div>
     </div>
   </section>
 
   <section class="bloque" id="mezclas" style="padding-top:0">
     <div class="contenedor">
-      <h2>Las mezclas</h2>
-      <p class="entrada">La base es la misma para todos. Lo que cambia es el aroma: elige una mezcla y cuenta las gotas para tu tarro de 30 ml.</p>
+      <h2 data-t="navBlends"></h2>
+      <p class="entrada" data-t="blendsP"></p>
       <div class="mezclas" id="lista-mezclas"></div>
-      <p class="nota-mezclas">Añade las gotas cuando la base esté tibia y remueve bien. Doce gotas en 30 ml equivalen más o menos a un 1,5 %, una dosis prudente para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.</p>
+      <p class="nota-mezclas" data-t="blendsNote"></p>
     </div>
   </section>
 
   <svg class="ola" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 40V20c100-22 200-22 300 0s200 22 300 0 200-22 300 0 200 22 300 0v20z"/></svg>
   <section class="sin bloque" id="sin">
     <div class="contenedor">
-      <h2>Lo que no lleva</h2>
-      <ul>
-        <li><s>Sales de aluminio</s></li>
-        <li><s>Parabenos</s></li>
-        <li><s>Perfume sintético</s></li>
-      </ul>
-      <p>Tampoco lleva agua, así que no necesita conservantes. Lo que ves en la etiqueta es todo lo que hay en el tarro.</p>
+      <h2 data-t="navWithout"></h2>
+      <ul id="lista-sin"></ul>
+      <p data-t="withoutP"></p>
     </div>
   </section>
 
   <section class="bloque" id="proceso">
     <div class="contenedor">
-      <h2>Así lo hacemos en el taller</h2>
-      <p class="entrada">Cuatro pasos, un cazo y tus manos. Te llevas tu propio tarro.</p>
-      <ol class="pasos">
-        <li><div><h3>Fundir</h3><p>Derretimos las mantecas y el aceite de coco al baño maría, a fuego lento, para no estropearlos.</p></div></li>
-        <li><div><h3>Mezclar</h3><p>Añadimos el almidón, el bicarbonato y el óxido de zinc tamizados y removemos hasta que no queda un solo grumo.</p></div></li>
-        <li><div><h3>Perfumar</h3><p>Cuando la mezcla se templa, incorporamos los aceites esenciales. Con demasiado calor perderían su aroma.</p></div></li>
-        <li><div><h3>Verter y reposar</h3><p>Llenamos los tarros uno a uno y los dejamos reposar hasta que la crema cuaja.</p></div></li>
-      </ol>
+      <h2 data-t="processH"></h2>
+      <p class="entrada" data-t="processP"></p>
+      <ol class="pasos" id="lista-pasos"></ol>
     </div>
   </section>
 
   <section class="faq bloque" id="faq">
     <div class="contenedor">
-      <h2>Preguntas frecuentes</h2>
+      <h2 data-t="faqH"></h2>
       <div class="faq-lista" id="lista-faq"></div>
     </div>
   </section>
 </main>
 
-<footer id="contacto">
+<footer>
   <div class="contenedor">
     <div class="pie-rejilla">
       <div>
-        <h2>Ingredientes (INCI)</h2>
+        <h2 data-t="inciH"></h2>
         <p class="lista-inci" id="inci-completo"></p>
-        <p class="lista-inci" style="margin-top:0.75rem">Los aceites esenciales contienen alérgenos naturales, como limonene, linalool, geraniol o citronellol. Si tienes alguna alergia conocida, revisa esta lista antes de usarlo.</p>
+        <p class="lista-inci" style="margin-top:0.75rem" data-t="allergen"></p>
       </div>
-      <div>
-        <h2>Contacto</h2>
-        <p class="lista-inci">Un taller de <span data-marca></span>, en Imsouane, Marruecos.</p>
-        <ul id="lista-contacto"></ul>
-      </div>
+      <p class="lista-inci" id="pie-autor"></p>
     </div>
-    <p class="legal">Producto cosmético de uso externo. La información de esta página es divulgativa y no sustituye el consejo de un profesional de la salud.</p>
+    <p class="legal" data-t="legal"></p>
   </div>
 </footer>
 
@@ -399,220 +412,463 @@
 const CONFIG = {
   marca: "Azoul Gathering",
   colaborador: "Alejandro",
-  instagram: "azoulgathering",
 };
 
-// `propiedades` (aromas): extra paragraph on odour/antibacterial properties.
-// One entry per ingredient. `tipo` is "base" or "aroma"; aromas also need `familia`.
-// INCI names must be checked against each supplier's spec sheet.
+// Language-independent data. Text for each id lives in L[lang].ing below.
+// `fn` lists function-chip keys (see L[lang].fn). INCI names must be checked against each supplier's spec sheet.
+// INCI order on a real label must follow descending concentration; reorder to match the formula.
 const INGREDIENTES = [
-  {
-    id: "karite", tipo: "base", nombre: "Manteca de karité", inci: "Butyrospermum Parkii Butter",
-    origen: "Nuez del árbol de karité, de África occidental.",
-    funciones: ["Suaviza la piel", "Da textura"], color: "#ead9a6",
-    texto: "Es la manteca que hace que la crema se deslice sin tirar de la piel. Rica en ácidos grasos, ayuda a mantener la axila hidratada, algo que se agradece sobre todo después del afeitado.",
-  },
-  {
-    id: "coco", tipo: "base", nombre: "Aceite de coco", inci: "Cocos Nucifera Oil",
-    origen: "Pulpa del coco.",
-    funciones: ["Da textura", "Suaviza la piel", "Ayuda frente al olor"], color: "#fffdf6",
-    texto: "Es sólido en frío y se vuelve líquido con el calor del cuerpo, por eso la crema se funde al aplicarla. Contiene ácido láurico, estudiado por su actividad frente a las bacterias que causan el mal olor.",
-  },
-  {
-    id: "cacao", tipo: "base", nombre: "Manteca de cacao", inci: "Theobroma Cacao Seed Butter",
-    origen: "Habas del árbol del cacao.",
-    funciones: ["Da firmeza", "Suaviza la piel"], color: "#6b4226",
-    texto: "Es la más dura de las tres grasas y da cuerpo a la fórmula para que aguante mejor el calor. Deja una capa fina que protege la piel y un fondo muy suave de olor a chocolate.",
-  },
-  {
-    id: "almidon", tipo: "base", nombre: "Almidón de maíz", inci: "Zea Mays Starch",
-    origen: "Grano de maíz molido.",
-    funciones: ["Absorbe la humedad"], color: "#f7efc9",
-    texto: "No frena el sudor: lo absorbe. Hace el papel que antes hacía el talco, deja un tacto seco y sedoso y quita la sensación grasa de las mantecas.",
-  },
-  {
-    id: "bicarbonato", tipo: "base", nombre: "Bicarbonato de sodio", inci: "Sodium Bicarbonate",
-    origen: "Sal mineral.",
-    funciones: ["Neutraliza el olor"], color: "#ffffff",
-    texto: "Es el ingrediente que se ocupa del olor. Es alcalino y neutraliza los compuestos ácidos que producen las bacterias al descomponer el sudor.",
-    aviso: "Puede irritar las pieles sensibles. Si notas rojez o picor, deja de usarlo.",
-  },
-  {
-    id: "zinc", tipo: "base", nombre: "Óxido de zinc", inci: "Zinc Oxide",
-    origen: "Polvo mineral blanco.",
-    funciones: ["Ayuda frente al olor", "Protege la piel"], color: "#f4f6f5",
-    texto: "Es el mismo mineral de las cremas para la zona del pañal. Ayuda a reducir el olor y se usa desde hace mucho para proteger la piel y calmarla cuando está irritada.",
-    aviso: "Si te pones demasiada cantidad puede dejar un rastro blanco.",
-  },
-  {
-    id: "bergamota", tipo: "aroma", familia: "citricos", nombre: "Bergamota", inci: "Citrus Aurantium Bergamia Fruit Oil",
-    origen: "Cáscara del fruto, un cítrico cultivado sobre todo en Calabria.",
-    notas: "Cítrica, con un fondo floral", funciones: ["Aroma", "Ayuda frente al olor"],
-    texto: "Es el olor del té Earl Grey: un cítrico más suave y redondo que el limón. Aporta la primera impresión fresca al abrir el tarro.",
-    aviso: "El aceite de bergamota puede hacer la piel más sensible al sol, salvo que sea del tipo sin bergapteno (FCF).",
-    propiedades: "En estudios de laboratorio ha mostrado actividad frente a varias bacterias de la piel. Además, su aroma cítrico es de los que mejor tapan el olor corporal.",
-  },
-  {
-    id: "pomelo", tipo: "aroma", familia: "citricos", nombre: "Pomelo", inci: "Citrus Paradisi Peel Oil",
-    origen: "Cáscara del pomelo, prensada en frío.",
-    notas: "Cítrica, chispeante y algo amarga", funciones: ["Aroma"],
-    texto: "Da un toque limpio y vivo, con ese punto amargo de la piel del pomelo. Es una nota ligera, de las primeras que se perciben.",
-    aviso: "Como otros cítricos prensados en frío, puede hacer la piel más sensible al sol.",
-    propiedades: "Su componente principal, el limoneno, muestra una actividad antibacteriana moderada en laboratorio. Aquí aporta sobre todo sensación de limpieza.",
-  },
-  {
-    id: "lavanda", tipo: "aroma", familia: "florales", nombre: "Lavanda", inci: "Lavandula Angustifolia Oil",
-    origen: "Flores de lavanda destiladas al vapor.",
-    notas: "Floral y herbal", funciones: ["Aroma", "Ayuda frente al olor", "Suaviza la piel"],
-    texto: "Un aroma limpio y tranquilo que casi todo el mundo reconoce. Se ha usado tradicionalmente para calmar la piel.",
-    propiedades: "Es uno de los aceites más estudiados: el linalool que contiene ha mostrado actividad frente a bacterias de la piel en laboratorio. También se usa tradicionalmente para calmar la piel irritada.",
-  },
-  {
-    id: "ylang", tipo: "aroma", familia: "florales", nombre: "Ylang-ylang", inci: "Cananga Odorata Flower Oil",
-    origen: "Flores del árbol Cananga odorata, del sudeste asiático.",
-    notas: "Floral, dulce e intensa", funciones: ["Aroma"],
-    texto: "Es la nota más dulce y exótica de la mezcla. Se usa en poca cantidad para dar calidez y redondear los cítricos.",
-    propiedades: "Su actividad antibacteriana en laboratorio es modesta. Su papel aquí es el aroma: es intenso y duradero, y ayuda a que el olor agradable aguante más horas.",
-  },
-  {
-    id: "geranio", tipo: "aroma", familia: "florales", nombre: "Geranio rosa", inci: "Pelargonium Graveolens Flower Oil",
-    origen: "Hojas y flores del geranio de olor.",
-    notas: "Floral, rosada y verde", funciones: ["Aroma", "Ayuda frente al olor"],
-    texto: "Huele a rosa con un fondo fresco y verde. Une los cítricos con las maderas y ayuda a que el conjunto huela equilibrado.",
-    propiedades: "De los más interesantes para un desodorante: el geraniol y el citronelol que contiene han mostrado en laboratorio buena actividad frente a las bacterias que causan el mal olor.",
-  },
-  {
-    id: "cedro", tipo: "aroma", familia: "amaderados", nombre: "Cedro", inci: "Cedrus Atlantica Bark Oil",
-    origen: "Madera de cedro destilada al vapor.",
-    notas: "Amaderada, seca y cálida", funciones: ["Aroma", "Fija el aroma"],
-    texto: "Huele a madera recién cortada. Es una nota de fondo: tarda más en evaporarse y ayuda a que el aroma dure a lo largo del día.",
-    propiedades: "Se ha estudiado más por su actividad frente a hongos que frente a bacterias. Su aportación principal es hacer que el aroma dure.",
-  },
-  {
-    id: "incienso", tipo: "aroma", familia: "amaderados", nombre: "Incienso", inci: "Boswellia Carterii Oil",
-    origen: "Resina del árbol Boswellia, también llamada olíbano.",
-    notas: "Resinosa y balsámica", funciones: ["Aroma", "Fija el aroma"],
-    texto: "Una resina con miles de años de uso en perfumería. Da profundidad a la mezcla y, como el cedro, ayuda a sostener las notas más ligeras.",
-    propiedades: "Muestra una actividad antibacteriana moderada en laboratorio. Se usa tradicionalmente en el cuidado de la piel por sus resinas.",
-  },
-  {
-    id: "menta", tipo: "aroma", familia: "frescos", nombre: "Menta piperita", inci: "Mentha Piperita Oil",
-    origen: "Hojas de menta destiladas al vapor.",
-    notas: "Fresca y mentolada", funciones: ["Aroma", "Ayuda frente al olor", "Sensación de frescor"],
-    texto: "Su mentol deja una sensación de frescor al aplicar la crema. Es un aroma limpio que despierta la mezcla.",
-    aviso: "El frescor puede notarse intenso sobre la piel recién afeitada.",
-    propiedades: "El mentol ha mostrado actividad frente a bacterias en laboratorio y deja una sensación fresca y seca que ayuda a sentirse limpio más tiempo.",
-  },
-  {
-    id: "romero", tipo: "aroma", familia: "frescos", nombre: "Romero", inci: "Rosmarinus Officinalis Leaf Oil",
-    origen: "Hojas y ramas floridas de romero destiladas al vapor.",
-    notas: "Herbal, fresca y alcanforada", funciones: ["Aroma", "Ayuda frente al olor"],
-    texto: "Huele a monte mediterráneo: verde, limpio y un poco alcanforado. Refuerza la sensación de frescor de la menta y da a la mezcla un aire de hierba recién cortada.",
-    propiedades: "Contiene cineol y alcanfor, estudiados en laboratorio por su actividad frente a bacterias. Se ha usado tradicionalmente como conservante natural.",
-  },
+  { id: "karite", tipo: "base", inci: "Butyrospermum Parkii Butter", fn: ["suaviza", "textura"], color: "#ead9a6" },
+  { id: "coco", tipo: "base", inci: "Cocos Nucifera Oil", fn: ["textura", "suaviza", "olor"], color: "#fffdf6" },
+  { id: "cacao", tipo: "base", inci: "Theobroma Cacao Seed Butter", fn: ["firmeza", "suaviza"], color: "#6b4226" },
+  { id: "almidon", tipo: "base", inci: "Zea Mays Starch", fn: ["absorbe"], color: "#f7efc9" },
+  { id: "bicarbonato", tipo: "base", inci: "Sodium Bicarbonate", fn: ["neutraliza"], color: "#ffffff" },
+  { id: "zinc", tipo: "base", inci: "Zinc Oxide", fn: ["olor", "protege"], color: "#f4f6f5" },
+  { id: "bergamota", tipo: "aroma", familia: "citricos", inci: "Citrus Aurantium Bergamia Fruit Oil", fn: ["aroma", "olor"] },
+  { id: "pomelo", tipo: "aroma", familia: "citricos", inci: "Citrus Paradisi Peel Oil", fn: ["aroma"] },
+  { id: "lavanda", tipo: "aroma", familia: "florales", inci: "Lavandula Angustifolia Oil", fn: ["aroma", "olor", "suaviza"] },
+  { id: "ylang", tipo: "aroma", familia: "florales", inci: "Cananga Odorata Flower Oil", fn: ["aroma"] },
+  { id: "geranio", tipo: "aroma", familia: "florales", inci: "Pelargonium Graveolens Flower Oil", fn: ["aroma", "olor"] },
+  { id: "cedro", tipo: "aroma", familia: "amaderados", inci: "Cedrus Atlantica Bark Oil", fn: ["aroma", "fija"] },
+  { id: "incienso", tipo: "aroma", familia: "amaderados", inci: "Boswellia Carterii Oil", fn: ["aroma", "fija"] },
+  { id: "menta", tipo: "aroma", familia: "frescos", inci: "Mentha Piperita Oil", fn: ["aroma", "olor", "frescor"] },
+  { id: "romero", tipo: "aroma", familia: "frescos", inci: "Rosmarinus Officinalis Leaf Oil", fn: ["aroma", "olor"] },
 ];
+const FAMILIAS = ["citricos", "florales", "amaderados", "frescos"];
 
-const FAMILIAS = [
-  { id: "citricos", nombre: "Cítricos", texto: "Lo primero que hueles: ligeros y luminosos." },
-  { id: "florales", nombre: "Florales", texto: "El corazón de la mezcla." },
-  { id: "amaderados", nombre: "Amaderados y resinosos", texto: "El fondo que hace durar el aroma." },
-  { id: "frescos", nombre: "Frescos y herbales", texto: "El toque de frescor." },
-];
-
-// Drops per 30 ml jar. Keep each blend at 12 drops or fewer (about 1.5 %),
-// bergamot and ylang-ylang at 3 or fewer, peppermint at 3 or fewer.
+// Drops per 30 ml jar, in the same order as L[lang].mez. Keep each blend at 12 drops or fewer
+// (about 1.5 %), with bergamot, ylang-ylang and peppermint at 3 or fewer.
 const MEZCLAS = [
-  { nombre: "Mañana cítrica", texto: "Luminosa y limpia, para empezar el día.", gotas: [["pomelo", 5], ["bergamota", 3], ["cedro", 2], ["menta", 2]] },
-  { nombre: "Jardín", texto: "Floral y suave. Lavanda y geranio son de los que más ayudan frente al olor.", gotas: [["lavanda", 5], ["geranio", 4], ["incienso", 2], ["ylang", 1]] },
-  { nombre: "Bosque", texto: "Amaderada y cálida, la que más dura en la piel.", gotas: [["cedro", 5], ["incienso", 3], ["romero", 2], ["bergamota", 2]] },
-  { nombre: "Monte fresco", texto: "Herbal y fresca, pensada para días de calor y deporte.", gotas: [["lavanda", 4], ["romero", 3], ["menta", 3], ["pomelo", 2]] },
-  { nombre: "Atlántico", texto: "Cítrico, flor y resina, con un punto de frescor.", gotas: [["pomelo", 4], ["geranio", 3], ["incienso", 3], ["menta", 2]] },
-  { nombre: "Piel sensible", texto: "Media dosis y solo dos aceites suaves.", gotas: [["lavanda", 4], ["incienso", 2]] },
+  [["pomelo", 5], ["bergamota", 3], ["cedro", 2], ["menta", 2]],
+  [["lavanda", 5], ["geranio", 4], ["incienso", 2], ["ylang", 1]],
+  [["cedro", 5], ["incienso", 3], ["romero", 2], ["bergamota", 2]],
+  [["lavanda", 4], ["romero", 3], ["menta", 3], ["pomelo", 2]],
+  [["pomelo", 4], ["geranio", 3], ["incienso", 3], ["menta", 2]],
+  [["lavanda", 4], ["incienso", 2]],
 ];
 
-const FAQ = [
-  ["¿Voy a dejar de sudar?", "No. Es un desodorante, no un antitranspirante: no bloquea el sudor, ayuda a neutralizar el olor y absorbe parte de la humedad."],
-  ["¿Hay un periodo de adaptación?", "Algunas personas cuentan que, al dejar el antitranspirante, las primeras semanas notan más sudor u olor. No le pasa a todo el mundo y suele estabilizarse con los días."],
-  ["¿Sirve para piel sensible?", "Depende de cada piel. El bicarbonato puede irritar a algunas personas, así que prueba primero una pequeña cantidad en el antebrazo y espera 24 horas. Evita aplicarlo justo después de afeitarte y deja de usarlo si notas rojez o picor."],
-  ["¿Cómo se aplica?", "Toma una cantidad del tamaño de un guisante, caliéntala unos segundos entre los dedos y extiéndela sobre la axila limpia y seca. Con poco es suficiente."],
-  ["¿Cómo lo conservo?", "En un lugar fresco y seco, con el tarro cerrado. El aceite de coco se derrite por encima de unos 24 °C: si la crema se ablanda en verano, guárdala un rato en la nevera. Sigue sirviendo igual."],
-  ["¿Mancha la ropa?", "Las mantecas pueden dejar marca si te pones demasiada cantidad. Usa poca y espera un minuto antes de vestirte."],
-  ["¿Puedo usarlo durante el embarazo?", "Contiene aceites esenciales. Si estás embarazada, en periodo de lactancia o es para un niño, consulta antes con tu profesional de salud."],
-];
+// ---------- Translations ----------
+// ing: n = name, o = origin, nt = scent notes, t = text, p = odour properties, a = warning.
+const IDIOMAS = { en: "English", de: "Deutsch", tr: "Türkçe", es: "Español" };
+const L = {
+  en: {
+    ui: {
+      skip: "Skip to content", lang: "Language",
+      navHow: "How it works", navBase: "The base", navAromas: "The scents", navBlends: "The blends", navWithout: "What's left out", navProcess: "Made by hand", navFaq: "Questions", navContact: "Contact",
+      heroSub: "Fifteen ingredients. You can read every one.",
+      heroP: "In this workshop we make a natural deodorant by hand with three plant fats, three powders and nine essential oils. Here is what each one does and why it is in the formula.",
+      heroCta: "See the ingredients",
+      howH: "Deodorant, not antiperspirant",
+      howP: "An antiperspirant plugs the pore so you don't sweat. This deodorant lets you sweat, which is what the body needs, and takes care of what comes next.",
+      how1H: "Sweat has no smell", how1P: "Odour appears when skin bacteria break down sweat. Baking soda helps neutralise those compounds.",
+      how2H: "Absorb instead of block", how2P: "Cornstarch takes up some of the moisture and leaves the underarm feeling dry, without closing the pore.",
+      how3H: "Care for the skin", how3P: "Shea butter, cocoa butter and coconut oil make the cream glide and leave the skin soft.",
+      baseP: "Six ingredients do the work: three plant fats that give body and care for the skin, and three powders that deal with moisture and odour.",
+      aromasP: "Nine essential oils, no synthetic fragrance. Tap any of them to see where it comes from, what it smells like and what it adds against odour. What we say about bacteria comes from laboratory studies on the pure oils; in the deodorant they are highly diluted and support the baking soda and zinc, which do the main work.",
+      blendsP: "The base is the same for everyone. What changes is the scent: pick a blend and count the drops for your 30 ml jar.",
+      blendsNote: "Add the drops when the base is lukewarm and stir well. Twelve drops in 30 ml is roughly 1.5%, a cautious dose for the underarm: more drops won't make it work better and may irritate. Drop size varies with the dropper, so treat this as a guide.",
+      total: "{n} drops in total for 30 ml", drop: "drop", drops: "drops",
+      withoutP: "There is no water in it either, so it needs no preservatives. What you see on the label is everything in the jar.",
+      processH: "How we make it in the workshop", processP: "Four steps, a pan and your hands. You take home your own jar.",
+      faqH: "Frequently asked questions",
+      inciH: "Ingredients (INCI)",
+      allergen: "Essential oils contain natural allergens such as limonene, linalool, geraniol or citronellol. If you have a known allergy, check this list before using it.",
+      by: "A workshop by {x}, in Imsouane, Morocco.",
+      legal: "Cosmetic product for external use. The information on this page is for general guidance and does not replace the advice of a health professional.",
+      warn: "Keep in mind:", odour: "Against odour:",
+      desc: "The fifteen ingredients of the natural deodorant we make in the Azoul Gathering × Alejandro workshop: what each one does and why it is in the formula.",
+    },
+    fn: { suaviza: "Softens the skin", textura: "Gives texture", olor: "Helps against odour", firmeza: "Adds firmness", absorbe: "Absorbs moisture", neutraliza: "Neutralises odour", protege: "Protects the skin", aroma: "Scent", fija: "Fixes the scent", frescor: "Cooling feel" },
+    fam: {
+      citricos: ["Citrus", "The first thing you smell: light and bright."],
+      florales: ["Florals", "The heart of the blend."],
+      amaderados: ["Woods and resins", "The base that makes the scent last."],
+      frescos: ["Fresh and herbal", "The touch of freshness."],
+    },
+    ing: {
+      karite: { n: "Shea butter", o: "Nut of the shea tree, from West Africa.", t: "This is the butter that lets the cream glide without tugging at the skin. Rich in fatty acids, it helps keep the underarm moisturised, which is especially welcome after shaving." },
+      coco: { n: "Coconut oil", o: "Flesh of the coconut.", t: "Solid when cool and liquid at body temperature, which is why the cream melts as you apply it. It contains lauric acid, studied for its activity against the bacteria that cause odour." },
+      cacao: { n: "Cocoa butter", o: "Beans of the cacao tree.", t: "The hardest of the three fats: it gives the formula body so it holds up better in the heat. It leaves a thin layer that protects the skin and a very faint scent of chocolate." },
+      almidon: { n: "Cornstarch", o: "Ground maize kernels.", t: "It doesn't stop sweat: it absorbs it. It does the job talc used to do, leaves a dry, silky feel and takes away the greasy touch of the butters." },
+      bicarbonato: { n: "Baking soda", o: "Mineral salt.", t: "This is the ingredient that deals with odour. It is alkaline and neutralises the acidic compounds bacteria produce when they break down sweat.", a: "It can irritate sensitive skin. If you notice redness or itching, stop using it." },
+      zinc: { n: "Zinc oxide", o: "White mineral powder.", t: "The same mineral used in nappy creams. It helps reduce odour and has long been used to protect the skin and soothe it when irritated.", a: "If you apply too much it can leave a white trace." },
+      bergamota: { n: "Bergamot", o: "Peel of the fruit, a citrus grown mainly in Calabria.", nt: "Citrus with a floral undertone", t: "The scent of Earl Grey tea: a softer, rounder citrus than lemon. It gives the first fresh impression when you open the jar.", p: "In laboratory studies it has shown activity against several skin bacteria. Its citrus scent is also among the best at covering body odour.", a: "Bergamot oil can make skin more sensitive to sunlight, unless it is the bergapten-free type (FCF)." },
+      pomelo: { n: "Grapefruit", o: "Grapefruit peel, cold-pressed.", nt: "Citrus, sparkling and slightly bitter", t: "A clean, lively touch with the slight bitterness of grapefruit peel. It is a light note, one of the first you notice.", p: "Its main component, limonene, shows moderate antibacterial activity in the laboratory. Here it mostly adds a feeling of cleanliness.", a: "Like other cold-pressed citrus oils, it can make skin more sensitive to sunlight." },
+      lavanda: { n: "Lavender", o: "Steam-distilled lavender flowers.", nt: "Floral and herbal", t: "A clean, calm scent almost everyone recognises. It has traditionally been used to soothe the skin.", p: "One of the most studied oils: the linalool it contains has shown activity against skin bacteria in the laboratory. It is also traditionally used to calm irritated skin." },
+      ylang: { n: "Ylang-ylang", o: "Flowers of the Cananga odorata tree, from Southeast Asia.", nt: "Floral, sweet and intense", t: "The sweetest, most exotic note in the blend. It is used sparingly to add warmth and round off the citrus.", p: "Its antibacterial activity in the laboratory is modest. Its role here is scent: it is intense and long-lasting, and helps the pleasant smell hold for more hours." },
+      geranio: { n: "Rose geranium", o: "Leaves and flowers of the scented geranium.", nt: "Floral, rosy and green", t: "It smells of rose with a fresh green undertone. It links the citrus to the woods and helps the whole blend smell balanced.", p: "One of the most interesting for a deodorant: the geraniol and citronellol it contains have shown good activity in the laboratory against odour-causing bacteria." },
+      cedro: { n: "Cedarwood", o: "Steam-distilled cedar wood.", nt: "Woody, dry and warm", t: "It smells of freshly cut wood. It is a base note: it evaporates more slowly and helps the scent last through the day.", p: "It has been studied more for its activity against fungi than against bacteria. Its main contribution is making the scent last." },
+      incienso: { n: "Frankincense", o: "Resin of the Boswellia tree, also called olibanum.", nt: "Resinous and balsamic", t: "A resin with thousands of years of use in perfumery. It gives the blend depth and, like cedar, helps hold the lighter notes.", p: "It shows moderate antibacterial activity in the laboratory. Its resins are traditionally used in skin care." },
+      menta: { n: "Peppermint", o: "Steam-distilled mint leaves.", nt: "Fresh and minty", t: "Its menthol leaves a cooling feeling as you apply the cream. A clean scent that wakes up the blend.", p: "Menthol has shown activity against bacteria in the laboratory and leaves a fresh, dry feeling that helps you feel clean for longer.", a: "The cooling can feel intense on freshly shaved skin." },
+      romero: { n: "Rosemary", o: "Steam-distilled rosemary leaves and flowering tops.", nt: "Herbal, fresh and camphor-like", t: "It smells of Mediterranean hillsides: green, clean and slightly camphorous. It boosts the freshness of the mint and gives the blend the air of freshly cut herbs.", p: "It contains cineole and camphor, studied in the laboratory for their activity against bacteria. It has traditionally been used as a natural preservative." },
+    },
+    mez: [
+      ["Citrus morning", "Bright and clean, to start the day."],
+      ["Garden", "Floral and gentle. Lavender and geranium are among the most helpful against odour."],
+      ["Forest", "Woody and warm, the one that lasts longest on the skin."],
+      ["Fresh hillside", "Herbal and fresh, made for hot days and sport."],
+      ["Atlantic", "Citrus, flower and resin, with a hint of freshness."],
+      ["Sensitive skin", "Half the dose and just two gentle oils."],
+    ],
+    sin: ["Aluminium salts", "Parabens", "Synthetic fragrance"],
+    pasos: [
+      ["Melt", "We melt the butters and coconut oil in a bain-marie over low heat, so they don't spoil."],
+      ["Mix", "We add the sifted cornstarch, baking soda and zinc oxide and stir until not a single lump is left."],
+      ["Scent", "Once the mixture has cooled to lukewarm, we add the essential oils. Too much heat would make them lose their scent."],
+      ["Pour and rest", "We fill the jars one by one and leave them to rest until the cream sets."],
+    ],
+    faq: [
+      ["Will I stop sweating?", "No. It is a deodorant, not an antiperspirant: it doesn't block sweat, it helps neutralise odour and absorbs some of the moisture."],
+      ["Is there an adjustment period?", "Some people say that when they give up antiperspirant they notice more sweat or odour for the first few weeks. It doesn't happen to everyone and usually settles within days."],
+      ["Is it suitable for sensitive skin?", "It depends on your skin. Baking soda can irritate some people, so first try a small amount on your forearm and wait 24 hours. Avoid applying it right after shaving, and stop using it if you notice redness or itching."],
+      ["How do I apply it?", "Take a pea-sized amount, warm it between your fingers for a few seconds and spread it over a clean, dry underarm. A little is enough."],
+      ["How do I store it?", "In a cool, dry place with the lid on. Coconut oil melts above about 24 °C: if the cream softens in summer, put it in the fridge for a while. It works just the same."],
+      ["Does it stain clothes?", "The butters can leave a mark if you use too much. Use a little and wait a minute before getting dressed."],
+      ["Can I use it during pregnancy?", "It contains essential oils. If you are pregnant, breastfeeding or it is for a child, check with your health professional first."],
+    ],
+  },
+
+  de: {
+    ui: {
+      skip: "Zum Inhalt springen", lang: "Sprache",
+      navHow: "So wirkt es", navBase: "Die Basis", navAromas: "Die Düfte", navBlends: "Die Mischungen", navWithout: "Was nicht drin ist", navProcess: "Handgemacht", navFaq: "Fragen", navContact: "Kontakt",
+      heroSub: "Fünfzehn Zutaten. Du kannst sie alle lesen.",
+      heroP: "In diesem Workshop stellen wir von Hand ein natürliches Deo her – aus drei Pflanzenfetten, drei Pulvern und neun ätherischen Ölen. Hier erfährst du, was jede Zutat bewirkt und warum sie in der Rezeptur ist.",
+      heroCta: "Zutaten ansehen",
+      howH: "Deo, kein Antitranspirant",
+      howP: "Ein Antitranspirant verschließt die Poren, damit du nicht schwitzt. Dieses Deo lässt dich schwitzen – das braucht der Körper – und kümmert sich um das, was danach kommt.",
+      how1H: "Schweiß riecht nicht", how1P: "Geruch entsteht, wenn Hautbakterien den Schweiß abbauen. Natron hilft, diese Verbindungen zu neutralisieren.",
+      how2H: "Aufnehmen statt blockieren", how2P: "Maisstärke nimmt einen Teil der Feuchtigkeit auf und hinterlässt ein trockenes Gefühl, ohne die Poren zu verschließen.",
+      how3H: "Die Haut pflegen", how3P: "Sheabutter, Kakaobutter und Kokosöl sorgen dafür, dass die Creme gleitet und die Haut weich bleibt.",
+      baseP: "Sechs Zutaten machen die Arbeit: drei Pflanzenfette, die Konsistenz geben und die Haut pflegen, und drei Pulver, die sich um Feuchtigkeit und Geruch kümmern.",
+      aromasP: "Neun ätherische Öle, kein synthetisches Parfüm. Tippe auf eines, um zu sehen, woher es kommt, wie es riecht und was es gegen Geruch beiträgt. Was wir über Bakterien sagen, stammt aus Laborstudien mit den reinen Ölen; im Deo sind sie stark verdünnt und unterstützen Natron und Zink, die die Hauptarbeit leisten.",
+      blendsP: "Die Basis ist für alle gleich. Was sich ändert, ist der Duft: Wähle eine Mischung und zähle die Tropfen für deinen 30-ml-Tiegel.",
+      blendsNote: "Gib die Tropfen dazu, wenn die Basis lauwarm ist, und rühre gut um. Zwölf Tropfen auf 30 ml entsprechen etwa 1,5 % – eine vorsichtige Dosis für die Achsel: Mehr Tropfen wirken nicht besser, können aber reizen. Die Tropfengröße hängt von der Pipette ab, nimm die Angaben also als Richtwert.",
+      total: "{n} Tropfen insgesamt für 30 ml", drop: "Tropfen", drops: "Tropfen",
+      withoutP: "Wasser ist auch keins drin, deshalb braucht es keine Konservierungsstoffe. Was auf dem Etikett steht, ist alles, was im Tiegel ist.",
+      processH: "So machen wir es im Workshop", processP: "Vier Schritte, ein Topf und deine Hände. Du nimmst deinen eigenen Tiegel mit.",
+      faqH: "Häufige Fragen",
+      inciH: "Inhaltsstoffe (INCI)",
+      allergen: "Ätherische Öle enthalten natürliche Allergene wie Limonene, Linalool, Geraniol oder Citronellol. Wenn du eine bekannte Allergie hast, prüfe diese Liste vor der Anwendung.",
+      by: "Ein Workshop von {x} in Imsouane, Marokko.",
+      legal: "Kosmetisches Produkt zur äußerlichen Anwendung. Die Informationen auf dieser Seite dienen der allgemeinen Orientierung und ersetzen nicht den Rat einer medizinischen Fachperson.",
+      warn: "Gut zu wissen:", odour: "Gegen Geruch:",
+      desc: "Die fünfzehn Zutaten des natürlichen Deos aus dem Workshop von Azoul Gathering × Alejandro: was jede bewirkt und warum sie in der Rezeptur ist.",
+    },
+    fn: { suaviza: "Pflegt die Haut", textura: "Gibt Textur", olor: "Hilft gegen Geruch", firmeza: "Gibt Festigkeit", absorbe: "Nimmt Feuchtigkeit auf", neutraliza: "Neutralisiert Geruch", protege: "Schützt die Haut", aroma: "Duft", fija: "Fixiert den Duft", frescor: "Kühlendes Gefühl" },
+    fam: {
+      citricos: ["Zitrus", "Das Erste, was man riecht: leicht und hell."],
+      florales: ["Blumig", "Das Herz der Mischung."],
+      amaderados: ["Hölzer und Harze", "Die Basis, die den Duft haltbar macht."],
+      frescos: ["Frisch und krautig", "Der Hauch Frische."],
+    },
+    ing: {
+      karite: { n: "Sheabutter", o: "Nuss des Karitébaums aus Westafrika.", t: "Diese Butter sorgt dafür, dass sich die Creme verteilen lässt, ohne an der Haut zu ziehen. Sie ist reich an Fettsäuren und hilft, die Achsel geschmeidig zu halten – besonders angenehm nach dem Rasieren." },
+      coco: { n: "Kokosöl", o: "Fruchtfleisch der Kokosnuss.", t: "Fest, wenn es kühl ist, und flüssig bei Körperwärme – deshalb schmilzt die Creme beim Auftragen. Es enthält Laurinsäure, die auf ihre Wirkung gegen geruchsbildende Bakterien untersucht wurde." },
+      cacao: { n: "Kakaobutter", o: "Bohnen des Kakaobaums.", t: "Das härteste der drei Fette: Es gibt der Rezeptur Festigkeit, damit sie Wärme besser standhält. Es hinterlässt einen dünnen, schützenden Film und einen ganz leichten Schokoladenduft." },
+      almidon: { n: "Maisstärke", o: "Gemahlene Maiskörner.", t: "Sie stoppt den Schweiß nicht, sie nimmt ihn auf. Sie übernimmt die Aufgabe, die früher Talkum hatte, hinterlässt ein trockenes, seidiges Gefühl und nimmt den Buttern das Fettige." },
+      bicarbonato: { n: "Natron", o: "Mineralsalz.", t: "Diese Zutat kümmert sich um den Geruch. Natron ist basisch und neutralisiert die sauren Verbindungen, die Bakterien beim Abbau von Schweiß bilden.", a: "Kann empfindliche Haut reizen. Bei Rötung oder Juckreiz nicht weiter verwenden." },
+      zinc: { n: "Zinkoxid", o: "Weißes Mineralpulver.", t: "Dasselbe Mineral wie in Wundschutzcremes für Babys. Es hilft, Geruch zu verringern, und wird seit Langem verwendet, um die Haut zu schützen und bei Reizungen zu beruhigen.", a: "Zu viel davon kann weiße Spuren hinterlassen." },
+      bergamota: { n: "Bergamotte", o: "Schale der Frucht, einer Zitrusfrucht, die vor allem in Kalabrien wächst.", nt: "Zitrisch mit blumigem Unterton", t: "Der Duft von Earl-Grey-Tee: eine weichere, rundere Zitrusnote als Zitrone. Sie sorgt für den ersten frischen Eindruck beim Öffnen des Tiegels.", p: "In Laborstudien zeigte es Wirkung gegen mehrere Hautbakterien. Sein Zitrusduft überdeckt Körpergeruch außerdem besonders gut.", a: "Bergamottöl kann die Haut lichtempfindlicher machen, außer es ist bergaptenfrei (FCF)." },
+      pomelo: { n: "Grapefruit", o: "Schale der Grapefruit, kaltgepresst.", nt: "Zitrisch, spritzig und leicht bitter", t: "Eine saubere, lebendige Note mit der leichten Bitterkeit der Grapefruitschale. Sie ist leicht und gehört zu den ersten, die man wahrnimmt.", p: "Ihr Hauptbestandteil Limonen zeigt im Labor eine mäßige antibakterielle Wirkung. Hier sorgt sie vor allem für ein Gefühl von Sauberkeit.", a: "Wie andere kaltgepresste Zitrusöle kann es die Haut lichtempfindlicher machen." },
+      lavanda: { n: "Lavendel", o: "Wasserdampfdestillierte Lavendelblüten.", nt: "Blumig und krautig", t: "Ein sauberer, ruhiger Duft, den fast jeder kennt. Traditionell wird er verwendet, um die Haut zu beruhigen.", p: "Eines der am besten untersuchten Öle: Das enthaltene Linalool zeigte im Labor Wirkung gegen Hautbakterien. Traditionell wird es auch bei gereizter Haut eingesetzt." },
+      ylang: { n: "Ylang-Ylang", o: "Blüten des Cananga-odorata-Baums aus Südostasien.", nt: "Blumig, süß und intensiv", t: "Die süßeste, exotischste Note der Mischung. Sparsam dosiert gibt sie Wärme und rundet die Zitrusnoten ab.", p: "Die antibakterielle Wirkung im Labor ist gering. Seine Aufgabe hier ist der Duft: intensiv und lang anhaltend, sodass der angenehme Geruch mehr Stunden hält." },
+      geranio: { n: "Rosengeranie", o: "Blätter und Blüten der Duftgeranie.", nt: "Blumig, rosig und grün", t: "Sie duftet nach Rose mit einem frischen, grünen Unterton. Sie verbindet die Zitrusnoten mit den Hölzern und bringt die Mischung ins Gleichgewicht.", p: "Für ein Deo besonders interessant: Das enthaltene Geraniol und Citronellol zeigten im Labor eine gute Wirkung gegen geruchsbildende Bakterien." },
+      cedro: { n: "Zeder", o: "Wasserdampfdestilliertes Zedernholz.", nt: "Holzig, trocken und warm", t: "Es duftet nach frisch geschnittenem Holz. Als Basisnote verfliegt es langsamer und hilft, dass der Duft den Tag über hält.", p: "Es wurde eher auf seine Wirkung gegen Pilze als gegen Bakterien untersucht. Sein Hauptbeitrag: Der Duft hält länger." },
+      incienso: { n: "Weihrauch", o: "Harz des Boswellia-Baums, auch Olibanum genannt.", nt: "Harzig und balsamisch", t: "Ein Harz, das seit Jahrtausenden in der Parfümerie verwendet wird. Es gibt der Mischung Tiefe und hält, wie die Zeder, die leichteren Noten fest.", p: "Im Labor zeigt es eine mäßige antibakterielle Wirkung. Seine Harze werden traditionell in der Hautpflege verwendet." },
+      menta: { n: "Pfefferminze", o: "Wasserdampfdestillierte Minzblätter.", nt: "Frisch und minzig", t: "Ihr Menthol hinterlässt beim Auftragen ein kühlendes Gefühl. Ein sauberer Duft, der die Mischung belebt.", p: "Menthol zeigte im Labor Wirkung gegen Bakterien und hinterlässt ein frisches, trockenes Gefühl, mit dem man sich länger sauber fühlt.", a: "Auf frisch rasierter Haut kann die Kühle intensiv wirken." },
+      romero: { n: "Rosmarin", o: "Wasserdampfdestillierte Blätter und blühende Zweige des Rosmarins.", nt: "Krautig, frisch und kampferartig", t: "Er duftet nach mediterraner Landschaft: grün, sauber und leicht kampferartig. Er verstärkt die Frische der Minze und gibt der Mischung etwas von frisch geschnittenen Kräutern.", p: "Er enthält Cineol und Kampfer, die im Labor auf ihre Wirkung gegen Bakterien untersucht wurden. Traditionell wird er als natürliches Konservierungsmittel verwendet." },
+    },
+    mez: [
+      ["Zitrusmorgen", "Hell und sauber, für den Start in den Tag."],
+      ["Garten", "Blumig und sanft. Lavendel und Geranie gehören zu den Ölen, die am meisten gegen Geruch helfen."],
+      ["Wald", "Holzig und warm – hält am längsten auf der Haut."],
+      ["Frische Kräuter", "Krautig und frisch, gedacht für heiße Tage und Sport."],
+      ["Atlantik", "Zitrus, Blüte und Harz, mit einem Hauch Frische."],
+      ["Empfindliche Haut", "Halbe Dosis und nur zwei milde Öle."],
+    ],
+    sin: ["Aluminiumsalze", "Parabene", "Synthetisches Parfüm"],
+    pasos: [
+      ["Schmelzen", "Wir schmelzen die Buttern und das Kokosöl im Wasserbad bei niedriger Hitze, damit sie nicht leiden."],
+      ["Mischen", "Wir geben gesiebte Maisstärke, Natron und Zinkoxid dazu und rühren, bis kein Klümpchen mehr übrig ist."],
+      ["Beduften", "Wenn die Masse lauwarm ist, kommen die ätherischen Öle dazu. Bei zu viel Hitze würden sie ihren Duft verlieren."],
+      ["Abfüllen und ruhen lassen", "Wir füllen die Tiegel einzeln und lassen sie stehen, bis die Creme fest wird."],
+    ],
+    faq: [
+      ["Höre ich auf zu schwitzen?", "Nein. Es ist ein Deo, kein Antitranspirant: Es blockiert den Schweiß nicht, sondern hilft, Geruch zu neutralisieren, und nimmt einen Teil der Feuchtigkeit auf."],
+      ["Gibt es eine Umstellungsphase?", "Manche berichten, dass sie nach dem Verzicht auf Antitranspirant in den ersten Wochen mehr Schweiß oder Geruch bemerken. Das passiert nicht allen und legt sich meist nach einigen Tagen."],
+      ["Ist es für empfindliche Haut geeignet?", "Das hängt von deiner Haut ab. Natron kann manche Menschen reizen: Teste zuerst eine kleine Menge am Unterarm und warte 24 Stunden. Trage es nicht direkt nach dem Rasieren auf und verwende es nicht weiter, wenn Rötung oder Juckreiz auftreten."],
+      ["Wie trage ich es auf?", "Nimm eine erbsengroße Menge, erwärme sie einige Sekunden zwischen den Fingern und verteile sie auf der sauberen, trockenen Achsel. Wenig reicht."],
+      ["Wie bewahre ich es auf?", "Kühl und trocken, mit geschlossenem Deckel. Kokosöl schmilzt ab etwa 24 °C: Wird die Creme im Sommer weich, stell sie kurz in den Kühlschrank. Sie wirkt genauso."],
+      ["Macht es Flecken auf der Kleidung?", "Die Buttern können Spuren hinterlassen, wenn du zu viel nimmst. Verwende wenig und warte eine Minute, bevor du dich anziehst."],
+      ["Kann ich es in der Schwangerschaft verwenden?", "Es enthält ätherische Öle. Wenn du schwanger bist, stillst oder es für ein Kind gedacht ist, frag vorher deine Ärztin oder deinen Arzt."],
+    ],
+  },
+
+  tr: {
+    ui: {
+      skip: "İçeriğe geç", lang: "Dil",
+      navHow: "Nasıl çalışır", navBase: "Baz", navAromas: "Kokular", navBlends: "Karışımlar", navWithout: "İçinde olmayanlar", navProcess: "El yapımı", navFaq: "Sorular", navContact: "İletişim",
+      heroSub: "On beş bileşen. Hepsini okuyabilirsin.",
+      heroP: "Bu atölyede üç bitkisel yağ, üç toz ve dokuz uçucu yağ ile el yapımı doğal bir deodorant hazırlıyoruz. Her birinin ne işe yaradığını ve formülde neden bulunduğunu burada anlatıyoruz.",
+      heroCta: "Bileşenleri gör",
+      howH: "Deodorant, antiperspirant değil",
+      howP: "Antiperspirant, terlememen için gözenekleri tıkar. Bu deodorant terlemene izin verir, çünkü vücudun buna ihtiyacı vardır; sonrasında olanla ilgilenir.",
+      how1H: "Ter kokmaz", how1P: "Koku, cilt bakterileri teri parçaladığında ortaya çıkar. Karbonat bu bileşiklerin nötralize edilmesine yardımcı olur.",
+      how2H: "Tıkamak yerine emmek", how2P: "Mısır nişastası nemin bir kısmını emer ve gözenekleri kapatmadan koltuk altında kuru bir his bırakır.",
+      how3H: "Cilde bakım", how3P: "Shea yağı, kakao yağı ve hindistan cevizi yağı kremin kaymasını sağlar ve cildi yumuşak bırakır.",
+      baseP: "İşi altı bileşen yapar: kıvam veren ve cilde bakan üç bitkisel yağ ile nem ve kokuyla ilgilenen üç toz.",
+      aromasP: "Dokuz uçucu yağ, sentetik parfüm yok. Nereden geldiğini, nasıl koktuğunu ve kokuya karşı ne kattığını görmek için birine dokun. Bakterilerle ilgili söylediklerimiz saf yağlarla yapılan laboratuvar çalışmalarına dayanır; deodorantta çok seyreltilmiş hâlde bulunurlar ve asıl işi yapan karbonat ile çinkoya eşlik ederler.",
+      blendsP: "Baz herkes için aynı. Değişen şey koku: bir karışım seç ve 30 ml'lik kavanozun için damlaları say.",
+      blendsNote: "Damlaları baz ılıkken ekle ve iyice karıştır. 30 ml'de on iki damla yaklaşık %1,5 eder; koltuk altı için temkinli bir dozdur: daha fazla damla daha iyi etki etmez, tahriş edebilir. Damla boyutu damlalığa göre değişir, bu yüzden bunu bir rehber olarak düşün.",
+      total: "30 ml için toplam {n} damla", drop: "damla", drops: "damla",
+      withoutP: "İçinde su da yok, bu yüzden koruyucuya ihtiyaç duymaz. Etikette gördüğün, kavanozdaki her şeydir.",
+      processH: "Atölyede böyle yapıyoruz", processP: "Dört adım, bir tencere ve ellerin. Kendi kavanozunu yanında götürürsün.",
+      faqH: "Sık sorulan sorular",
+      inciH: "İçindekiler (INCI)",
+      allergen: "Uçucu yağlar limonen, linalool, geraniol veya sitronellol gibi doğal alerjenler içerir. Bilinen bir alerjin varsa kullanmadan önce bu listeye bak.",
+      by: "{x} atölyesi, Imsouane, Fas.",
+      legal: "Haricen kullanılan kozmetik ürün. Bu sayfadaki bilgiler genel bilgilendirme amaçlıdır ve bir sağlık uzmanının tavsiyesinin yerini tutmaz.",
+      warn: "Aklında olsun:", odour: "Kokuya karşı:",
+      desc: "Azoul Gathering × Alejandro atölyesinde yaptığımız doğal deodorantın on beş bileşeni: her biri ne işe yarar ve formülde neden var.",
+    },
+    fn: { suaviza: "Cildi yumuşatır", textura: "Doku verir", olor: "Kokuya karşı yardımcı", firmeza: "Kıvam verir", absorbe: "Nemi emer", neutraliza: "Kokuyu nötralize eder", protege: "Cildi korur", aroma: "Koku", fija: "Kokuyu sabitler", frescor: "Serinlik hissi" },
+    fam: {
+      citricos: ["Narenciye", "İlk duyduğun koku: hafif ve aydınlık."],
+      florales: ["Çiçeksi", "Karışımın kalbi."],
+      amaderados: ["Odunsu ve reçineli", "Kokuyu kalıcı kılan taban."],
+      frescos: ["Ferah ve bitkisel", "Ferahlık dokunuşu."],
+    },
+    ing: {
+      karite: { n: "Shea yağı (karite)", o: "Batı Afrika'da yetişen shea ağacının çekirdeği.", t: "Kremin cildi çekiştirmeden kaymasını sağlayan yağdır. Yağ asitleri bakımından zengindir ve koltuk altının nemli kalmasına yardımcı olur; özellikle tıraştan sonra iyi gelir." },
+      coco: { n: "Hindistan cevizi yağı", o: "Hindistan cevizinin etli kısmı.", t: "Serinken katı, vücut ısısında sıvıdır; krem bu yüzden sürerken erir. Kötü kokuya yol açan bakterilere karşı etkisi araştırılan laurik asit içerir." },
+      cacao: { n: "Kakao yağı", o: "Kakao ağacının çekirdekleri.", t: "Üç yağın en serti: formüle kıvam verir, böylece sıcağa daha iyi dayanır. Ciltte koruyucu ince bir tabaka ve çok hafif bir çikolata kokusu bırakır." },
+      almidon: { n: "Mısır nişastası", o: "Öğütülmüş mısır tanesi.", t: "Teri durdurmaz, emer. Eskiden talk pudrasının yaptığı işi yapar; kuru ve ipeksi bir his bırakır, yağların yağlı hissini alır." },
+      bicarbonato: { n: "Karbonat", o: "Mineral tuzu (sodyum bikarbonat).", t: "Kokuyla ilgilenen bileşen budur. Baziktir ve bakterilerin teri parçalarken ürettiği asidik bileşikleri nötralize eder.", a: "Hassas ciltleri tahriş edebilir. Kızarıklık veya kaşıntı olursa kullanmayı bırak." },
+      zinc: { n: "Çinko oksit", o: "Beyaz mineral tozu.", t: "Pişik kremlerindeki mineralin aynısı. Kokunun azalmasına yardımcı olur; cildi korumak ve tahriş olduğunda yatıştırmak için uzun zamandır kullanılır.", a: "Fazla sürersen beyaz iz bırakabilir." },
+      bergamota: { n: "Bergamot", o: "Meyvenin kabuğu; çoğunlukla Calabria'da yetişen bir narenciye.", nt: "Narenciye, çiçeksi bir alt notayla", t: "Earl Grey çayının kokusu: limondan daha yumuşak ve yuvarlak bir narenciye. Kavanozu açtığında ilk ferah izlenimi verir.", p: "Laboratuvar çalışmalarında çeşitli cilt bakterilerine karşı etki göstermiştir. Narenciye kokusu vücut kokusunu en iyi örtenlerdendir.", a: "Bergamot yağı, bergaptensiz (FCF) türden değilse cildi güneşe karşı daha hassas yapabilir." },
+      pomelo: { n: "Greyfurt", o: "Greyfurt kabuğu, soğuk sıkım.", nt: "Narenciye, canlı ve hafif acımsı", t: "Greyfurt kabuğunun hafif acılığıyla temiz ve canlı bir dokunuş. Hafif bir notadır, ilk fark edilenlerden biridir.", p: "Ana bileşeni limonen, laboratuvarda orta düzeyde antibakteriyel etki gösterir. Burada daha çok temizlik hissi katar.", a: "Diğer soğuk sıkım narenciye yağları gibi cildi güneşe karşı daha hassas yapabilir." },
+      lavanda: { n: "Lavanta", o: "Buharla damıtılmış lavanta çiçekleri.", nt: "Çiçeksi ve bitkisel", t: "Neredeyse herkesin tanıdığı temiz ve sakin bir koku. Geleneksel olarak cildi yatıştırmak için kullanılır.", p: "En çok araştırılan yağlardan biri: içerdiği linalool, laboratuvarda cilt bakterilerine karşı etki göstermiştir. Geleneksel olarak tahriş olmuş cildi yatıştırmak için de kullanılır." },
+      ylang: { n: "Ylang-ylang", o: "Güneydoğu Asya'da yetişen Cananga odorata ağacının çiçekleri.", nt: "Çiçeksi, tatlı ve yoğun", t: "Karışımın en tatlı ve egzotik notası. Sıcaklık katmak ve narenciyeleri yuvarlamak için az miktarda kullanılır.", p: "Laboratuvardaki antibakteriyel etkisi sınırlıdır. Buradaki görevi kokudur: yoğun ve kalıcıdır, hoş kokunun daha uzun saatler sürmesine yardımcı olur." },
+      geranio: { n: "Itır çiçeği", o: "Itır çiçeğinin (gül kokulu sardunya) yaprakları ve çiçekleri.", nt: "Çiçeksi, gülümsü ve yeşil", t: "Taze, yeşil bir alt notayla gül gibi kokar. Narenciyeleri odunsu notalara bağlar ve karışımın dengeli kokmasına yardımcı olur.", p: "Deodorant için en ilgi çekici olanlardan: içerdiği geraniol ve sitronellol, laboratuvarda kötü kokuya yol açan bakterilere karşı iyi etki göstermiştir." },
+      cedro: { n: "Sedir", o: "Buharla damıtılmış sedir odunu.", nt: "Odunsu, kuru ve sıcak", t: "Yeni kesilmiş odun gibi kokar. Bir dip notasıdır: daha yavaş buharlaşır ve kokunun gün boyu kalmasına yardımcı olur.", p: "Bakterilerden çok mantarlara karşı etkisi araştırılmıştır. Asıl katkısı kokunun kalıcı olmasını sağlamaktır." },
+      incienso: { n: "Günlük (akgünlük)", o: "Boswellia ağacının reçinesi; olibanum olarak da bilinir.", nt: "Reçineli ve balsamik", t: "Parfümeride binlerce yıldır kullanılan bir reçine. Karışıma derinlik verir ve sedir gibi hafif notaları tutmaya yardımcı olur.", p: "Laboratuvarda orta düzeyde antibakteriyel etki gösterir. Reçineleri geleneksel olarak cilt bakımında kullanılır." },
+      menta: { n: "Nane", o: "Buharla damıtılmış nane yaprakları.", nt: "Ferah ve mentollü", t: "İçindeki mentol, kremi sürerken serinlik hissi bırakır. Karışımı canlandıran temiz bir koku.", p: "Mentol laboratuvarda bakterilere karşı etki göstermiştir; daha uzun süre temiz hissetmeye yardımcı olan ferah ve kuru bir his bırakır.", a: "Serinlik, yeni tıraş edilmiş ciltte yoğun hissedilebilir." },
+      romero: { n: "Biberiye", o: "Buharla damıtılmış biberiye yaprakları ve çiçekli dalları.", nt: "Bitkisel, ferah ve kafurumsu", t: "Akdeniz yamaçları gibi kokar: yeşil, temiz ve hafif kafurlu. Nanenin ferahlığını güçlendirir ve karışıma taze kesilmiş ot havası verir.", p: "Laboratuvarda bakterilere karşı etkisi araştırılan sineol ve kafur içerir. Geleneksel olarak doğal koruyucu olarak kullanılmıştır." },
+    },
+    mez: [
+      ["Narenciye sabahı", "Aydınlık ve temiz, güne başlamak için."],
+      ["Bahçe", "Çiçeksi ve yumuşak. Lavanta ve ıtır, kokuya karşı en çok yardımcı olanlardandır."],
+      ["Orman", "Odunsu ve sıcak; ciltte en uzun kalan karışım."],
+      ["Ferah yamaç", "Bitkisel ve ferah; sıcak günler ve spor için."],
+      ["Atlantik", "Narenciye, çiçek ve reçine; hafif bir ferahlıkla."],
+      ["Hassas cilt", "Yarım doz ve yalnızca iki yumuşak yağ."],
+    ],
+    sin: ["Alüminyum tuzları", "Parabenler", "Sentetik parfüm"],
+    pasos: [
+      ["Eritmek", "Yağları ve hindistan cevizi yağını benmari usulü, kısık ateşte eritiyoruz ki bozulmasınlar."],
+      ["Karıştırmak", "Elenmiş nişastayı, karbonatı ve çinko oksidi ekleyip tek bir topak kalmayana kadar karıştırıyoruz."],
+      ["Kokulandırmak", "Karışım ılıyınca uçucu yağları ekliyoruz. Fazla sıcakta kokularını kaybederler."],
+      ["Dökmek ve dinlendirmek", "Kavanozları tek tek dolduruyor ve krem katılaşana kadar dinlendiriyoruz."],
+    ],
+    faq: [
+      ["Terlemem duracak mı?", "Hayır. Bu bir deodorant, antiperspirant değil: teri engellemez, kokunun nötralize edilmesine yardımcı olur ve nemin bir kısmını emer."],
+      ["Bir alışma dönemi var mı?", "Bazı kişiler antiperspirantı bıraktıklarında ilk haftalarda daha fazla ter veya koku fark ettiklerini söylüyor. Herkeste olmaz ve genellikle birkaç gün içinde dengelenir."],
+      ["Hassas cilde uygun mu?", "Cildine göre değişir. Karbonat bazı kişilerde tahriş yapabilir; önce ön koluna az bir miktar sür ve 24 saat bekle. Tıraştan hemen sonra sürme; kızarıklık veya kaşıntı olursa kullanmayı bırak."],
+      ["Nasıl sürülür?", "Bezelye tanesi kadar al, parmaklarının arasında birkaç saniye ısıt ve temiz, kuru koltuk altına yay. Azı yeterlidir."],
+      ["Nasıl saklanır?", "Serin ve kuru bir yerde, kapağı kapalı olarak. Hindistan cevizi yağı yaklaşık 24 °C'nin üzerinde erir: krem yazın yumuşarsa bir süre buzdolabına koy. Etkisi değişmez."],
+      ["Kıyafette leke yapar mı?", "Fazla sürersen yağlar iz bırakabilir. Az kullan ve giyinmeden önce bir dakika bekle."],
+      ["Hamilelikte kullanabilir miyim?", "Uçucu yağlar içerir. Hamileysen, emziriyorsan veya bir çocuk için kullanılacaksa önce sağlık uzmanına danış."],
+    ],
+  },
+
+  es: {
+    ui: {
+      skip: "Saltar al contenido", lang: "Idioma",
+      navHow: "Cómo funciona", navBase: "La base", navAromas: "Los aromas", navBlends: "Las mezclas", navWithout: "Lo que no lleva", navProcess: "Hecho a mano", navFaq: "Preguntas", navContact: "Contacto",
+      heroSub: "Quince ingredientes. Puedes leerlos todos.",
+      heroP: "En este taller hacemos a mano un desodorante natural con tres grasas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.",
+      heroCta: "Ver los ingredientes",
+      howH: "Desodorante, no antitranspirante",
+      howP: "Un antitranspirante tapona el poro para que no sudes. Este desodorante te deja sudar, que es lo que el cuerpo necesita, y se ocupa de lo que viene después.",
+      how1H: "El sudor no huele", how1P: "El olor aparece cuando las bacterias de la piel descomponen el sudor. El bicarbonato ayuda a neutralizar esos compuestos.",
+      how2H: "Absorber en vez de bloquear", how2P: "El almidón de maíz recoge parte de la humedad y deja la axila con un tacto seco, sin cerrar el poro.",
+      how3H: "Cuidar la piel", how3P: "Las mantecas de karité y cacao y el aceite de coco hacen que la crema se deslice y dejan la piel suave.",
+      baseP: "Seis ingredientes hacen el trabajo: tres grasas vegetales que dan cuerpo y cuidan la piel, y tres polvos que se ocupan de la humedad y del olor.",
+      aromasP: "Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.",
+      blendsP: "La base es la misma para todos. Lo que cambia es el aroma: elige una mezcla y cuenta las gotas para tu tarro de 30 ml.",
+      blendsNote: "Añade las gotas cuando la base esté tibia y remueve bien. Doce gotas en 30 ml equivalen más o menos a un 1,5 %, una dosis prudente para la axila: más gotas no hacen que funcione mejor y sí pueden irritar. El tamaño de la gota cambia según el gotero, así que tómalo como guía.",
+      total: "{n} gotas en total para 30 ml", drop: "gota", drops: "gotas",
+      withoutP: "Tampoco lleva agua, así que no necesita conservantes. Lo que ves en la etiqueta es todo lo que hay en el tarro.",
+      processH: "Así lo hacemos en el taller", processP: "Cuatro pasos, un cazo y tus manos. Te llevas tu propio tarro.",
+      faqH: "Preguntas frecuentes",
+      inciH: "Ingredientes (INCI)",
+      allergen: "Los aceites esenciales contienen alérgenos naturales, como limonene, linalool, geraniol o citronellol. Si tienes alguna alergia conocida, revisa esta lista antes de usarlo.",
+      by: "Un taller de {x}, en Imsouane, Marruecos.",
+      legal: "Producto cosmético de uso externo. La información de esta página es divulgativa y no sustituye el consejo de un profesional de la salud.",
+      warn: "A tener en cuenta:", odour: "Frente al olor:",
+      desc: "Los quince ingredientes del desodorante natural que hacemos en el taller de Azoul Gathering × Alejandro: qué hace cada uno y por qué está en la fórmula.",
+    },
+    fn: { suaviza: "Suaviza la piel", textura: "Da textura", olor: "Ayuda frente al olor", firmeza: "Da firmeza", absorbe: "Absorbe la humedad", neutraliza: "Neutraliza el olor", protege: "Protege la piel", aroma: "Aroma", fija: "Fija el aroma", frescor: "Sensación de frescor" },
+    fam: {
+      citricos: ["Cítricos", "Lo primero que hueles: ligeros y luminosos."],
+      florales: ["Florales", "El corazón de la mezcla."],
+      amaderados: ["Amaderados y resinosos", "El fondo que hace durar el aroma."],
+      frescos: ["Frescos y herbales", "El toque de frescor."],
+    },
+    ing: {
+      karite: { n: "Manteca de karité", o: "Nuez del árbol de karité, de África occidental.", t: "Es la manteca que hace que la crema se deslice sin tirar de la piel. Rica en ácidos grasos, ayuda a mantener la axila hidratada, algo que se agradece sobre todo después del afeitado." },
+      coco: { n: "Aceite de coco", o: "Pulpa del coco.", t: "Es sólido en frío y se vuelve líquido con el calor del cuerpo, por eso la crema se funde al aplicarla. Contiene ácido láurico, estudiado por su actividad frente a las bacterias que causan el mal olor." },
+      cacao: { n: "Manteca de cacao", o: "Habas del árbol del cacao.", t: "Es la más dura de las tres grasas y da cuerpo a la fórmula para que aguante mejor el calor. Deja una capa fina que protege la piel y un fondo muy suave de olor a chocolate." },
+      almidon: { n: "Almidón de maíz", o: "Grano de maíz molido.", t: "No frena el sudor: lo absorbe. Hace el papel que antes hacía el talco, deja un tacto seco y sedoso y quita la sensación grasa de las mantecas." },
+      bicarbonato: { n: "Bicarbonato de sodio", o: "Sal mineral.", t: "Es el ingrediente que se ocupa del olor. Es alcalino y neutraliza los compuestos ácidos que producen las bacterias al descomponer el sudor.", a: "Puede irritar las pieles sensibles. Si notas rojez o picor, deja de usarlo." },
+      zinc: { n: "Óxido de zinc", o: "Polvo mineral blanco.", t: "Es el mismo mineral de las cremas para la zona del pañal. Ayuda a reducir el olor y se usa desde hace mucho para proteger la piel y calmarla cuando está irritada.", a: "Si te pones demasiada cantidad puede dejar un rastro blanco." },
+      bergamota: { n: "Bergamota", o: "Cáscara del fruto, un cítrico cultivado sobre todo en Calabria.", nt: "Cítrica, con un fondo floral", t: "Es el olor del té Earl Grey: un cítrico más suave y redondo que el limón. Aporta la primera impresión fresca al abrir el tarro.", p: "En estudios de laboratorio ha mostrado actividad frente a varias bacterias de la piel. Además, su aroma cítrico es de los que mejor tapan el olor corporal.", a: "El aceite de bergamota puede hacer la piel más sensible al sol, salvo que sea del tipo sin bergapteno (FCF)." },
+      pomelo: { n: "Pomelo", o: "Cáscara del pomelo, prensada en frío.", nt: "Cítrica, chispeante y algo amarga", t: "Da un toque limpio y vivo, con ese punto amargo de la piel del pomelo. Es una nota ligera, de las primeras que se perciben.", p: "Su componente principal, el limoneno, muestra una actividad antibacteriana moderada en laboratorio. Aquí aporta sobre todo sensación de limpieza.", a: "Como otros cítricos prensados en frío, puede hacer la piel más sensible al sol." },
+      lavanda: { n: "Lavanda", o: "Flores de lavanda destiladas al vapor.", nt: "Floral y herbal", t: "Un aroma limpio y tranquilo que casi todo el mundo reconoce. Se ha usado tradicionalmente para calmar la piel.", p: "Es uno de los aceites más estudiados: el linalool que contiene ha mostrado actividad frente a bacterias de la piel en laboratorio. También se usa tradicionalmente para calmar la piel irritada." },
+      ylang: { n: "Ylang-ylang", o: "Flores del árbol Cananga odorata, del sudeste asiático.", nt: "Floral, dulce e intensa", t: "Es la nota más dulce y exótica de la mezcla. Se usa en poca cantidad para dar calidez y redondear los cítricos.", p: "Su actividad antibacteriana en laboratorio es modesta. Su papel aquí es el aroma: es intenso y duradero, y ayuda a que el olor agradable aguante más horas." },
+      geranio: { n: "Geranio rosa", o: "Hojas y flores del geranio de olor.", nt: "Floral, rosada y verde", t: "Huele a rosa con un fondo fresco y verde. Une los cítricos con las maderas y ayuda a que el conjunto huela equilibrado.", p: "De los más interesantes para un desodorante: el geraniol y el citronelol que contiene han mostrado en laboratorio buena actividad frente a las bacterias que causan el mal olor." },
+      cedro: { n: "Cedro", o: "Madera de cedro destilada al vapor.", nt: "Amaderada, seca y cálida", t: "Huele a madera recién cortada. Es una nota de fondo: tarda más en evaporarse y ayuda a que el aroma dure a lo largo del día.", p: "Se ha estudiado más por su actividad frente a hongos que frente a bacterias. Su aportación principal es hacer que el aroma dure." },
+      incienso: { n: "Incienso", o: "Resina del árbol Boswellia, también llamada olíbano.", nt: "Resinosa y balsámica", t: "Una resina con miles de años de uso en perfumería. Da profundidad a la mezcla y, como el cedro, ayuda a sostener las notas más ligeras.", p: "Muestra una actividad antibacteriana moderada en laboratorio. Se usa tradicionalmente en el cuidado de la piel por sus resinas." },
+      menta: { n: "Menta piperita", o: "Hojas de menta destiladas al vapor.", nt: "Fresca y mentolada", t: "Su mentol deja una sensación de frescor al aplicar la crema. Es un aroma limpio que despierta la mezcla.", p: "El mentol ha mostrado actividad frente a bacterias en laboratorio y deja una sensación fresca y seca que ayuda a sentirse limpio más tiempo.", a: "El frescor puede notarse intenso sobre la piel recién afeitada." },
+      romero: { n: "Romero", o: "Hojas y ramas floridas de romero destiladas al vapor.", nt: "Herbal, fresca y alcanforada", t: "Huele a monte mediterráneo: verde, limpio y un poco alcanforado. Refuerza la sensación de frescor de la menta y da a la mezcla un aire de hierba recién cortada.", p: "Contiene cineol y alcanfor, estudiados en laboratorio por su actividad frente a bacterias. Se ha usado tradicionalmente como conservante natural." },
+    },
+    mez: [
+      ["Mañana cítrica", "Luminosa y limpia, para empezar el día."],
+      ["Jardín", "Floral y suave. Lavanda y geranio son de los que más ayudan frente al olor."],
+      ["Bosque", "Amaderada y cálida, la que más dura en la piel."],
+      ["Monte fresco", "Herbal y fresca, pensada para días de calor y deporte."],
+      ["Atlántico", "Cítrico, flor y resina, con un punto de frescor."],
+      ["Piel sensible", "Media dosis y solo dos aceites suaves."],
+    ],
+    sin: ["Sales de aluminio", "Parabenos", "Perfume sintético"],
+    pasos: [
+      ["Fundir", "Derretimos las mantecas y el aceite de coco al baño maría, a fuego lento, para no estropearlos."],
+      ["Mezclar", "Añadimos el almidón, el bicarbonato y el óxido de zinc tamizados y removemos hasta que no queda un solo grumo."],
+      ["Perfumar", "Cuando la mezcla se templa, incorporamos los aceites esenciales. Con demasiado calor perderían su aroma."],
+      ["Verter y reposar", "Llenamos los tarros uno a uno y los dejamos reposar hasta que la crema cuaja."],
+    ],
+    faq: [
+      ["¿Voy a dejar de sudar?", "No. Es un desodorante, no un antitranspirante: no bloquea el sudor, ayuda a neutralizar el olor y absorbe parte de la humedad."],
+      ["¿Hay un periodo de adaptación?", "Algunas personas cuentan que, al dejar el antitranspirante, las primeras semanas notan más sudor u olor. No le pasa a todo el mundo y suele estabilizarse con los días."],
+      ["¿Sirve para piel sensible?", "Depende de cada piel. El bicarbonato puede irritar a algunas personas, así que prueba primero una pequeña cantidad en el antebrazo y espera 24 horas. Evita aplicarlo justo después de afeitarte y deja de usarlo si notas rojez o picor."],
+      ["¿Cómo se aplica?", "Toma una cantidad del tamaño de un guisante, caliéntala unos segundos entre los dedos y extiéndela sobre la axila limpia y seca. Con poco es suficiente."],
+      ["¿Cómo lo conservo?", "En un lugar fresco y seco, con el tarro cerrado. El aceite de coco se derrite por encima de unos 24 °C: si la crema se ablanda en verano, guárdala un rato en la nevera. Sigue sirviendo igual."],
+      ["¿Mancha la ropa?", "Las mantecas pueden dejar marca si te pones demasiada cantidad. Usa poca y espera un minuto antes de vestirte."],
+      ["¿Puedo usarlo durante el embarazo?", "Contiene aceites esenciales. Si estás embarazada, en periodo de lactancia o es para un niño, consulta antes con tu profesional de salud."],
+    ],
+  },
+};
 
 // ---------- Rendering ----------
 const el = (id) => document.getElementById(id);
-const chips = (f) => `<ul class="chips">${f.map((x) => `<li>${x}</li>`).join("")}</ul>`;
-const aviso = (i) => (i.aviso ? `<p class="aviso"><strong>A tener en cuenta:</strong> ${i.aviso}</p>` : "");
-
-document.querySelectorAll("[data-marca]").forEach((n) => {
-  n.classList.add("collab");
-  n.innerHTML = `${CONFIG.marca}<span class="x" aria-label="por">×</span><em>${CONFIG.colaborador}</em>`;
-});
-
 const base = INGREDIENTES.filter((i) => i.tipo === "base");
 const aromas = INGREDIENTES.filter((i) => i.tipo === "aroma");
-
-const enlaceEtiqueta = (i, n) => `<li><a href="#${i.id}" style="--i:${n}">${i.nombre}</a></li>`;
-el("etiqueta-base").innerHTML = base.map(enlaceEtiqueta).join("");
-el("etiqueta-aromas").innerHTML = aromas.map((i, n) => enlaceEtiqueta(i, n + base.length)).join("");
-
-el("lista-base").innerHTML = base.map((i) => `
-  <li class="base-item" id="${i.id}">
-    <div class="muestra" style="background:${i.color}" aria-hidden="true"></div>
-    <div>
-      <h3>${i.nombre}</h3>
-      <p class="inci">${i.inci}</p>
-      <p class="origen">${i.origen}</p>
-    </div>
-    <div class="base-detalle">
-      ${chips(i.funciones)}
-      <p>${i.texto}</p>
-      ${aviso(i)}
-    </div>
-  </li>`).join("");
-
-el("lista-aromas").innerHTML = FAMILIAS.map((f) => `
-  <div class="familia" style="background:var(--${f.id})">
-    <h3>${f.nombre}</h3>
-    <p>${f.texto}</p>
-    ${aromas.filter((i) => i.familia === f.id).map((i) => `
-      <details name="aroma" id="${i.id}">
-        <summary><span><span class="nombre">${i.nombre}</span><span class="notas">${i.notas}</span></span></summary>
-        <div class="aroma-cuerpo">
-          <p>${i.texto}</p>
-          ${i.propiedades ? `<p><strong>Frente al olor:</strong> ${i.propiedades}</p>` : ""}
-          <p class="origen">${i.origen}</p>
-          <p class="inci">${i.inci}</p>
-          ${chips(i.funciones)}
-          ${aviso(i)}
-        </div>
-      </details>`).join("")}
-  </div>`).join("");
-
 const porId = Object.fromEntries(INGREDIENTES.map((i) => [i.id, i]));
-el("lista-mezclas").innerHTML = MEZCLAS.map((m) => {
-  const total = m.gotas.reduce((n, [, g]) => n + g, 0);
-  // Self-check: unknown oil ids or an over-dosed blend show up in the console.
-  console.assert(total <= 12 && m.gotas.every(([id]) => porId[id]), "Revisar mezcla: " + m.nombre);
-  return `
-  <article class="mezcla">
-    <h3>${m.nombre}</h3>
-    <p>${m.texto}</p>
-    <ul>${m.gotas.map(([id, g]) => `
-      <li><a href="#${id}"><span class="punto" style="background:var(--${porId[id].familia})"></span>${porId[id].nombre}<span class="gotas">${g} ${g === 1 ? "gota" : "gotas"}</span></a></li>`).join("")}
-    </ul>
-    <p class="total">${total} gotas en total para 30 ml</p>
-  </article>`;
-}).join("");
+const marca = `${CONFIG.marca}<span class="x">×</span><em>${CONFIG.colaborador}</em>`;
 
-el("lista-faq").innerHTML = FAQ.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
+// Self-check: every locale covers every ingredient and blend; no blend is over-dosed.
+for (const [k, t] of Object.entries(L)) {
+  console.assert(INGREDIENTES.every((i) => t.ing[i.id] && i.fn.every((f) => t.fn[f])), "Missing ingredient text: " + k);
+  console.assert(t.mez.length === MEZCLAS.length && t.faq.length === L.en.faq.length, "Missing blends/FAQ: " + k);
+}
+MEZCLAS.forEach((m, n) => console.assert(m.reduce((s, [, g]) => s + g, 0) <= 12 && m.every(([id]) => porId[id]), "Check blend " + n));
 
-// INCI order on a real label must follow descending concentration; reorder INGREDIENTES to match the formula.
-el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
+function render(lang) {
+  const t = L[lang], ui = t.ui;
+  const chips = (i) => `<ul class="chips">${i.fn.map((f) => `<li>${t.fn[f]}</li>`).join("")}</ul>`;
+  const aviso = (x) => (x.a ? `<p class="aviso"><strong>${ui.warn}</strong> ${x.a}</p>` : "");
 
-el("lista-contacto").innerHTML = `
-  <li><a href="https://www.instagram.com/${CONFIG.instagram}/" rel="noopener">Instagram: @${CONFIG.instagram}</a></li>`;
+  document.documentElement.lang = lang;
+  document.querySelector('meta[name="description"]').content = ui.desc;
+  document.querySelectorAll("[data-t]").forEach((n) => (n.textContent = ui[n.dataset.t]));
+  document.querySelectorAll("[data-marca]").forEach((n) => { n.classList.add("collab"); n.innerHTML = marca; });
+  el("nav-secciones").setAttribute("aria-label", ui.navHow);
+
+  const enlace = (i, n) => `<li><a href="#${i.id}" style="--i:${n}">${t.ing[i.id].n}</a></li>`;
+  el("etiqueta-base").innerHTML = base.map(enlace).join("");
+  el("etiqueta-aromas").innerHTML = aromas.map((i, n) => enlace(i, n + base.length)).join("");
+
+  el("lista-base").innerHTML = base.map((i) => { const x = t.ing[i.id]; return `
+    <li class="base-item" id="${i.id}">
+      <div class="muestra" style="background:${i.color}" aria-hidden="true"></div>
+      <div>
+        <h3>${x.n}</h3>
+        <p class="inci" lang="la">${i.inci}</p>
+        <p class="origen">${x.o}</p>
+      </div>
+      <div class="base-detalle">
+        ${chips(i)}
+        <p>${x.t}</p>
+        ${aviso(x)}
+      </div>
+    </li>`; }).join("");
+
+  el("lista-aromas").innerHTML = FAMILIAS.map((f) => `
+    <div class="familia" style="background:var(--${f})">
+      <h3>${t.fam[f][0]}</h3>
+      <p>${t.fam[f][1]}</p>
+      ${aromas.filter((i) => i.familia === f).map((i) => { const x = t.ing[i.id]; return `
+        <details name="aroma" id="${i.id}">
+          <summary><span><span class="nombre">${x.n}</span><span class="notas">${x.nt}</span></span></summary>
+          <div class="aroma-cuerpo">
+            <p>${x.t}</p>
+            <p><strong>${ui.odour}</strong> ${x.p}</p>
+            <p class="origen">${x.o}</p>
+            <p class="inci" lang="la">${i.inci}</p>
+            ${chips(i)}
+            ${aviso(x)}
+          </div>
+        </details>`; }).join("")}
+    </div>`).join("");
+
+  el("lista-mezclas").innerHTML = MEZCLAS.map((m, n) => {
+    const total = m.reduce((s, [, g]) => s + g, 0);
+    return `
+    <article class="mezcla">
+      <h3>${t.mez[n][0]}</h3>
+      <p>${t.mez[n][1]}</p>
+      <ul>${m.map(([id, g]) => `
+        <li><a href="#${id}"><span class="punto" style="background:var(--${porId[id].familia})"></span>${t.ing[id].n}<span class="gotas">${g} ${g === 1 ? ui.drop : ui.drops}</span></a></li>`).join("")}
+      </ul>
+      <p class="total">${ui.total.replace("{n}", total)}</p>
+    </article>`;
+  }).join("");
+
+  el("lista-sin").innerHTML = t.sin.map((s) => `<li><s>${s}</s></li>`).join("");
+  el("lista-pasos").innerHTML = t.pasos.map(([h, p]) => `<li><div><h3>${h}</h3><p>${p}</p></div></li>`).join("");
+  el("lista-faq").innerHTML = t.faq.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
+  el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
+  el("pie-autor").innerHTML = ui.by.replace("{x}", `<span class="collab">${marca}</span>`);
+
+  // Language switcher state
+  el("idioma-actual").textContent = lang.toUpperCase();
+  el("idioma-boton").setAttribute("aria-label", `${ui.lang}: ${IDIOMAS[lang]}`);
+  el("idioma-menu").innerHTML = Object.entries(IDIOMAS).map(([k, nombre]) =>
+    `<li><button type="button" lang="${k}" data-lang="${k}"${k === lang ? ' aria-current="true"' : ""}>${nombre}<span>${k.toUpperCase()}</span></button></li>`).join("");
+}
+
+// ---------- Language: ?lang= > saved choice > browser language > English ----------
+const guardado = (() => { try { return localStorage.getItem("lang"); } catch { return null; } })();
+const candidatos = [new URLSearchParams(location.search).get("lang"), guardado, ...(navigator.languages || []).map((l) => l.slice(0, 2))];
+let idioma = candidatos.find((l) => L[l]) || "en";
+render(idioma);
+
+const caja = el("idioma"), boton = el("idioma-boton");
+const abrir = (si) => { caja.toggleAttribute("data-abierto", si); boton.setAttribute("aria-expanded", si); };
+boton.addEventListener("click", () => abrir(!caja.hasAttribute("data-abierto")));
+document.addEventListener("click", (e) => { if (!caja.contains(e.target)) abrir(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && caja.hasAttribute("data-abierto")) { abrir(false); boton.focus(); } });
+el("idioma-menu").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-lang]");
+  if (!b) return;
+  idioma = b.dataset.lang;
+  try { localStorage.setItem("lang", idioma); } catch {}
+  const u = new URL(location.href); u.searchParams.set("lang", idioma); history.replaceState(null, "", u);
+  render(idioma);
+  abrir(false);
+  boton.focus();
+});
 
 // Jar label links to an aroma: open its panel so the anchor lands on visible content.
 const abrirDesdeHash = () => {
