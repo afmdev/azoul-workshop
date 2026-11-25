@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de desodorante natural | Azoul Gathering × Alejandro</title>
+<meta name="description" content="Los quince ingredientes del desodorante natural que hacemos en el taller de Azoul Gathering × Alejandro: qué hace cada uno y por qué está en la fórmula.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  /* Palette follows Azoul Gathering: Atlantic teal, sand and clay. */
+  :root {
+    --karite: #ead9bd;      /* page background: Imsouane sand */
+    --coco: #f7efe0;        /* lighter surface */
+    --cacao: #16323a;       /* ink: deep Atlantic */
+    --cacao-suave: #47595d; /* secondary text */
+    --bergamota: #8a4f2d;   /* links and accents: clay */
+    --pomelo: #d9584f;      /* warnings */
+    --vidrio: #7a5540;      /* jar: earth brown from the Azoul logo */
+    --oceano: #1f4a52;
+
+    --citricos: #f6c9a8;
+    --florales: #d9d0ee;
+    --amaderados: #dfc195;
+    --frescos: #bfe3d6;
+
+    --display: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --texto: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --ancho: 68rem;
+    --margen: clamp(1.25rem, 5vw, 3rem);
+    --nav-alto: 3.5rem;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--karite);
+    color: var(--cacao);
+    font: 400 1.0625rem/1.6 var(--texto);
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.1; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(2.9rem, 9vw, 5.5rem); letter-spacing: -0.01em; line-height: 1; }
+  h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+  h3 { font-size: 1.7rem; }
+  p { margin: 0; max-width: 62ch; text-wrap: pretty; }
+  a { color: var(--bergamota); text-underline-offset: 0.2em; }
+  :focus-visible { outline: 3px solid var(--bergamota); outline-offset: 3px; border-radius: 4px; }
+  [id] { scroll-margin-top: calc(var(--nav-alto) + 1rem); }
+
+  .contenedor { max-width: var(--ancho); margin-inline: auto; padding-inline: var(--margen); }
+  .bloque { padding-block: clamp(3.5rem, 9vw, 7rem); }
+  .entrada { color: var(--cacao-suave); font-size: 1.125rem; margin-top: 1rem; }
+
+  .saltar { position: absolute; left: -999px; }
+  .saltar:focus { left: 1rem; top: 1rem; z-index: 20; background: var(--coco); padding: 0.75rem 1rem; }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--karite);
+    border-bottom: 1px solid rgb(22 50 58 / 0.15);
+  }
+  .nav-fila {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem;
+    min-height: var(--nav-alto);
+  }
+  .marca { font-family: var(--display); font-size: 1.3rem; color: var(--cacao); text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+  .nav nav { min-width: 0; flex: 1 0 100%; margin-inline: -0.75rem; }
+  /* Collab lockup: wordmark × name */
+  .collab { white-space: nowrap; }
+  .collab .x { font-family: var(--texto); font-weight: 400; font-size: 0.8em; margin-inline: 0.35em; color: var(--bergamota); }
+  .collab em { font-style: italic; }
+  .nav ul {
+    display: flex; gap: 0.25rem; list-style: none; margin: 0; padding: 0;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .nav ul::-webkit-scrollbar { display: none; }
+  .nav li a {
+    display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem;
+    color: var(--cacao); text-decoration: none; white-space: nowrap; font-size: 0.9375rem; font-weight: 500;
+    border-radius: 999px;
+  }
+  .nav li a:hover { background: rgb(22 50 58 / 0.08); }
+
+  /* ---------- Hero: the jar label is the ingredient list ---------- */
+  .hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3.5rem, 9vw, 6rem); }
+  .hero-rejilla { display: grid; gap: 3rem; align-items: center; }
+  .hero p { font-size: 1.1875rem; margin-top: 1.5rem; color: var(--cacao-suave); max-width: 46ch; }
+  .boton {
+    display: inline-flex; align-items: center; min-height: 48px; margin-top: 2rem; padding: 0 1.5rem;
+    background: var(--cacao); color: var(--coco); border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+  }
+  .boton:hover { background: var(--bergamota); }
+
+  .tarro { width: min(100%, 23rem); margin-inline: auto; }
+  .tapa {
+    width: 88%; height: 3rem; margin-inline: auto;
+    border-radius: 0.6rem 0.6rem 0.2rem 0.2rem;
+    background: repeating-linear-gradient(90deg, var(--cacao) 0 7px, #2a4a52 7px 9px);
+  }
+  .cuerpo {
+    background: var(--vidrio);
+    border-radius: 1.1rem 1.1rem 2rem 2rem;
+    padding: 1.5rem 0.9rem 2rem;
+  }
+  .etiqueta { background: var(--coco); border-radius: 0.3rem; padding: 1.25rem 1.1rem 1rem; }
+  .etiqueta-marca { font-family: var(--display); font-size: 1.45rem; line-height: 1.1; }
+  .etiqueta-tipo { font-size: 0.875rem; color: var(--cacao-suave); margin-top: 0.15rem; }
+  .etiqueta-listas { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.75rem; margin-top: 0.9rem; border-top: 1px solid var(--cacao); padding-top: 0.6rem; }
+  .etiqueta h2 { font-family: var(--texto); font-size: 0.8125rem; font-weight: 600; color: var(--cacao-suave); line-height: 1.6; }
+  .etiqueta ul { list-style: none; margin: 0; padding: 0; }
+  .etiqueta li a {
+    display: flex; align-items: center; min-height: 44px;
+    color: var(--cacao); text-decoration: none; font-size: 0.9375rem; line-height: 1.2;
+    border-bottom: 1px dotted rgb(22 50 58 / 0.35);
+    animation: aparecer 0.5s both; animation-delay: calc(var(--i) * 60ms + 200ms);
+  }
+  .etiqueta li a:hover { color: var(--bergamota); }
+  @keyframes aparecer { from { opacity: 0; transform: translateY(6px); } }
+
+  /* ---------- How it works ---------- */
+  .como { background: var(--coco); }
+  .como-rejilla { display: grid; gap: 2rem; margin-top: 2.5rem; }
+  .como-rejilla h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .como-rejilla p { color: var(--cacao-suave); }
+
+  /* ---------- Function chips ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0 0 0.9rem; }
+  .chips li { border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.875rem; font-weight: 500; }
+  .inci { font-style: italic; color: var(--cacao-suave); font-size: 0.9375rem; }
+  .origen { font-size: 0.9375rem; color: var(--cacao-suave); margin-top: 0.25rem; }
+  .aviso {
+    margin-top: 0.9rem; padding: 0.7rem 0.9rem; font-size: 0.9375rem;
+    background: rgb(217 88 79 / 0.14); border-left: 3px solid var(--pomelo); border-radius: 0 0.3rem 0.3rem 0;
+  }
+  .aviso strong { font-weight: 600; }
+
+  /* ---------- Base: five ingredients as material samples ---------- */
+  .base-lista { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+  .base-item { display: grid; gap: 1rem 1.5rem; grid-template-columns: 3.5rem 1fr; padding-block: 2rem; border-top: 1px solid rgb(22 50 58 / 0.2); }
+  .muestra { width: 3.5rem; height: 3.5rem; border-radius: 50%; border: 1px solid rgb(22 50 58 / 0.25); }
+  .base-item h3 { font-size: clamp(1.6rem, 4vw, 2.1rem); }
+  .base-detalle { grid-column: 1 / -1; }
+
+  /* ---------- Aromas: grouped by scent family ---------- */
+  .familias { display: grid; gap: 1rem; margin-top: 2.5rem; }
+  .familia { border-radius: 1.25rem; padding: 1.5rem 1.25rem 0.75rem; }
+  .familia > p { font-size: 0.9375rem; margin: 0.35rem 0 0.75rem; }
+  .familia details { border-top: 1px solid rgb(22 50 58 / 0.3); }
+  .familia summary {
+    display: flex; align-items: center; gap: 0.75rem; min-height: 56px; padding-block: 0.5rem;
+    cursor: pointer; list-style: none;
+  }
+  .familia summary::-webkit-details-marker { display: none; }
+  .familia summary .nombre { font-family: var(--display); font-size: 1.6rem; line-height: 1.15; }
+  .familia summary .notas { display: block; font-size: 0.875rem; }
+  .familia summary::after {
+    content: "+"; margin-left: auto; font-size: 1.6rem; line-height: 1; width: 1.5rem; text-align: center;
+    transition: transform 0.2s;
+  }
+  .familia details[open] summary::after { transform: rotate(45deg); }
+  .aroma-cuerpo { padding: 0.25rem 0 1.25rem; }
+  .aroma-cuerpo .inci, .aroma-cuerpo .origen, .familia > p { color: var(--cacao); }
+  .aroma-cuerpo p + p { margin-top: 0.6rem; }
+  .aroma-cuerpo .chips { margin-top: 0.8rem; }
+
+  /* Smooth open/close for every <details>, CSS only.
+     Browsers without interpolate-size / ::details-content just open instantly. */
+  :root { interpolate-size: allow-keywords; }
+  details::details-content {
+    block-size: 0; overflow: clip; opacity: 0;
+    transition: block-size 0.35s ease, opacity 0.35s ease, content-visibility 0.35s allow-discrete;
+  }
+  details[open]::details-content { block-size: auto; opacity: 1; }
+
+  /* ---------- What it leaves out ---------- */
+  .sin { background: var(--oceano); color: var(--coco); position: relative; }
+  .ola { display: block; width: 100%; height: 2rem; color: var(--oceano); margin-bottom: -1px; }
+  .sin ul { list-style: none; margin: 2rem 0 0; padding: 0; }
+  .sin li { font-family: var(--display); font-size: clamp(2rem, 8vw, 4.5rem); line-height: 1.15; }
+  .sin s { text-decoration-color: #e39a6f; text-decoration-thickness: 0.09em; }
+  .sin p { margin-top: 2rem; color: #e6dcc6; }
+
+  /* ---------- Process (a real sequence, so it is numbered) ---------- */
+  .pasos { margin: 2.5rem 0 0; padding: 0; list-style: none; counter-reset: paso; display: grid; gap: 1.75rem; }
+  .pasos li { counter-increment: paso; display: grid; grid-template-columns: 2.75rem 1fr; gap: 0 0.75rem; }
+  .pasos li::before { content: counter(paso); font-family: var(--display); font-size: 2.75rem; line-height: 1; color: var(--vidrio); }
+  .pasos h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .pasos p { color: var(--cacao-suave); }
+
+  /* ---------- FAQ ---------- */
+  .faq { background: var(--coco); }
+  .faq-lista { margin-top: 2rem; max-width: 46rem; }
+  .faq details { border-bottom: 1px solid rgb(22 50 58 / 0.2); }
+  .faq summary {
+    display: flex; align-items: center; gap: 1rem; min-height: 56px; padding-block: 0.75rem;
+    cursor: pointer; font-weight: 600; list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; margin-left: auto; font-size: 1.5rem; line-height: 1; transition: transform 0.2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding-bottom: 1.25rem; color: var(--cacao-suave); }
+
+  /* ---------- Footer ---------- */
+  footer { padding-block: 3.5rem; }
+  .pie-rejilla { display: grid; gap: 2.5rem; }
+  footer h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  footer .lista-inci { font-size: 0.9375rem; color: var(--cacao-suave); max-width: 70ch; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li a { display: inline-flex; align-items: center; min-height: 44px; }
+  .legal { margin-top: 2.5rem; font-size: 0.875rem; color: var(--cacao-suave); }
+
+  /* ---------- Wider screens ---------- */
+  @media (max-width: 61.99rem) { :root { --nav-alto: 5.5rem; } }
+  @media (min-width: 62rem) { .nav nav { flex: 0 1 auto; margin-left: auto; margin-right: 0; } }
+  @media (min-width: 48rem) {
+    .hero-rejilla { grid-template-columns: 1.15fr 0.85fr; }
+    .como-rejilla { grid-template-columns: repeat(3, 1fr); }
+    .base-item { grid-template-columns: 4.5rem minmax(0, 0.8fr) minmax(0, 1.2fr); padding-block: 2.5rem; }
+    .muestra { width: 4.5rem; height: 4.5rem; }
+    .base-detalle { grid-column: auto; }
+    .familias { grid-template-columns: 1fr 1fr; align-items: start; }
+    .familia { padding: 1.75rem 1.75rem 1rem; }
+    .pasos { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; }
+    .pie-rejilla { grid-template-columns: 1.6fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="nav">
+  <div class="contenedor nav-fila">
+    <a class="marca" href="#inicio" data-marca></a>
+    <nav aria-label="Secciones">
+      <ul>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#base">La base</a></li>
+        <li><a href="#aromas">Los aromas</a></li>
+        <li><a href="#sin">Lo que no lleva</a></li>
+        <li><a href="#proceso">Hecho a mano</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero" id="inicio">
+    <div class="contenedor hero-rejilla">
+      <div>
+        <h1>Quince ingredientes. Puedes leerlos todos.</h1>
+        <p>En este taller hacemos a mano un desodorante natural con tres mantecas vegetales, tres polvos y nueve aceites esenciales. Aquí te contamos qué hace cada uno y por qué está en la fórmula.</p>
+        <a class="boton" href="#base">Ver los ingredientes</a>
+      </div>
+      <div class="tarro">
+        <div class="tapa" aria-hidden="true"></div>
+        <div class="cuerpo">
+          <div class="etiqueta">
+            <div class="etiqueta-marca" data-marca></div>
+            <div class="etiqueta-tipo">Taller de desodorante natural</div>
+            <div class="etiqueta-listas">
+              <div><h2>La base</h2><ul id="etiqueta-base"></ul></div>
+              <div><h2>Los aromas</h2><ul id="etiqueta-aromas"></ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="como bloque" id="como-funciona">
+    <div class="contenedor">
+      <h2>Desodorante, no antitranspirante</h2>
+      <p class="entrada">Un antitranspirante tapona el poro para que no sudes. Este desodorante te deja sudar, que es lo que el cuerpo necesita, y se ocupa de lo que viene después.</p>
+      <div class="como-rejilla">
+        <div>
+          <h3>El sudor no huele</h3>
+          <p>El olor aparece cuando las bacterias de la piel descomponen el sudor. El bicarbonato ayuda a neutralizar esos compuestos.</p>
+        </div>
+        <div>
+          <h3>Absorber en vez de bloquear</h3>
+          <p>El almidón de maíz recoge parte de la humedad y deja la axila con un tacto seco, sin cerrar el poro.</p>
+        </div>
+        <div>
+          <h3>Cuidar la piel</h3>
+          <p>Las mantecas de karité y cacao y el aceite de coco hacen que la crema se deslice y dejan la piel suave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" id="base">
+    <div class="contenedor">
+      <h2>La base</h2>
+      <p class="entrada">Seis ingredientes hacen el trabajo: tres grasas vegetales que dan cuerpo y cuidan la piel, y tres polvos que se ocupan de la humedad y del olor.</p>
+      <ul class="base-lista" id="lista-base"></ul>
+    </div>
+  </section>
+
+  <section class="bloque" id="aromas" style="padding-top:0">
+    <div class="contenedor">
+      <h2>Los aromas</h2>
+      <p class="entrada">Nueve aceites esenciales, sin perfume sintético. Toca cualquiera para saber de dónde viene, a qué huele y qué aporta frente al olor. Lo que contamos sobre bacterias viene de estudios de laboratorio con los aceites puros; en el desodorante van muy diluidos y acompañan al bicarbonato y al zinc, que hacen el trabajo principal.</p>
+      <div class="familias" id="lista-aromas"></div>
+    </div>
+  </section>
+
+  <svg class="ola" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 40V20c100-22 200-22 300 0s200 22 300 0 200-22 300 0 200 22 300 0v20z"/></svg>
+  <section class="sin bloque" id="sin">
+    <div class="contenedor">
+      <h2>Lo que no lleva</h2>
+      <ul>
+        <li><s>Sales de aluminio</s></li>
+        <li><s>Parabenos</s></li>
+        <li><s>Perfume sintético</s></li>
+      </ul>
+      <p>Tampoco lleva agua, así que no necesita conservantes. Lo que ves en la etiqueta es todo lo que hay en el tarro.</p>
+    </div>
+  </section>
+
+  <section class="bloque" id="proceso">
+    <div class="contenedor">
+      <h2>Así lo hacemos en el taller</h2>
+      <p class="entrada">Cuatro pasos, un cazo y tus manos. Te llevas tu propio tarro.</p>
+      <ol class="pasos">
+        <li><div><h3>Fundir</h3><p>Derretimos las mantecas y el aceite de coco al baño maría, a fuego lento, para no estropearlos.</p></div></li>
+        <li><div><h3>Mezclar</h3><p>Añadimos el almidón, el bicarbonato y el óxido de zinc tamizados y removemos hasta que no queda un solo grumo.</p></div></li>
+        <li><div><h3>Perfumar</h3><p>Cuando la mezcla se templa, incorporamos los aceites esenciales. Con demasiado calor perderían su aroma.</p></div></li>
+        <li><div><h3>Verter y reposar</h3><p>Llenamos los tarros uno a uno y los dejamos reposar hasta que la crema cuaja.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq bloque" id="faq">
+    <div class="contenedor">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-lista" id="lista-faq"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <h2>Ingredientes (INCI)</h2>
+        <p class="lista-inci" id="inci-completo"></p>
+        <p class="lista-inci" style="margin-top:0.75rem">Los aceites esenciales contienen alérgenos naturales, como limonene, linalool, geraniol o citronellol. Si tienes alguna alergia conocida, revisa esta lista antes de usarlo.</p>
+      </div>
+      <div>
+        <h2>Contacto</h2>
+        <p class="lista-inci">Un taller de <span data-marca></span>, en Imsouane, Marruecos.</p>
+        <ul id="lista-contacto"></ul>
+      </div>
+    </div>
+    <p class="legal">Producto cosmético de uso externo. La información de esta página es divulgativa y no sustituye el consejo de un profesional de la salud.</p>
+  </div>
+</footer>
+
+<script>
+// ---------- Editable content ----------
+const CONFIG = {
+  marca: "Azoul Gathering",
+  colaborador: "Alejandro",
+  instagram: "azoulgathering",
+};
+
+// `propiedades` (aromas): extra paragraph on odour/antibacterial properties.
+// One entry per ingredient. `tipo` is "base" or "aroma"; aromas also need `familia`.
+// INCI names must be checked against each supplier's spec sheet.
+const INGREDIENTES = [
+  {
+    id: "karite", tipo: "base", nombre: "Manteca de karité", inci: "Butyrospermum Parkii Butter",
+    origen: "Nuez del árbol de karité, de África occidental.",
+    funciones: ["Suaviza la piel", "Da textura"], color: "#ead9a6",
+    texto: "Es la manteca que hace que la crema se deslice sin tirar de la piel. Rica en ácidos grasos, ayuda a mantener la axila hidratada, algo que se agradece sobre todo después del afeitado.",
+  },
+  {
+    id: "coco", tipo: "base", nombre: "Aceite de coco", inci: "Cocos Nucifera Oil",
+    origen: "Pulpa del coco.",
+    funciones: ["Da textura", "Suaviza la piel", "Ayuda frente al olor"], color: "#fffdf6",
+    texto: "Es sólido en frío y se vuelve líquido con el calor del cuerpo, por eso la crema se funde al aplicarla. Contiene ácido láurico, estudiado por su actividad frente a las bacterias que causan el mal olor.",
+  },
+  {
+    id: "cacao", tipo: "base", nombre: "Manteca de cacao", inci: "Theobroma Cacao Seed Butter",
+    origen: "Habas del árbol del cacao.",
+    funciones: ["Da firmeza", "Suaviza la piel"], color: "#6b4226",
+    texto: "Es la más dura de las tres grasas y da cuerpo a la fórmula para que aguante mejor el calor. Deja una capa fina que protege la piel y un fondo muy suave de olor a chocolate.",
+  },
+  {
+    id: "almidon", tipo: "base", nombre: "Almidón de maíz", inci: "Zea Mays Starch",
+    origen: "Grano de maíz molido.",
+    funciones: ["Absorbe la humedad"], color: "#f7efc9",
+    texto: "No frena el sudor: lo absorbe. Hace el papel que antes hacía el talco, deja un tacto seco y sedoso y quita la sensación grasa de las mantecas.",
+  },
+  {
+    id: "bicarbonato", tipo: "base", nombre: "Bicarbonato de sodio", inci: "Sodium Bicarbonate",
+    origen: "Sal mineral.",
+    funciones: ["Neutraliza el olor"], color: "#ffffff",
+    texto: "Es el ingrediente que se ocupa del olor. Es alcalino y neutraliza los compuestos ácidos que producen las bacterias al descomponer el sudor.",
+    aviso: "Puede irritar las pieles sensibles. Si notas rojez o picor, deja de usarlo.",
+  },
+  {
+    id: "zinc", tipo: "base", nombre: "Óxido de zinc", inci: "Zinc Oxide",
+    origen: "Polvo mineral blanco.",
+    funciones: ["Ayuda frente al olor", "Protege la piel"], color: "#f4f6f5",
+    texto: "Es el mismo mineral de las cremas para la zona del pañal. Ayuda a reducir el olor y se usa desde hace mucho para proteger la piel y calmarla cuando está irritada.",
+    aviso: "Si te pones demasiada cantidad puede dejar un rastro blanco.",
+  },
+  {
+    id: "bergamota", tipo: "aroma", familia: "citricos", nombre: "Bergamota", inci: "Citrus Aurantium Bergamia Fruit Oil",
+    origen: "Cáscara del fruto, un cítrico cultivado sobre todo en Calabria.",
+    notas: "Cítrica, con un fondo floral", funciones: ["Aroma", "Ayuda frente al olor"],
+    texto: "Es el olor del té Earl Grey: un cítrico más suave y redondo que el limón. Aporta la primera impresión fresca al abrir el tarro.",
+    aviso: "El aceite de bergamota puede hacer la piel más sensible al sol, salvo que sea del tipo sin bergapteno (FCF).",
+    propiedades: "En estudios de laboratorio ha mostrado actividad frente a varias bacterias de la piel. Además, su aroma cítrico es de los que mejor tapan el olor corporal.",
+  },
+  {
+    id: "pomelo", tipo: "aroma", familia: "citricos", nombre: "Pomelo", inci: "Citrus Paradisi Peel Oil",
+    origen: "Cáscara del pomelo, prensada en frío.",
+    notas: "Cítrica, chispeante y algo amarga", funciones: ["Aroma"],
+    texto: "Da un toque limpio y vivo, con ese punto amargo de la piel del pomelo. Es una nota ligera, de las primeras que se perciben.",
+    aviso: "Como otros cítricos prensados en frío, puede hacer la piel más sensible al sol.",
+    propiedades: "Su componente principal, el limoneno, muestra una actividad antibacteriana moderada en laboratorio. Aquí aporta sobre todo sensación de limpieza.",
+  },
+  {
+    id: "lavanda", tipo: "aroma", familia: "florales", nombre: "Lavanda", inci: "Lavandula Angustifolia Oil",
+    origen: "Flores de lavanda destiladas al vapor.",
+    notas: "Floral y herbal", funciones: ["Aroma", "Ayuda frente al olor", "Suaviza la piel"],
+    texto: "Un aroma limpio y tranquilo que casi todo el mundo reconoce. Se ha usado tradicionalmente para calmar la piel.",
+    propiedades: "Es uno de los aceites más estudiados: el linalool que contiene ha mostrado actividad frente a bacterias de la piel en laboratorio. También se usa tradicionalmente para calmar la piel irritada.",
+  },
+  {
+    id: "ylang", tipo: "aroma", familia: "florales", nombre: "Ylang-ylang", inci: "Cananga Odorata Flower Oil",
+    origen: "Flores del árbol Cananga odorata, del sudeste asiático.",
+    notas: "Floral, dulce e intensa", funciones: ["Aroma"],
+    texto: "Es la nota más dulce y exótica de la mezcla. Se usa en poca cantidad para dar calidez y redondear los cítricos.",
+    propiedades: "Su actividad antibacteriana en laboratorio es modesta. Su papel aquí es el aroma: es intenso y duradero, y ayuda a que el olor agradable aguante más horas.",
+  },
+  {
+    id: "geranio", tipo: "aroma", familia: "florales", nombre: "Geranio rosa", inci: "Pelargonium Graveolens Flower Oil",
+    origen: "Hojas y flores del geranio de olor.",
+    notas: "Floral, rosada y verde", funciones: ["Aroma", "Ayuda frente al olor"],
+    texto: "Huele a rosa con un fondo fresco y verde. Une los cítricos con las maderas y ayuda a que el conjunto huela equilibrado.",
+    propiedades: "De los más interesantes para un desodorante: el geraniol y el citronelol que contiene han mostrado en laboratorio buena actividad frente a las bacterias que causan el mal olor.",
+  },
+  {
+    id: "cedro", tipo: "aroma", familia: "amaderados", nombre: "Cedro", inci: "Cedrus Atlantica Bark Oil",
+    origen: "Madera de cedro destilada al vapor.",
+    notas: "Amaderada, seca y cálida", funciones: ["Aroma", "Fija el aroma"],
+    texto: "Huele a madera recién cortada. Es una nota de fondo: tarda más en evaporarse y ayuda a que el aroma dure a lo largo del día.",
+    propiedades: "Se ha estudiado más por su actividad frente a hongos que frente a bacterias. Su aportación principal es hacer que el aroma dure.",
+  },
+  {
+    id: "incienso", tipo: "aroma", familia: "amaderados", nombre: "Incienso", inci: "Boswellia Carterii Oil",
+    origen: "Resina del árbol Boswellia, también llamada olíbano.",
+    notas: "Resinosa y balsámica", funciones: ["Aroma", "Fija el aroma"],
+    texto: "Una resina con miles de años de uso en perfumería. Da profundidad a la mezcla y, como el cedro, ayuda a sostener las notas más ligeras.",
+    propiedades: "Muestra una actividad antibacteriana moderada en laboratorio. Se usa tradicionalmente en el cuidado de la piel por sus resinas.",
+  },
+  {
+    id: "menta", tipo: "aroma", familia: "frescos", nombre: "Menta piperita", inci: "Mentha Piperita Oil",
+    origen: "Hojas de menta destiladas al vapor.",
+    notas: "Fresca y mentolada", funciones: ["Aroma", "Ayuda frente al olor", "Sensación de frescor"],
+    texto: "Su mentol deja una sensación de frescor al aplicar la crema. Es un aroma limpio que despierta la mezcla.",
+    aviso: "El frescor puede notarse intenso sobre la piel recién afeitada.",
+    propiedades: "El mentol ha mostrado actividad frente a bacterias en laboratorio y deja una sensación fresca y seca que ayuda a sentirse limpio más tiempo.",
+  },
+  {
+    id: "romero", tipo: "aroma", familia: "frescos", nombre: "Romero", inci: "Rosmarinus Officinalis Leaf Oil",
+    origen: "Hojas y ramas floridas de romero destiladas al vapor.",
+    notas: "Herbal, fresca y alcanforada", funciones: ["Aroma", "Ayuda frente al olor"],
+    texto: "Huele a monte mediterráneo: verde, limpio y un poco alcanforado. Refuerza la sensación de frescor de la menta y da a la mezcla un aire de hierba recién cortada.",
+    propiedades: "Contiene cineol y alcanfor, estudiados en laboratorio por su actividad frente a bacterias. Se ha usado tradicionalmente como conservante natural.",
+  },
+];
+
+const FAMILIAS = [
+  { id: "citricos", nombre: "Cítricos", texto: "Lo primero que hueles: ligeros y luminosos." },
+  { id: "florales", nombre: "Florales", texto: "El corazón de la mezcla." },
+  { id: "amaderados", nombre: "Amaderados y resinosos", texto: "El fondo que hace durar el aroma." },
+  { id: "frescos", nombre: "Frescos y herbales", texto: "El toque de frescor." },
+];
+
+const FAQ = [
+  ["¿Voy a dejar de sudar?", "No. Es un desodorante, no un antitranspirante: no bloquea el sudor, ayuda a neutralizar el olor y absorbe parte de la humedad."],
+  ["¿Hay un periodo de adaptación?", "Algunas personas cuentan que, al dejar el antitranspirante, las primeras semanas notan más sudor u olor. No le pasa a todo el mundo y suele estabilizarse con los días."],
+  ["¿Sirve para piel sensible?", "Depende de cada piel. El bicarbonato puede irritar a algunas personas, así que prueba primero una pequeña cantidad en el antebrazo y espera 24 horas. Evita aplicarlo justo después de afeitarte y deja de usarlo si notas rojez o picor."],
+  ["¿Cómo se aplica?", "Toma una cantidad del tamaño de un guisante, caliéntala unos segundos entre los dedos y extiéndela sobre la axila limpia y seca. Con poco es suficiente."],
+  ["¿Cómo lo conservo?", "En un lugar fresco y seco, con el tarro cerrado. El aceite de coco se derrite por encima de unos 24 °C: si la crema se ablanda en verano, guárdala un rato en la nevera. Sigue sirviendo igual."],
+  ["¿Mancha la ropa?", "Las mantecas pueden dejar marca si te pones demasiada cantidad. Usa poca y espera un minuto antes de vestirte."],
+  ["¿Puedo usarlo durante el embarazo?", "Contiene aceites esenciales. Si estás embarazada, en periodo de lactancia o es para un niño, consulta antes con tu profesional de salud."],
+];
+
+// ---------- Rendering ----------
+const el = (id) => document.getElementById(id);
+const chips = (f) => `<ul class="chips">${f.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+const aviso = (i) => (i.aviso ? `<p class="aviso"><strong>A tener en cuenta:</strong> ${i.aviso}</p>` : "");
+
+document.querySelectorAll("[data-marca]").forEach((n) => {
+  n.classList.add("collab");
+  n.innerHTML = `${CONFIG.marca}<span class="x" aria-label="por">×</span><em>${CONFIG.colaborador}</em>`;
+});
+
+const base = INGREDIENTES.filter((i) => i.tipo === "base");
+const aromas = INGREDIENTES.filter((i) => i.tipo === "aroma");
+
+const enlaceEtiqueta = (i, n) => `<li><a href="#${i.id}" style="--i:${n}">${i.nombre}</a></li>`;
+el("etiqueta-base").innerHTML = base.map(enlaceEtiqueta).join("");
+el("etiqueta-aromas").innerHTML = aromas.map((i, n) => enlaceEtiqueta(i, n + base.length)).join("");
+
+el("lista-base").innerHTML = base.map((i) => `
+  <li class="base-item" id="${i.id}">
+    <div class="muestra" style="background:${i.color}" aria-hidden="true"></div>
+    <div>
+      <h3>${i.nombre}</h3>
+      <p class="inci">${i.inci}</p>
+      <p class="origen">${i.origen}</p>
+    </div>
+    <div class="base-detalle">
+      ${chips(i.funciones)}
+      <p>${i.texto}</p>
+      ${aviso(i)}
+    </div>
+  </li>`).join("");
+
+el("lista-aromas").innerHTML = FAMILIAS.map((f) => `
+  <div class="familia" style="background:var(--${f.id})">
+    <h3>${f.nombre}</h3>
+    <p>${f.texto}</p>
+    ${aromas.filter((i) => i.familia === f.id).map((i) => `
+      <details name="aroma" id="${i.id}">
+        <summary><span><span class="nombre">${i.nombre}</span><span class="notas">${i.notas}</span></span></summary>
+        <div class="aroma-cuerpo">
+          <p>${i.texto}</p>
+          ${i.propiedades ? `<p><strong>Frente al olor:</strong> ${i.propiedades}</p>` : ""}
+          <p class="origen">${i.origen}</p>
+          <p class="inci">${i.inci}</p>
+          ${chips(i.funciones)}
+          ${aviso(i)}
+        </div>
+      </details>`).join("")}
+  </div>`).join("");
+
+el("lista-faq").innerHTML = FAQ.map(([p, r]) => `<details><summary>${p}</summary><p>${r}</p></details>`).join("");
+
+// INCI order on a real label must follow descending concentration; reorder INGREDIENTES to match the formula.
+el("inci-completo").textContent = INGREDIENTES.map((i) => i.inci).join(", ") + ".";
+
+el("lista-contacto").innerHTML = `
+  <li><a href="https://www.instagram.com/${CONFIG.instagram}/" rel="noopener">Instagram: @${CONFIG.instagram}</a></li>`;
+
+// Jar label links to an aroma: open its panel so the anchor lands on visible content.
+const abrirDesdeHash = () => {
+  const d = document.getElementById(location.hash.slice(1));
+  if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView(); }
+};
+addEventListener("hashchange", abrirDesdeHash);
+abrirDesdeHash();
+</script>
+</body>
+</html>
