@@ -308,10 +308,9 @@
   footer { padding-block: 3.5rem; }
   .pie-rejilla { display: grid; gap: 2.5rem; }
   footer h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-  footer .lista-inci { font-size: 0.9375rem; color: var(--cacao-suave); max-width: 70ch; }
+  footer .lista-inci { font-size: 0.9375rem; color: var(--cacao-suave); max-width: none; }
   footer ul { list-style: none; padding: 0; margin: 0; }
   footer li a { display: inline-flex; align-items: center; min-height: 44px; }
-  .legal { margin-top: 2.5rem; font-size: 0.875rem; color: var(--cacao-suave); }
 
   /* ---------- Wider screens ---------- */
   @media (min-width: 48rem) {
@@ -463,7 +462,6 @@
       </div>
       <p class="lista-inci" id="pie-autor"></p>
     </div>
-    <p class="legal" data-t="legal"></p>
   </div>
 </footer>
 
@@ -535,7 +533,6 @@ const L = {
       inciH: "Ingredients (INCI)",
       allergen: "Essential oils contain natural allergens such as limonene, linalool, geraniol or citronellol. If you have a known allergy, check this list before using it.",
       by: "A workshop by {x}, in Imsouane, Morocco.",
-      legal: "Cosmetic product for external use. The information on this page is for general guidance and does not replace the advice of a health professional.",
       warn: "Keep in mind:", odour: "Against odour:",
       desc: "The fifteen ingredients of the natural deodorant we make in the Azoul Gathering × Alejandro workshop: what each one does and why it is in the formula.",
     },
@@ -612,7 +609,6 @@ const L = {
       inciH: "Inhaltsstoffe (INCI)",
       allergen: "Ätherische Öle enthalten natürliche Allergene wie Limonene, Linalool, Geraniol oder Citronellol. Wenn du eine bekannte Allergie hast, prüfe diese Liste vor der Anwendung.",
       by: "Ein Workshop von {x} in Imsouane, Marokko.",
-      legal: "Kosmetisches Produkt zur äußerlichen Anwendung. Die Informationen auf dieser Seite dienen der allgemeinen Orientierung und ersetzen nicht den Rat einer medizinischen Fachperson.",
       warn: "Gut zu wissen:", odour: "Gegen Geruch:",
       desc: "Die fünfzehn Zutaten des natürlichen Deos aus dem Workshop von Azoul Gathering × Alejandro: was jede bewirkt und warum sie in der Rezeptur ist.",
     },
@@ -689,7 +685,6 @@ const L = {
       inciH: "İçindekiler (INCI)",
       allergen: "Uçucu yağlar limonen, linalool, geraniol veya sitronellol gibi doğal alerjenler içerir. Bilinen bir alerjin varsa kullanmadan önce bu listeye bak.",
       by: "{x} atölyesi, Imsouane, Fas.",
-      legal: "Haricen kullanılan kozmetik ürün. Bu sayfadaki bilgiler genel bilgilendirme amaçlıdır ve bir sağlık uzmanının tavsiyesinin yerini tutmaz.",
       warn: "Aklında olsun:", odour: "Kokuya karşı:",
       desc: "Azoul Gathering × Alejandro atölyesinde yaptığımız doğal deodorantın on beş bileşeni: her biri ne işe yarar ve formülde neden var.",
     },
@@ -766,7 +761,6 @@ const L = {
       inciH: "Ingredientes (INCI)",
       allergen: "Los aceites esenciales contienen alérgenos naturales, como limonene, linalool, geraniol o citronellol. Si tienes alguna alergia conocida, revisa esta lista antes de usarlo.",
       by: "Un taller de {x}, en Imsouane, Marruecos.",
-      legal: "Producto cosmético de uso externo. La información de esta página es divulgativa y no sustituye el consejo de un profesional de la salud.",
       warn: "A tener en cuenta:", odour: "Frente al olor:",
       desc: "Los quince ingredientes del desodorante natural que hacemos en el taller de Azoul Gathering × Alejandro: qué hace cada uno y por qué está en la fórmula.",
     },
