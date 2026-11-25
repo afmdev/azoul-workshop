@@ -1,0 +1,6 @@
+{
+  // Static site served by a Cloudflare Worker (assets only, no script).
+  "name": "azoul-workshop",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./public" }
+}
